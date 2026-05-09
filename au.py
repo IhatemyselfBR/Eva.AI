@@ -1,167 +1,171 @@
-import json, os, time, re, random
-import search
-import requests
+import json
+import os
+import time
+import random
+import wikipedia
+import re
 from datetime import datetime
 
-mem_path = 'learning.json'
+# =========================
+# CONFIG
+# =========================
 
-sementes = [
-    "ansiedade", "depressão", "felicidade", "motivação", "autoestima",
-    "amizade", "amor", "relacionamento", "família", "conflito",
-    "dinheiro", "dívida", "emprego", "desemprego", "salário",
-    "aluguel", "alimentação", "saúde", "sono", "estresse",
-    "celular", "aplicativo", "redes sociais", "whatsapp", "instagram",
-    "segurança digital", "senha", "vírus", "backup", "wifi",
-    "estudo", "faculdade", "concurso", "currículo", "entrevista",
-    "freelancer", "empreendedorismo", "produtividade", "foco", "rotina",
-    "exercício", "dieta", "hidratação", "medicamento", "dor de cabeça",
-    "insônia", "imunidade", "vitamina", "consulta médica", "primeiros socorros",
-    "organização", "planejamento", "decisão", "criatividade", "comunicação",
-    "negociação", "liderança", "trabalho em equipe", "conflito", "solução",
-    "martelo", "computador", "brasil", "python", "célula",
-    "fotossíntese", "gravitação", "internet", "átomo", "filosofia",
-    "matemática", "física", "química", "biologia", "história",
-    "geografia", "economia", "política", "arte", "música",
-    "cinema", "literatura", "esporte", "medicina", "tecnologia",
-    "astronomia", "ecologia", "psicologia", "sociologia", "robô"
+MEM_FILE = "learning.json"
+wikipedia.set_lang("pt")
+
+# =========================
+# BASE DE PARTIDA
+# =========================
+
+SEMENTES = [
+    "ansiedade", "depressão", "felicidade", "motivação",
+    "autoestima", "amor", "amizade", "dinheiro",
+    "trabalho", "estudo", "tecnologia", "filosofia",
+    "matemática", "internet", "saúde", "decisão"
 ]
 
-extras_por_categoria = {
-    "emocoes": [
-        "raiva", "medo", "tristeza", "alegria", "ciúme", "solidão",
-        "gratidão", "empatia", "resiliência", "inteligência emocional"
-    ],
-    "carreira": [
-        "networking", "portfólio", "promoção", "demissão", "home office",
-        "reunião", "prazo", "metas", "feedback", "burnout"
-    ],
-    "saude": [
-        "pressão alta", "diabetes", "colesterol", "obesidade", "gripe",
-        "febre", "dor nas costas", "postura", "alongamento", "meditação"
-    ],
-    "financas": [
-        "investimento", "poupança", "cartão de crédito", "juros", "inflação",
-        "orçamento", "gastos", "renda extra", "aposentadoria", "imposto"
-    ],
-    "tecnologia": [
-        "inteligência artificial", "machine learning", "blockchain", "nuvem",
-        "programação", "banco de dados", "api", "cibersegurança", "automação", "linux"
-    ],
-    "relacionamentos": [
-        "comunicação não violenta", "limites saudáveis", "trauma", "terapia",
-        "abuso", "dependência emocional", "autoconhecimento", "perdão", "confiança", "respeito"
-    ]
-}
-
-def carregar():
-    if os.path.exists(mem_path):
-        with open(mem_path, 'r', encoding='utf-8') as f:
-            try:
-                data = json.load(f)
-                return data if isinstance(data, dict) else {}
-            except:
-                return {}
-    return {}
-
-def salvar(memoria):
-    with open(mem_path, 'w', encoding='utf-8') as f:
-        json.dump(memoria, f, indent=4, ensure_ascii=False)
-
-def extrair_termos_relacionados(termo):
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36'}
-    termos = []
-    try:
-        url = f"https://pt.wikipedia.org/w/api.php?action=query&titles={termo.replace(' ', '_')}&prop=links&pllimit=20&format=json"
-        data = requests.get(url, headers=headers, timeout=5).json()
-        pages = data.get('query', {}).get('pages', {})
-        for page in pages.values():
-            for link in page.get('links', []):
-                t = link.get('title', '')
-                if ':' in t: continue
-                if len(t) < 3 or len(t) > 40: continue
-                if t.replace(' ', '').isdigit(): continue
-                if re.match(r'^\d', t): continue
-                if re.match(r'^[0-9\-\/]+$', t): continue
-                if len(t.split()) > 4: continue
-                termos.append(t.lower())
-    except:
-        pass
-    return termos
+# =========================
+# UTIL
+# =========================
 
 def log(msg):
-    hora = datetime.now().strftime("%H:%M:%S")
-    print(f"[{hora}] {msg}")
+    print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
 
-def treinar_infinito():
-    memoria = carregar()
+def limpar(texto):
+    texto = texto.lower()
+    texto = re.sub(r"[^\w\s]", "", texto)
+    return texto
 
-    fila = list(sementes)
-    for categoria, termos in extras_por_categoria.items():
-        fila.extend(termos)
+def tokens(texto):
+    return [t for t in limpar(texto).split() if len(t) > 3]
+
+# =========================
+# MEMÓRIA (ROBUSTA)
+# =========================
+
+def carregar():
+    if not os.path.exists(MEM_FILE):
+        return {}
+
+    try:
+        with open(MEM_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        # garante consistência
+        for k in list(data.keys()):
+            if "texto" not in data[k]:
+                del data[k]
+            else:
+                if "tokens" not in data[k]:
+                    data[k]["tokens"] = tokens(data[k]["texto"])
+
+        return data
+
+    except:
+        return {}
+
+def salvar(mem):
+    with open(MEM_FILE, "w", encoding="utf-8") as f:
+        json.dump(mem, f, indent=4, ensure_ascii=False)
+
+# =========================
+# APRENDER
+# =========================
+
+def aprender(mem, termo):
+    try:
+        resumo = wikipedia.summary(termo, sentences=2)
+
+        if not resumo or len(resumo) < 20:
+            return
+
+        mem[termo] = {
+            "texto": resumo,
+            "tokens": tokens(resumo),
+            "hora": str(datetime.now())
+        }
+
+        log(f"Aprendido: {termo}")
+
+    except Exception as e:
+        log(f"Erro: {e}")
+
+# =========================
+# RELAÇÃO ENTRE CONCEITOS
+# =========================
+
+def similaridade(a_tokens, b_tokens):
+    a = set(a_tokens)
+    b = set(b_tokens)
+
+    if not a or not b:
+        return 0
+
+    inter = len(a & b)
+    uni = len(a | b)
+
+    return inter / uni
+
+def associar(mem, termo):
+    if termo not in mem:
+        return []
+
+    base = mem[termo]["tokens"]
+
+    relacoes = []
+
+    for k, v in mem.items():
+        if k == termo:
+            continue
+
+        score = similaridade(base, v["tokens"])
+
+        if score > 0:
+            relacoes.append((k, score))
+
+    relacoes.sort(key=lambda x: x[1], reverse=True)
+
+    return relacoes[:3]
+
+# =========================
+# LOOP PRINCIPAL
+# =========================
+
+def treinar():
+    mem = carregar()
+
+    fila = list(SEMENTES)
     random.shuffle(fila)
 
-    vistos = set(memoria.keys())
-    aprendidos = 0
-    erros_seguidos = 0
-    requisicoes = 0
-
-    log(f"🧠 Auto-treino iniciado — {len(memoria)} termos já na memória")
-    log(f"📋 {len(fila)} termos na fila inicial")
-    log("Ctrl+C para parar com segurança\n")
+    log("Auto aprendizado iniciado.")
 
     while True:
+
         if not fila:
-            log("🔄 Fila vazia, reiniciando...")
-            fila = list(sementes)
-            for categoria, termos in extras_por_categoria.items():
-                fila.extend(termos)
+            fila = list(SEMENTES)
             random.shuffle(fila)
-            vistos.clear()
 
-        termo = fila.pop(0)
+        termo = fila.pop()
 
-        if termo in vistos:
-            continue
-        vistos.add(termo)
-
-        if termo in memoria and memoria[termo].get('peso', 0) > 0:
-            relacionados = extrair_termos_relacionados(termo)
-            novos = [t for t in relacionados if t not in vistos][:5]
-            fila.extend(novos)
-            log(f"⏭  '{termo}' — já sei | fila: {len(fila)}")
-            time.sleep(1)
+        if termo in mem:
             continue
 
-        log(f"🔍 Buscando '{termo}'...")
-        res = search.executar_busca(termo, 'definicao')
-        requisicoes += 1
+        log(f"Pesquisando: {termo}")
 
-        if res:
-            memoria[termo] = {"texto": res, "peso": 1}
-            salvar(memoria)
-            aprendidos += 1
-            erros_seguidos = 0
-            log(f"✅ '{termo}' aprendido! (total: {aprendidos})")
-            relacionados = extrair_termos_relacionados(termo)
-            novos = [t for t in relacionados if t not in vistos][:5]
-            fila.extend(novos)
-            log(f"   📎 +{len(novos)} termos na fila ({len(fila)} total)")
-        else:
-            erros_seguidos += 1
-            log(f"❌ '{termo}' — não encontrei ({erros_seguidos} erros seguidos)")
-            if erros_seguidos >= 5:
-                log("⚠️  Muitos erros — pausando 10s...")
-                time.sleep(10)
-                erros_seguidos = 0
+        aprender(mem, termo)
+        salvar(mem)
 
-        if requisicoes % 50 == 0:
-            log(f"☕ {requisicoes} requisições — pausa de 5s...")
-            time.sleep(5)
-        else:
-            time.sleep(random.uniform(1, 2))
+        # teste de "consciência associativa"
+        if mem:
+            alvo = random.choice(list(mem.keys()))
+            rel = associar(mem, alvo)
 
-if __name__ == "__main__":
-    try:
-        treinar_infinito()
-    except KeyboardInterrupt:
-        print("\n\n⏹  Treino pausado com segurança. Conhecimento salvo!")
+            log(f"Associações de '{alvo}': {rel}")
+
+        time.sleep(2)
+
+# =========================
+# START
+# =========================
+
+treinar()
