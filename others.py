@@ -1,9 +1,32 @@
 import re, defs, use, locates, random, os
 
-# Palavras que indicam saudação
-SAUDACOES = ['oi', 'olá', 'ola', 'eae', 'eaí', 'oie', 'hey', 'hi', 'hello', 'opa', 'salve', 'fala']
-DESPEDIDAS = ['tchau', 'bye', 'até', 'ate', 'adeus', 'falou', 'flw', 'fui']
-COMO_VAI = ['tudo bem', 'tudo bom', 'como vai', 'como você tá', 'tô bem', 'to bem', 'tô mal', 'to mal', 'tô ótimo', 'tô cansado']
+SAUDACOES = [
+    'oi', 'olá', 'ola', 'eae', 'eaí', 'oie', 'hey', 'hi', 'hello',
+    'opa', 'salve', 'fala', 'oii', 'oiii', 'bom dia', 'boa tarde',
+    'boa noite', 'fala aí', 'e aí', 'e ai', 'fala mano', 'fala cara'
+]
+
+DESPEDIDAS = [
+    'tchau', 'bye', 'adeus', 'falou', 'flw', 'fui embora',
+    'vou nessa', 'até mais', 'ate mais', 'até logo', 'ate logo',
+    'até depois', 'ate depois', 'até a próxima', 'vazei', 'partiu'
+]
+
+COMO_VAI = [
+    'tudo bem', 'tudo bom', 'como vai', 'como você tá', 'como voce ta',
+    'tô bem', 'to bem', 'tô mal', 'to mal', 'tô ótimo', 'to otimo',
+    'tô cansado', 'to cansado', 'tô triste', 'to triste', 'tô feliz',
+    'to feliz', 'tô de boa', 'to de boa', 'tô na luta', 'tô quebrado',
+    'tô estressado', 'tô pensativo', 'tô suave', 'tô ok', 'to ok',
+    'tô mais ou menos', 'tô normal', 'tô vivo', 'tô na correria'
+]
+
+GIRIAS = [
+    'suave', 'suavão', 'vix', 'vixi', 'kkk', 'kkkk', 'kkkkk', 'kkkkkk',
+    'rsrs', 'haha', 'massa', 'top', 'show', 'pow', 'slc', 'oxe', 'eita',
+    'caramba', 'bora', 'bah', 'puts', 'poxa', 'nossa', 'uai', 'beleza',
+    'firmeza', 'de boa', 'tmj', 'que isso', 'misericórdia', 'pelo amor'
+]
 
 def obter_frase(words_path, tag):
     frases = []
@@ -18,27 +41,34 @@ def obter_frase(words_path, tag):
     return random.choice(frases) if frases else None
 
 def detectar_social(frase):
-    f = frase.lower().strip()
-    f_limpo = re.sub(r'[?!.,]', '', f).strip()
+    f = re.sub(r'[?!.,]', '', frase.lower()).strip()
 
-    # Saudações
+    # Saudações — só no início da frase
     for s in SAUDACOES:
-        if f_limpo == s or f_limpo.startswith(s + ' '):
+        if f == s or f.startswith(s + ' '):
             return 'saudacao'
 
-    # Despedidas
+    # Despedidas — frase inteira deve ser despedida
     for d in DESPEDIDAS:
-        if d in f_limpo:
+        if f == d or f.startswith(d):
             return 'despedida'
 
-    # Como vai / estado emocional
+    # Como vai
     for c in COMO_VAI:
-        if c in f_limpo:
+        if f == c or c in f:
             return 'como_vai'
 
-    # Frase muito curta (menos de 3 palavras) sem conteúdo útil
-    palavras = f_limpo.split()
-    if len(palavras) <= 2 and not any(p in f_limpo for p in ['o que', 'como', 'onde', 'quem']):
+    # Gírias — frase inteira é a gíria
+    for g in GIRIAS:
+        if f == g or f.startswith(g):
+            return 'giria'
+
+    # CORREÇÃO: só 1 palavra sem conteúdo útil vira incompreensão
+    # 2+ palavras vai pro processamento normal (pode ser nome próprio)
+    palavras = f.split()
+    if len(palavras) == 1 and not any(
+        p in f for p in ['o que', 'como', 'onde', 'quem', 'qual', 'quando']
+    ):
         return 'incompreensao'
 
     return None
@@ -49,7 +79,7 @@ def identificar_intencao(frase):
         return 'localizacao'
     if re.search(r'\bcomo\b|\bpasso a passo\b|\busar\b|\bservir\b|\bpra que serve\b|\bfunção\b|\buso\b|\butilizar\b', f):
         return 'instrucao'
-    if re.search(r'\bquem\b|\bcriador\b|\borigem\b|\bhistória\b', f):
+    if re.search(r'\bquem\b|\bcriador\b|\borigem\b|\bhistória\b|\bquem é\b|\bquem foi\b', f):
         return 'origem'
     return 'definicao'
 
@@ -66,6 +96,8 @@ def extrair_alvo(frase):
         r'^pra que serve\s+',
         r'^onde (encontrar|encontro|fica|localizar|achar|comprar)\s+(o|a|os|as|um|uma)\s+',
         r'^onde (encontrar|encontro|fica|localizar|achar|comprar)\s+',
+        r'^quem (é|foi|são)\s+(o|a|os|as)?\s*',
+        r'^quem (é|foi|são)\s+',
         r'^(o|a|os|as|um|uma)\s+'
     ]
     for pat in termos_sujeira:
@@ -77,7 +109,6 @@ def roteador(frase):
     alvo = extrair_alvo(frase)
     if not alvo or len(alvo) < 2:
         alvo = frase
-    print(f"\033[90m[Debug] Intenção: {intencao} | Alvo: {alvo}\033[0m")
     if intencao == 'instrucao':
         return use.buscar(alvo)
     if intencao == 'localizacao':
