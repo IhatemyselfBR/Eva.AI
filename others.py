@@ -63,12 +63,9 @@ def detectar_social(frase):
         if f == g or f.startswith(g):
             return 'giria'
 
-    # CORREÇÃO: só 1 palavra sem conteúdo útil vira incompreensão
-    # 2+ palavras vai pro processamento normal (pode ser nome próprio)
-    palavras = f.split()
-    if len(palavras) == 1 and not any(
-        p in f for p in ['o que', 'como', 'onde', 'quem', 'qual', 'quando']
-    ):
+    # CORREÇÃO: só vira incompreensão se tiver menos de 3 caracteres
+    # Palavras normais de 1 termo como "cachorro", "gato" vão pra busca
+    if len(f) < 3:
         return 'incompreensao'
 
     return None

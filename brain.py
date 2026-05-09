@@ -22,10 +22,6 @@ class EvaCore:
         print(f"\033[90mMemória técnica: {len(self.memoria)} termos")
         print(f"Memória humana: {len(self.memoria_humana)} entradas\033[0m")
 
-    # ==========================
-    # I/O
-    # ==========================
-
     def carregar(self, path):
         if os.path.exists(path):
             with open(path, 'r', encoding='utf-8') as f:
@@ -42,10 +38,6 @@ class EvaCore:
             import readline
             readline.write_history_file(os.path.expanduser("~/.eva_history"))
         except: pass
-
-    # ==========================
-    # WORDS.TXT
-    # ==========================
 
     def obter_social(self, tag):
         frases = []
@@ -70,22 +62,33 @@ class EvaCore:
             with open(self.words_path, 'w', encoding='utf-8') as f:
                 f.write(conteudo)
 
-    # ==========================
-    # TAGS
-    # ==========================
-
     def limpar(self, txt):
         return re.sub(r'[^\w\s]', '', txt.lower())
 
     def gerar_tags(self, texto):
         return [p for p in self.limpar(texto).split() if len(p) > 3]
 
-    # ==========================
-    # BUSCAS
-    # ==========================
+    def garantir_estrutura(self, chave):
+        """Garante que o termo na memória tem a estrutura correta pro weight funcionar"""
+        if chave not in self.memoria:
+            return False
+        dado = self.memoria[chave]
+        # Corrige estrutura antiga que era só string
+        if isinstance(dado, str):
+            self.memoria[chave] = {"texto": dado, "peso": 1, "tags": self.gerar_tags(dado)}
+            return True
+        if isinstance(dado, dict):
+            if 'peso' not in dado:
+                self.memoria[chave]['peso'] = 1
+            if 'texto' not in dado:
+                return False
+            return True
+        return False
 
     def buscar_semantico(self, pergunta):
         tags_pergunta = set(self.gerar_tags(pergunta))
+        # Adiciona a pergunta inteira como tag também
+        tags_pergunta.add(self.limpar(pergunta).strip())
         melhor_texto = None
         melhor_score = 0
         melhor_peso = 0
@@ -93,6 +96,9 @@ class EvaCore:
             if not isinstance(dado, dict): continue
             if dado.get('peso', 0) <= 0: continue
             tags_mem = set(dado.get('tags', []))
+            # Tenta match direto com a chave também
+            if self.limpar(pergunta).strip() in chave.lower():
+                return dado.get('texto')
             score = len(tags_pergunta & tags_mem)
             peso = dado.get('peso', 1)
             if score > melhor_score or (score == melhor_score and peso > melhor_peso):
@@ -113,10 +119,6 @@ class EvaCore:
                 melhor = dado
         return melhor
 
-    # ==========================
-    # FORMATAR
-    # ==========================
-
     def formatar(self, texto, fonte='memoria'):
         if not texto: return None
         palavras = texto.split()
@@ -128,10 +130,6 @@ class EvaCore:
             'novo':    ["Pesquisei aqui: ", "Achei isso: ", "Olha o que encontrei: ", "", ""]
         }
         return random.choice(prefixos.get(fonte, [""])) + texto
-
-    # ==========================
-    # LOOP PRINCIPAL
-    # ==========================
 
     def escutar(self):
         print("\033[96m" + "="*40 + "\n  EVA - SISTEMAS DE INTELIGÊNCIA ATIVOS\n" + "="*40 + "\033[0m")
@@ -146,19 +144,14 @@ class EvaCore:
                 if len(self.historico) > 5:
                     self.historico.pop(0)
 
-                # ==========================
                 # MODO ENSINO
-                # ==========================
-
                 if self.modo_ensino:
                     if u_low == 'cancelar':
                         self.modo_ensino = False
                         print("Eva: Tá, deixa pra lá então.")
                     elif self.last_key:
                         tags = self.gerar_tags(f"{self.last_key} {user}")
-                        self.memoria[self.last_key] = {
-                            "texto": user, "peso": 10, "tags": tags
-                        }
+                        self.memoria[self.last_key] = {"texto": user, "peso": 10, "tags": tags}
                         self.salvar()
                         self.modo_ensino = False
                         print(f"Eva: {random.choice(['Anotei! Valeu por me ensinar.', 'Entendido! Vou lembrar disso.', 'Boa, aprendi mais uma!', 'Guardei aqui, obrigada!'])}")
@@ -167,10 +160,7 @@ class EvaCore:
                         print("Eva: Deu ruim aqui, tenta de novo.")
                     continue
 
-                # ==========================
                 # COMANDOS
-                # ==========================
-
                 if u_low == '$ensinar':
                     if not self.last_key:
                         print("Eva: Me pergunta algo primeiro.")
@@ -189,6 +179,7 @@ class EvaCore:
                     continue
 
                 if u_low == '$ng' and self.last_key:
+                    self.garantir_estrutura(self.last_key)
                     suc, msg, critico = weight.ajustar_peso(self.memoria, self.last_key, -2)
                     self.salvar()
                     print(f"\033[91mSystem: {msg}\033[0m")
@@ -202,21 +193,26 @@ class EvaCore:
                     continue
 
                 if u_low == '$p' and self.last_key:
-                    suc, msg, _ = weight.ajustar_peso(self.memoria, self.last_key, 6)
-                    self.salvar()
-                    print(f"\033[92mSystem: {msg}\033[0m")
+                    # CORREÇÃO: garante estrutura antes de ajustar peso
+                    if not self.garantir_estrutura(self.last_key):
+                        print(f"\033[91mSystem: Não encontrei '{self.last_key}' na memória ainda.\033[0m")
+                    else:
+                        suc, msg, _ = weight.ajustar_peso(self.memoria, self.last_key, 6)
+                        self.salvar()
+                        print(f"\033[92mSystem: {msg}\033[0m")
                     continue
 
                 if u_low == '$g' and self.last_key:
-                    suc, msg, _ = weight.ajustar_peso(self.memoria, self.last_key, 2)
-                    self.salvar()
-                    print(f"\033[93mSystem: {msg}\033[0m")
+                    # CORREÇÃO: garante estrutura antes de ajustar peso
+                    if not self.garantir_estrutura(self.last_key):
+                        print(f"\033[91mSystem: Não encontrei '{self.last_key}' na memória ainda.\033[0m")
+                    else:
+                        suc, msg, _ = weight.ajustar_peso(self.memoria, self.last_key, 2)
+                        self.salvar()
+                        print(f"\033[93mSystem: {msg}\033[0m")
                     continue
 
-                # ==========================
                 # DETECÇÃO SOCIAL
-                # ==========================
-
                 tipo_social = others.detectar_social(u_low)
 
                 if tipo_social == 'saudacao':
@@ -242,10 +238,7 @@ class EvaCore:
                     print(f"Eva: {self.obter_social('INCOMPREENSAO') or 'Não entendi, pode repetir?'}")
                     continue
 
-                # ==========================
                 # PROCESSAMENTO
-                # ==========================
-
                 alvo = others.extrair_alvo(user)
                 if not alvo: alvo = user
                 intencao = others.identificar_intencao(user)
@@ -254,14 +247,14 @@ class EvaCore:
                 if u_low not in ['$g', '$p', '$ng', '$r']:
                     self.last_key = chave
 
-                # 1. Memória exata
+                # 1. Chave exata na memória
                 if weight.validar_memoria(self.memoria, self.last_key):
                     m = self.memoria[self.last_key]
                     print(f"Eva: {self.formatar(m['texto'], 'memoria')}")
 
-                # 2. Semântica por tags
+                # 2. Busca semântica por tags + match direto
                 else:
-                    semantico = self.buscar_semantico(user)
+                    semantico = self.buscar_semantico(alvo)
                     if semantico:
                         print(f"Eva: {self.formatar(semantico, 'memoria')}")
 
@@ -271,15 +264,13 @@ class EvaCore:
                         if humano:
                             print(f"Eva: {self.formatar(humano['resposta'], 'humano')}")
 
-                        # 4. Web
+                        # 4. Web — agora passa o alvo limpo, não a frase toda
                         else:
                             print(f"\033[90mEva: {random.choice(['Deixa eu pesquisar...', 'Um segundo...', 'Hmm, vou ver...', 'Procurando...'])}\033[0m")
-                            res = others.roteador(user)
+                            res = others.roteador(alvo)  # CORREÇÃO: passa alvo limpo
                             if res:
                                 tags = self.gerar_tags(f"{alvo} {res}")
-                                self.memoria[self.last_key] = {
-                                    "texto": res, "peso": 1, "tags": tags
-                                }
+                                self.memoria[self.last_key] = {"texto": res, "peso": 1, "tags": tags}
                                 self.salvar()
                                 print(f"Eva: {self.formatar(res, 'novo')}")
                             else:
