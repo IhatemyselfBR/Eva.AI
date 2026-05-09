@@ -1,0 +1,1318 @@
+{
+    "martelo__instrucao": {
+        "texto": "Um martelo é uma ferramenta, geralmente manual, que consiste em uma \"cabeça\" pesada fixada a um cabo longo que é balançada para causar um impacto em uma pequena área de um objeto. Isso pode ser, por exemplo, para pregar pregos na madeira, moldar metal ou esmagar rochas. Os martelos são usados para uma ampla gama de aplicações de cravação, modelagem,...",
+        "peso": 1
+    },
+    "navalha__instrucao": {
+        "texto": "A Navalha de Ockham, também chamada de princípio da parcimônia, é um princípio de investigação heurístico advindo da escolástica que, para a formação de hipóteses explicativas, exige a maior parcimônia em termos de complexidade. Nomeado em homenagem a Guilherme de Ockham (1288–1347), o princípio é elemento do método científico, sendo também aplicado na filosofia da ciência.",
+        "peso": 1
+    },
+    "martelo": {
+        "texto": "Um martelo é uma ferramenta, geralmente manual, que consiste em uma \"cabeça\" pesada fixada a um cabo longo que é balançada para causar um impacto em uma pequena área de um objeto. Isso pode ser, por exemplo, para pregar pregos na madeira, moldar metal ou esmagar rochas. Os martelos são usados para uma ampla gama de aplicações de cravação, modelagem,...",
+        "peso": 1
+    },
+    "navalha": {
+        "texto": "A Navalha de Ockham, também chamada de princípio da parcimônia, é um princípio de investigação heurístico advindo da escolástica que, para a formação de hipóteses explicativas, exige a maior parcimônia em termos de complexidade. Nomeado em homenagem a Guilherme de Ockham (1288–1347), o princípio é elemento do método científico, sendo também aplicado na filosofia da ciência.",
+        "peso": 1
+    },
+    "chave de fenda": {
+        "texto": "Uma chave de parafusos ou atarraxador é uma ferramenta de metal com cabo de material variado, geralmente plástico ou acrílico, podendo também ser isolada, de ponta chata e estreita. Sua função é ser introduzida na ranhura de um parafuso para girá-lo, apertando-o ou afrouxando-o.",
+        "peso": 1
+    },
+    "alicate": {
+        "texto": "Alicate é uma ferramenta articulada que serve fundamentalmente para multiplicar a força aplicada pelo usuário para incidi-la sobre o objeto desejado. A multiplicação de força se dá pelo princípio de alavanca, podendo ser calculada através das Leis de Newton.",
+        "peso": 1
+    },
+    "furadeira": {
+        "texto": "Uma pua, furadeira (português brasileiro) ou berbequim (português europeu), é uma máquina que tem como função principal a execução de furos. Outras operações, tais como alargamento e rebaixamento, também podem ser realizadas. As furadeiras possuem um sistema de alavanca ou um motor que aplica uma rotação a uma ou mais brocas que são responsáveis pela remoção do material.",
+        "peso": 1
+    },
+    "python": {
+        "texto": "Python é uma linguagem de programação de alto nível, interpretada de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. Foi lançada por Guido van Rossum em 1991. Atualmente, possui um modelo de desenvolvimento comunitário, aberto e gerenciado pela organização sem fins lucrativos Python Software Foundation. Apesar de várias partes da linguagem possuírem padrões e especificações formais, a...",
+        "peso": 1
+    },
+    "vitamina c": {
+        "texto": "A vitamina C, também conhecida como ácido ascórbico e ascorbato, é uma vitamina encontrada em vários alimentos e vendida como suplemento dietético. É usada para prevenir e tratar o escorbuto. A vitamina C é um nutriente essencial para o reparo de tecidos e a produção enzimática de certos neurotransmissores. É necessária para o funcionamento de várias enzimas e é importante...",
+        "peso": 1
+    },
+    "pressão alta": {
+        "texto": "Hipertensão arterial é uma doença crónica em que a pressão sanguínea nas artérias se encontra constantemente elevada. A doença geralmente não causa sintomas. No entanto, a longo prazo é um dos principais fatores de risco para uma série de doenças graves como a doença arterial coronária, acidente vascular cerebral, insuficiência cardíaca, doença arterial periférica, incapacidade visual, doença renal crónica e...",
+        "peso": 1
+    },
+    "diabetes": {
+        "texto": "Diabetes mellitus, ou simplesmente diabetes, é um grupo de doenças metabólicas em que se verificam níveis elevados de glicose no sangue durante um longo intervalo de tempo. A elevada quantidade de glicose no sangue pode provocar sintomas, como poliúria, polidipsia e polifagia, mas também pode ser silenciosa, sem gerar nenhum sintoma. Quando não é tratada, a diabetes pode causar várias...",
+        "peso": 1
+    },
+    "febre": {
+        "texto": "Febre ou pirexia é o aumento da temperatura do corpo acima do limite normal em resposta a uma doença ou perturbação orgânica. Não existe um valor universal para o que se considera o limite máximo da temperatura normal. Os valores indicados na literatura médica variam entre 37,5 ºC e 38,3 ºC. O aumento de temperatura é causado por uma subida...",
+        "peso": 1
+    },
+    "gripe": {
+        "texto": "Influenza, comumente conhecida como Gripe, é uma doença infecciosa causada por diversos vírus ARN da família Orthomyxoviridae e que afeta aves e mamíferos. Os sintomas mais comuns são calafrios, febre, rinorreia, dores de garganta, dores musculares, dores de cabeça, tosse, fadiga e sensação geral de desconforto. Em crianças pode ainda provocar diarreia e dores abdominais. Embora seja frequentemente confundida com...",
+        "peso": 1
+    },
+    "computador": {
+        "texto": "Computador é uma máquina que pode ser programada para realizar automaticamente sequências de operações aritméticas ou lógicas (computação). Os computadores eletrônicos digitais modernos podem executar conjuntos genéricos de operações conhecidos como programas, que permitem que os computadores executem uma ampla gama de tarefas. Os termos sistema de computador ou sistema computacional podem se referir a um computador nominalmente completo que...",
+        "peso": 1
+    },
+    "brasil": {
+        "texto": "Brasil, oficialmente República Federativa do Brasil, é o maior país da América do Sul e da região da América Latina, sendo o quinto maior do mundo em área territorial, com cerca de 8,5 milhões de quilômetros quadrados, e o sétimo em população. É o único país na América onde se fala majoritariamente a língua portuguesa e o maior país lusófono...",
+        "peso": 1
+    },
+    "célula": {
+        "texto": "Célula é a unidade estrutural e funcional básica de todas as formas de vida ou organismos. O termo vem da palavra latina cellula cujo significado é 'pequeno aposento'. Uma célula biológica consiste basicamente em uma membrana celular semipermeável que envolve o citoplasma, o qual contém o material genético. A maioria das células só é visível ao microscópio. Com exceção de...",
+        "peso": 1
+    },
+    "átomo": {
+        "texto": "Átomo é uma unidade básica de matéria que consiste num núcleo central de carga elétrica positiva envolto por uma nuvem de eletrões de carga negativa. O núcleo atómico é composto por protões e neutrões. Os eletrões de um átomo estão ligados ao núcleo por força eletromagnética. Da mesma forma, um grupo de átomos pode estar ligado entre si através de...",
+        "peso": 1
+    },
+    "acelerador de partículas": {
+        "texto": "Um acelerador de partículas é uma máquina que utiliza campos eletromagnéticos para propulsionar iões a velocidades e energias muito elevadas, de forma a contê-los em feixes bem definidos. Aceleradores de pequena escala são utilizados para investigação fundamental em Física de partículas. Os aceleradores também são utilizados como fontes de luz sincrotrão para o estudo da Física da matéria condensada. Aceleradores...",
+        "peso": 1
+    },
+    "albert einstein": {
+        "texto": "Albert Einstein foi um físico teórico alemão que desenvolveu a teoria da relatividade geral, um dos pilares da física moderna ao lado da mecânica quântica. Embora mais conhecido por sua fórmula de equivalência massa–energia, E = mc² — que foi chamada de \"a equação mais famosa do mundo\" —, foi laureado com o Prêmio Nobel de Física de 1921 \"por...",
+        "peso": 1
+    },
+    "internet": {
+        "texto": "A Internet é um sistema global de redes de computadores interligadas que utilizam um conjunto próprio de protocolos com o propósito de servir progressivamente usuários no mundo inteiro. É uma rede de várias outras redes, que consiste de milhões de empresas privadas, públicas, acadêmicas e de governo, com alcance local e global e que está ligada por uma ampla variedade...",
+        "peso": 1
+    },
+    "vitamina": {
+        "texto": "Vitaminas são compostos orgânicos e nutrientes essenciais de que o organismo necessita em pequenas quantidades para o normal funcionamento do seu metabolismo. Um determinado composto químico orgânico é denominado vitamina quando o organismo não consegue sintetizá-lo em quantidades suficientes para o bom funcionamento, devido a isso, faz-se necessária a ingestão através da dieta. Assim, o que é \"vitamina\" para uns...",
+        "peso": 1
+    },
+    "128 bits": {
+        "texto": "Em arquitetura de computadores, inteiros, endereços de memória, ou outras unidades de dados de 128 bits são aquelas que possuem largura de 128 bits. Também, arquiteturas CPU e ALU de 128 bits são aquelas baseadas em registradores, address buses, ou data buses deste tamanho.",
+        "peso": 1
+    },
+    "ecologia": {
+        "texto": "Ecologia é a especialidade da biologia que estuda o meio ambiente e os seres vivos que vivem nele, ou seja, é o estudo científico da distribuição e abundância dos seres vivos e das interações que determinam a sua distribuição. As interações podem ser entre seres vivos e/ou com o meio ambiente. A palavra \"Ökologie\" deriva da junção dos termos gregos...",
+        "peso": 1
+    },
+    "economia": {
+        "texto": "Economia é a ciência que consiste na análise da produção, distribuição e consumo de bens e serviços. Portanto, a economia é o estudo das escolhas dos indivíduos e do que possibilita a compatibilidade nas escolhas de todos. Esta ciência social estuda a atividade económica, através da aplicação da teoria económica, tendo, na gestão, a sua aplicabilidade prática.",
+        "peso": 1
+    },
+    "astronomia": {
+        "texto": "Astronomia é uma ciência natural que estuda corpos celestes e fenômenos que se originam fora da atmosfera da Terra. Preocupada com a evolução, a física e a química de objetos celestes, bem como a formação e o desenvolvimento do universo.",
+        "peso": 1
+    },
+    "psicologia": {
+        "texto": "Psicologia é o estudo científico da mente e do comportamento. Seu tópico inclui o comportamento de humanos e não humanos, fenômenos conscientes e inconscientes, e processos mentais, como pensamentos, sentimentos e motivos. A psicologia é uma disciplina acadêmica de imenso escopo, cruzando as fronteiras entre as ciências naturais e sociais. Os psicólogos biológicos buscam uma compreensão das propriedades emergentes dos...",
+        "peso": 1
+    },
+    "física": {
+        "texto": "Física é a ciência que estuda a natureza e analisa as relações e propriedades dos seus fenômenos, além de descrever e explicar a maior parte das consequências deles. Busca a compreensão científica dos comportamentos naturais e gerais do mundo em nosso entorno, desde as partículas elementares até o universo como um todo. Com o amparo do método científico e da...",
+        "peso": 1
+    },
+    "política": {
+        "texto": "Política, algo que tem a ver com a organização, direção e administração de nações ou Estados. É o Direito, enquanto ciência aplicada não só aos assuntos internos da nação, mas também aos assuntos externos. Nos regimes democráticos, a ciência política é a atividade dos cidadãos que se ocupam dos assuntos públicos com seu voto ou com sua militância.",
+        "peso": 1
+    },
+    "literatura": {
+        "texto": "Literatura é a arte que usa a linguagem escrita como meio de expressão, seja em prosa ou em verso, de acordo com princípios teóricos e práticos; sendo o conjunto de obras escritas ou orais às quais reconhecemos um valor estético. Abrange qualquer coleção de obras escritas, incluindo impressa e digital.",
+        "peso": 1
+    },
+    "biologia": {
+        "texto": "Biologia é o estudo científico da vida e dos organismos vivos. É uma ciência natural ampla que abrange uma vasta gama de campos e princípios unificadores que explicam a estrutura, função, crescimento, origem, evolução e distribuição da vida. No centro da biologia estão cinco temas fundamentais: a célula como unidade básica da vida, os genes e a hereditariedade como base...",
+        "peso": 1
+    },
+    "geografia": {
+        "texto": "Geografia é o estudo das terras, características, habitantes e fenômenos da Terra. É uma disciplina abrangente que busca compreender a Terra e suas complexidades humanas e naturais — não apenas onde os objetos estão, mas também como eles mudaram e surgiram. Embora a geografia seja específica da Terra, muitos conceitos podem ser aplicados de forma mais ampla a outros corpos...",
+        "peso": 1
+    },
+    "química": {
+        "texto": "Química é o estudo científico das propriedades e do comportamento da matéria. É uma ciência física dentro das ciências naturais que estuda os elementos químicos que constituem a matéria e os compostos feitos de átomos, moléculas e íons: sua composição, estrutura, propriedades, comportamento e as mudanças que sofrem durante as reações com outras substâncias. A química também aborda a natureza...",
+        "peso": 1
+    },
+    "filosofia": {
+        "texto": "Filosofia é o estudo de questões gerais e fundamentais relacionadas com natureza da existência humana; do conhecimento; da verdade; valores moral e estético; da razão; da mente; tanto da língua como do universo no seu todo, frequentemente colocadas como problemas a se resolver. O termo provavelmente foi cunhado por Pitágoras.",
+        "peso": 1
+    },
+    "música": {
+        "texto": "A música é uma forma de arte que se constitui na combinação de vários sons e ritmos, seguindo uma pré-organização ao longo do tempo.",
+        "peso": 1
+    },
+    "sociologia": {
+        "texto": "Sociologia é a ciência social que estuda a sociedade, padrões de relações sociais, interação social e cultura da vida cotidiana. É uma ciência social que utiliza vários métodos de investigação empírica e análise crítica para desenvolver um corpo de conhecimento sobre ordem social, aceitação e mudança ou evolução social. Sociologia também é definida como a ciência geral da sociedade. Enquanto...",
+        "peso": 1
+    },
+    "gravitação": {
+        "texto": "Na física, gravidade (lat: gravitas, «peso»)? é uma interação fundamental que causa atração mútua entre todas as coisas que têm massa. É, de longe, a mais fraca das quatro interações fundamentais, aproximadamente 1038 vezes mais fraca que a interação forte, 1036 vezes mais fraca que a força eletromagnética e 1029 vezes mais fraca que a interação fraca. Como resultado, não...",
+        "peso": 1
+    },
+    "arte": {
+        "texto": "Arte é uma gama diversificada de atividades humanas e seu produto resultante, que envolve talento criativo ou imaginativo, geralmente expresso em proficiência técnica, beleza, poder emocional ou ideias conceituais. É o processo ou produto de organizar deliberadamente elementos de forma a apelar aos sentidos e às emoções. Abrange uma vasta gama de atividades humanas, criações e formas de expressão, desde...",
+        "peso": 1
+    },
+    "fotossíntese": {
+        "texto": "A fotossíntese é um processo realizado por plantas e outros organismos para produzir seu próprio alimento e converter energia luminosa em energia química que, por meio da respiração celular, pode ser liberada posteriormente para alimentar as atividades do organismo. Parte dessa energia química é armazenada em moléculas de carboidratos, como açúcares e amidos, que são sintetizados a partir do dióxido...",
+        "peso": 1
+    },
+    "tecnologia": {
+        "texto": "Tecnologia é o conjunto de processos e habilidades usados na produção de bens ou serviços, ou na realização de objetivos, como em investigações científicas. Isso também pode ser embutido em máquinas para permitir a operação destas sem conhecimento detalhado do funcionamento. Sistema tecnológico que através do input de dados, faz à análise destes e, então produz um resultado.",
+        "peso": 1
+    },
+    "esporte": {
+        "texto": "Desporto (português europeu) ou esporte (português brasileiro) é uma atividade física ou jogo. É toda a forma de praticar alguma atividade física, de forma metódica, com objetivos competitivos, que por meio de participação casual ou organizada, procure usar, manter ou melhorar as habilidades físicas e/ou mentais, proporcionando diversão aos participantes e, em alguns casos, entretenimento para os espectadores.",
+        "peso": 1
+    },
+    "1778": {
+        "texto": "1778 foi um ano comum do século XVIII do actual Calendário Gregoriano, da Era de Cristo, e a sua letra dominical foi D, teve início a uma quinta-feira e terminou também a uma quinta-feira.",
+        "peso": 1
+    },
+    "atp sintase": {
+        "texto": "ATP sintase é o nome genérico dado a enzimas que fornecem energia para o funcionamento das células através da síntese de ATP a partir de ADP e de fosfato inorgânico, utilizando para isso alguma forma de energia. A sequência da reacção, provocada por esta enzima na presença do ião magnésio, é a seguinte:ADP + Pi → ATP",
+        "peso": 1
+    },
+    "abiogênese": {
+        "texto": "Abiogênese(pt-BR) ou Abiogénese(pt-PT?) designa de modo geral o estudo sobre a origem da vida a partir de matéria não viva. No entanto há que se fazer distinções entre diferentes ideias ou hipóteses as quais o termo pode ser atribuído. Atualmente o termo é usado em referência à origem química da vida a partir de reações em compostos orgânicos originados abioticamente....",
+        "peso": 1
+    },
+    "1706": {
+        "texto": "1706 foi um ano comum do século XVIII do actual Calendário Gregoriano, da Era de Cristo, e a sua letra dominical foi C, teve 52 semanas, início a uma sexta-feira e terminou também a uma sexta-feira.",
+        "peso": 1
+    },
+    "1668": {
+        "texto": "1668 foi um ano bissexto do século XVII do actual Calendário Gregoriano, da Era de Cristo, e as suas letras dominicais foram A e G, teve início a um domingo e terminou a uma segunda-feira.",
+        "peso": 1
+    },
+    "1683": {
+        "texto": "1683 foi um ano comum do século XVII do calendário gregoriano, da Era de Cristo, e a sua letra dominical foi C, teve 52 semanas, início a uma sexta-feira e terminou também a uma sexta-feira.",
+        "peso": 1
+    },
+    "1828": {
+        "texto": "1828 foi um ano bissexto do século XIX do actual Calendário Gregoriano, da Era de Cristo, e as suas letras dominicais foram F e E, teve início a uma terça-feira e terminou a uma quarta-feira.",
+        "peso": 1
+    },
+    "13 de agosto": {
+        "texto": "13 de agosto é o 225.º dia do ano no calendário gregoriano. Faltam 140 dias para acabar o ano.",
+        "peso": 1
+    },
+    "13 de fevereiro": {
+        "texto": "13 de fevereiro é o 44.º dia do ano no calendário gregoriano. Faltam 321 dias para acabar o ano.",
+        "peso": 1
+    },
+    "12 de junho": {
+        "texto": "12 de junho é o 163.º dia do ano no calendário gregoriano. Faltam 202 dias para acabar o ano.",
+        "peso": 1
+    },
+    "14 de novembro": {
+        "texto": "14 de novembro é o 318.º dia do ano no calendário gregoriano. Faltam 47 dias para acabar o ano.",
+        "peso": 1
+    },
+    "15 de julho": {
+        "texto": "15 de julho é o 196.º dia do ano no calendário gregoriano. Faltam 169 dias para acabar o ano.",
+        "peso": 1
+    },
+    "1021": {
+        "texto": "1021 foi um ano comum do século XI do Calendário Juliano, da Era de Cristo, a sua letra dominical foi A, teve início a um domingo e terminou também a um domingo. No território que viria a ser o reino de Portugal estava em vigor a Era de César que já contava 1059 anos.",
+        "peso": 1
+    },
+    "1075": {
+        "texto": "1075 foi um ano comum do século XI do Calendário Juliano, da Era de Cristo, e a sua letra dominical foi D, teve início a uma quinta-feira e terminou também a uma quinta-feira. No território que viria a ser o reino de Portugal estava em vigor a Era de César que já contava 1113 anos.",
+        "peso": 1
+    },
+    "10 de abril": {
+        "texto": "10 de abril é o 100.º dia do ano no calendário gregoriano. Faltam 265 dias para acabar o ano.",
+        "peso": 1
+    },
+    "matemática": {
+        "texto": "Matemática é uma área do conhecimento que inclui os tópicos dos números, fórmulas e estruturas relacionadas, formas e os espaços em que estão contidos, e quantidades e suas mudanças. Esses tópicos são representados na matemática moderna com as principais subdisciplinas da teoria dos números, álgebra, geometria e análise, respectivamente. No entanto, não há consenso entre os matemáticos sobre uma definição...",
+        "peso": 1
+    },
+    "história": {
+        "texto": "História é o estudo e a documentação sistemática do passado humano. O período de acontecimentos anteriores à invenção dos sistemas de escrita é considerado pré-história. \"História\" é um termo abrangente que abarca eventos passados, bem como a memória, a descoberta, a coleção, a organização, a apresentação e a interpretação destes eventos. Os historiadores buscam o conhecimento do passado usando fontes...",
+        "peso": 1
+    },
+    "farmácia": {
+        "texto": "Farmácia (do grego φάρμακον/pharmakôn: que significa em mesmo tempo \"remédio\" e \"veneno\") em termos gerais, é a ciência praticada por graduados em farmácia (farmacêuticos), tem como objeto de estudo fármacos, drogas e medicamentos e a forma como os usuários interagem com eles.",
+        "peso": 1
+    },
+    "animal": {
+        "texto": "Animais são organismos multicelulares eucarióticos que compõem o reino biológico Animalia. Com poucas exceções, consomem matéria orgânica, respiram oxigênio, possuem miócitos e são capazes de se mover, podem se reproduzir sexuadamente e se desenvolvem a partir de uma esfera oca de células, a blástula, durante o desenvolvimento embrionário. Os animais formam um clado, o que significa que surgiram de um...",
+        "peso": 1
+    },
+    "inteligência artificial": {
+        "texto": "Inteligência Artificial genericamente é a inteligência, o raciocínio e o aprendizado exibida por máquinas semelhante ao raciocino humano; busca desenvolver máquinas autônomas ou sistemas especialistas capazes de simular o pensamento humano e realizar várias tarefas complexas de forma independente. É o sistema que permite aos computadores executar funções avançadas, como a capacidade de analisar dados em grande escala e fazer...",
+        "peso": 1
+    },
+    "talco": {
+        "texto": "Talco é um mineral argiloso, composto de silicato de magnésio hidratado com a fórmula química Mg3Si4O10(OH)2. Talco em pó, muitas vezes combinado com amido de milho, é usado como talco de bebê. Este mineral é usado como agente espessante e lubrificante. É um ingrediente em cerâmica, tinta e material de cobertura. É um ingrediente principal em muitos cosméticos. Ocorre como...",
+        "peso": 1
+    },
+    "ada lovelace": {
+        "texto": "Augusta Ada Byron King, Condessa de Lovelace, atualmente conhecida como Ada Lovelace, foi uma matemática e escritora inglesa. Hoje é reconhecida principalmente por ter escrito o primeiro algoritmo para ser processado por uma máquina, a máquina analítica de Charles Babbage. Durante o período em que esteve envolvida com o projeto de Babbage, ela desenvolveu os algoritmos que permitiriam à máquina...",
+        "peso": 1
+    },
+    "adição": {
+        "texto": "Adição é uma das operações básicas da aritmética. Na sua forma mais simples, a adição combina dois números em um único número, denominado soma, total ou resultado. Adicionar mais números corresponde a repetir a operação. Por extensão, a adição de zero, um ou uma quantidade infinita de números pode ser definida.",
+        "peso": 1
+    },
+    "abraão": {
+        "texto": "Abraão é um personagem bíblico citado em Gênesis a partir do qual teriam se desenvolvido as religiões abraâmicas, as principais vertentes do monoteísmo: o judaísmo, o cristianismo e o islamismo. Até hoje, os arqueólogos não encontraram nenhuma prova da existência de Abraão, embora tenham sido, recentemente, encontradas as aldeias com nomes dos familiares de Abraão numa área da atual Turquia,...",
+        "peso": 1
+    },
+    "administração": {
+        "texto": "A administração (português brasileiro) ou gestão (português europeu) é a ciência social que estuda e sistematiza as práticas usadas para administrar.",
+        "peso": 1
+    },
+    "alfaiate": {
+        "texto": "Alfaiate é o profissional especializado que exerce o ofício da alfaiataria, uma arte que consiste na criação de roupas masculinas de forma artesanal e sob medida, ou seja, exclusivamente de acordo com as medidas e preferências de cada pessoa, sem o uso padronizado de numeração preexistente.",
+        "peso": 1
+    },
+    "alimento": {
+        "texto": "Alimento é toda substância utilizada pelos seres vivos como fonte de matéria e energia para poderem realizar as suas funções vitais, incluindo o crescimento, movimento e reprodução. Para o ser humano, a alimentação inclui, ainda, várias substâncias que não são necessárias para as funções biológicas mas que fazem parte da cultura, como compostos químicos psicotrópicos, temperos, corantes e conservantes usados...",
+        "peso": 1
+    },
+    "análise matemática": {
+        "texto": "Análise é o ramo da matemática que lida com os conceitos introduzidos pelo cálculo diferencial e integral, medidas, limites, séries infinitas e funções analíticas. Surgiu da necessidade de prover formulações rigorosas às ideias intuitivas do cálculo, sendo hoje uma disciplina muito mais ampla cujos tópicos são tratados em uma subdivisão chamada análise real.",
+        "peso": 1
+    },
+    "aritmética": {
+        "texto": "A aritmética é um dos ramos elementares da matemática que estuda operações numéricas como adição, subtração, multiplicação e divisão. Num sentido mais amplo, também inclui exponenciação, radiciação e logaritmação.",
+        "peso": 1
+    },
+    "aarão": {
+        "texto": "Na Bíblia hebraica, no Alcorão e nas religiões abraâmicas, Aarão (português europeu) ou Arão (português brasileiro), foi o irmão mais velho de Moisés, e um profeta do Deus de Israel servindo como o primeiro sumo sacerdote dos hebreus.",
+        "peso": 1
+    },
+    "buriácia": {
+        "texto": "A República da Buriácia é uma divisão federal da Federação da Rússia localizada na Ásia, na vasta região da Sibéria. Sua capital é a cidade de Ulã Udé. Sua área total é de 351 300 km² e conta com uma população de 972 021 habitantes, segundo os censos de 2010.",
+        "peso": 1
+    },
+    "abatedouro": {
+        "texto": "Abatedouro (português brasileiro) ou matadouro (português europeu) ou açougue é a instalação industrial destinada ao abate, processamento e armazenamento de produtos de origem animal.",
+        "peso": 1
+    },
+    "floresta": {
+        "texto": "Floresta é uma área com alta densidade de árvores. Segundo dados da Organização das Nações Unidas para a Alimentação e a Agricultura, as florestas ocupavam em 2006 cerca de 4 bilhões de hectares ou aproximadamente 30% da superfície terrestre. As florestas são vitais para a vida do ser humano, devido a muitos fatores principalmente de ordem climática. As florestas são...",
+        "peso": 1
+    },
+    "oceano": {
+        "texto": "Oceano é uma extensão de água salgada que cobre a maior parte da superfície da Terra. O oceano global corresponde a 97% da hidrosfera, cobrindo aproximadamente 71% da superfície da Terra. Mais da metade desta área tem profundidades superiores a 3 mil metros.",
+        "peso": 1
+    },
+    "mineral": {
+        "texto": "Mineral é um corpo natural sólido e cristalino, de estrutura atômica ordenada periódica e uma composição química definida, formado em resultado da interação de processos físico-químicos em ambientes geológicos. Cada mineral é classificado e denominado não apenas com base na sua composição química, mas também na estrutura cristalina dos materiais que o compõem. Em resultado dessa distinção, materiais com a...",
+        "peso": 1
+    },
+    "planta": {
+        "texto": "Plantas são os eucariotos que compõem o reino Plantae; elas são predominantemente fotossintéticas, o que significa que obtêm sua energia da luz solar, utilizando cloroplastos derivados da endossimbiose com cianobactérias para produzir açúcares a partir de dióxido de carbono e água, usando o pigmento verde clorofila. Exceções são as plantas parasitas que perderam os genes para clorofila e fotossíntese e...",
+        "peso": 1
+    },
+    "arboretum": {
+        "texto": "Um arboreto é um jardim botânico ou uma área destinada para o cultivo de uma coleção de árvores, arbustos, plantas herbáceas, medicinais, ornamentais ou outras. São mantidas e ordenadas cientificamente, em geral documentadas e identificadas, e expostas ao público para as finalidades de recreação, educação e pesquisa.",
+        "peso": 1
+    },
+    "abismo": {
+        "texto": "Em geologia, Abismo define-se como uma depressão natural no relevo de uma paisagem. Também pode ser definido como uma caverna com desenvolvimento predominantemente vertical.",
+        "peso": 1
+    },
+    "acidente geográfico": {
+        "texto": "Um acidente geográfico ou forma de relevo é uma entidade diferenciada no relevo da Terra, ou seja, na formação dos solos continentais e costeiros. Cada uma destas diferenças recebe um nome distinto.",
+        "peso": 1
+    },
+    "afluente": {
+        "texto": "Afluente ou tributário são os rios e cursos de água menores que desaguam em rios principais. Um afluente não flui diretamente para um oceano, mar ou lago. Os afluentes e o rio principal servem para drenar uma determinada bacia hidrográfica. Ao ponto de junção entre um rio e um afluente é dado o nome de confluência.",
+        "peso": 1
+    },
+    "amapá": {
+        "texto": "Amapá é uma das 27 unidades federativas do Brasil. Está situado a nordeste da Região Norte, no Platô das Guianas. O seu território é de 142 828,521 km², o que o torna o 18º maior estado do Brasil. É limitado pelo estado do Pará, a oeste e sul ; pela Guiana Francesa, a norte; pelo Oceano Atlântico a nordeste; pela...",
+        "peso": 1
+    },
+    "arbusto": {
+        "texto": "Arbusto é todo o vegetal do grupo das angiospermas, dicotiledôneas e lenhosas, que se ramifica desde junto ao solo e tem menor porte em relação às árvores. São plantas que não necessitam de grandes espaços para o seu bom desenvolvimento. Arbustos pequenos e baixos, geralmente não passando dos 2 metros de altura, como a lavanda, mirta e a maioria das...",
+        "peso": 1
+    },
+    "galho": {
+        "texto": "Um galho é um ramo secundário fino e pequeno de uma árvore ou arbusto.",
+        "peso": 1
+    },
+    "ramo": {
+        "texto": "Ramo, por vezes coloquialmente referido por galho ou vara, é a designação dada em anatomia vegetal às ramificações lenhosas do tronco das árvores e arbustos das quais brotam folhas, e eventualmente flores e frutos, formando uma estrutura de madeira ligada ao tronco central da árvore ou arbusto.",
+        "peso": 1
+    },
+    "youtube": {
+        "texto": "YouTube é uma plataforma de compartilhamento de vídeos com sede em San Bruno, Califórnia. O serviço foi criado por três ex-funcionários do PayPal — Chad Hurley, Steve Chen e Jawed Karim — em fevereiro de 2005. O Google comprou o site em novembro de 2006 por 1,65 bilhão de dólares. Desde então o YouTube funciona como uma das subsidiárias do...",
+        "peso": 1
+    },
+    "absorção (física)": {
+        "texto": "Em Física, absorção se relaciona à parcela de energia que persiste em um corpo após incidir sobre ele. Contrapõe-se às parcelas correspondentes à transmissão e à reflexão.",
+        "peso": 1
+    },
+    "abu hanifa de dinavar": {
+        "texto": "Abu Hanifa Amade ibne Daúde Adinavari foi um erudito persa que sobressaiu em astronomia, agricultura, botânica, geografia, matemáticas e metalúrgica. Estudou astronomia, matemáticas e mecânica em Ispaã e filologia e poesia em Cufa e Baçorá.",
+        "peso": 1
+    },
+    "acoplamento (física)": {
+        "texto": "Na física, um acoplamento, basicamente, é uma interação entre as diferentes propriedades de um sistema, tais como um grupo de átomos ou núcleos, ou entre dois ou mais sistemas. Dois sistemas estão acoplados, se eles estão interagindo uns com os outros.",
+        "peso": 1
+    },
+    "a.i. - inteligência artificial": {
+        "texto": "A. I. - Inteligência Artificial é um filme de ficção científica dramático estadunidense, de 2001, dirigido por Steven Spielberg. Com o roteiro de Spielberg e a história concebida por Ian Watson, o filme é vagamente baseado no conto de 1969 \"Supertoys Last All Summer Long\" de Brian Aldiss. Situado em uma sociedade futurista, o filme é estrelado por Haley Joel...",
+        "peso": 1
+    },
+    "a priori": {
+        "texto": "A priori e a posteriori são expressões filosóficas para distinguir dois tipos de conhecimento ou argumento. Os termos a priori e a posteriori são usados principalmente como adjectivos em grau comparativo para modificar o substantivo \"conhecimento\", ou serem substantivos compostos que se referem a um tipo de conhecimento. No entanto, \"a priori\" às vezes é usado como um adjetivo para...",
+        "peso": 1
+    },
+    "ablação (inteligência artificial)": {
+        "texto": "Em inteligência artificial (IA), particularmente em aprendizado de máquina, a ablação consiste na remoção de um componente de um sistema de IA. Um estudo de ablação tem como objetivo determinar a contribuição de um componente para o sistema de IA, removendo-o e analisando o desempenho resultante.",
+        "peso": 1
+    },
+    "aborto": {
+        "texto": "Aborto ou interrupção da gravidez é a interrupção de uma gravidez resultante da remoção de um feto ou embrião antes de este ter a capacidade de sobreviver fora do útero. Um aborto que ocorra de forma espontânea denomina-se aborto espontâneo ou \"interrupção involuntária da gravidez\". Um aborto deliberado denomina-se \"aborto induzido\" ou \"interrupção voluntária da gravidez\". Nos casos em que...",
+        "peso": 1
+    },
+    "abóbora": {
+        "texto": "Abóbora ou jerimum, fruto da aboboreira, é uma designação popular atribuída a diversas espécies de plantas da família Cucurbitaceae, nomeadamente às classificadas nos géneros:Abobra - uma única espécie, nativa da América do Sul Cucurbita - género que inclui os tipos de abóbora mais comuns e a abobrinha (courgette/zucchini).",
+        "peso": 1
+    },
+    "gravidade": {
+        "texto": "Na física, gravidade (lat: gravitas, «peso»)? é uma interação fundamental que causa atração mútua entre todas as coisas que têm massa. É, de longe, a mais fraca das quatro interações fundamentais, aproximadamente 1038 vezes mais fraca que a interação forte, 1036 vezes mais fraca que a força eletromagnética e 1029 vezes mais fraca que a interação fraca. Como resultado, não...",
+        "peso": 1
+    },
+    "ablação": {
+        "texto": "Ablação é a remoção, vaporização, lascamento ou destruição por outros processos erosivos. Esse termo técnico é usado em astrofísica, biologia genética, cirurgia, engenharia e geologia para descrever fenômenos muito diferentes: Danos a espaçonave na reentrada atmosférica, deleção de genes, cirurgia a laser, tinta com anti-incrustantes, capas de proteção contra fogo e erosão durante glaciação.",
+        "peso": 1
+    },
+    "allen newell": {
+        "texto": "Allen Newell foi um pesquisador da ciência da computação e psicólogo cognitivo estadunidense formado na RAND Corporation e na Faculdade de Ciência da Computação, Tepper School of Business, e do Departamento de Psicologia da Universidade Carnegie Mellon. Ele contribuiu para a linguagem de processamento de informação (1956) e dois dos primeiros programas de inteligência artificial, a Logic Theorist (1956) e...",
+        "peso": 1
+    },
+    "aprendizado de máquina": {
+        "texto": "O aprendizado automático (português brasileiro) ou a aprendizagem automática (português europeu) ou também aprendizado de máquina (português brasileiro) ou aprendizagem de máquina (português europeu) é um subcampo da Engenharia e da ciência da computação que evoluiu do estudo de reconhecimento de padrões e da teoria do aprendizado computacional em inteligência artificial. Em 1959, Arthur Samuel definiu aprendizado de máquina como...",
+        "peso": 1
+    },
+    "aborto (desambiguação)": {
+        "texto": "Aborto ou interrupção pode se referir a:Aborto de gravidez — interrupção da gravidez Aborto espontâneo — interrupção involuntária da gravidez Aborto habitual — interrupção involuntária que ocorre com frequência Aborto salino — aborto induzido com a injeção de solução salina no útero Aborto por sucção — modo de se realizar o aborto voluntário Aborto farmacológico — aborto induzido com o...",
+        "peso": 1
+    },
+    "aborto autoinduzido": {
+        "texto": "O aborto auto-induzido é o que é provocado pela própria grávida para remover o feto. Apesar de estarem nesse grupo os meios legais e dentro das recomendações médicas de interromper a gravidez, muitas vezes o aborto auto-induzido é provocado por métodos não recomendados pela medicina e que colocam em risco a saúde da mulher. Essa é uma prática comum em...",
+        "peso": 1
+    },
+    "aborto em andorra": {
+        "texto": "Em Andorra, o aborto é proibido na maioria das situações. O código penal em vigor no país data de 1990 e proíbe a interrupção da gravidez em todos os casos, não apresentando exceções explícitas. As penas para tais crimes estão previstas no primeiro capítulo do terceiro título, referindo-se a \"infrações contra a vida de pessoas\". O procedimento, porém, na prática,...",
+        "peso": 1
+    },
+    "câncer": {
+        "texto": "Câncer (português brasileiro) ou cancro (português europeu), também conhecido como neoplasia maligna é um grupo de doenças que envolvem o crescimento celular anormal, com potencial para invadir e espalhar-se para outras partes do corpo, além do local original. Há mais de cem diferentes cânceres conhecidos que afetam os seres humanos, mas nem todos os tumores são cancerosos (malignos); tumores benignos...",
+        "peso": 1
+    },
+    "desvio de septo nasal": {
+        "texto": "Desvio do septo nasal é um distúrbio físico do nariz, envolvendo deslocamento do septo nasal. É comum haver algum deslocamento, estima-se que cerca de 70% a 80% da população tenha um grau de desvio do septo nasal, maioritariamente sem sabê-lo.",
+        "peso": 1
+    },
+    "arima": {
+        "texto": "Em estatística e econometria, particularmente em análise de séries temporais, um modelo auto-regressivo integrado de médias móveis é uma generalização de um modelo auto-regressivo de médias móveis (ARMA). Ambos os modelos são ajustados aos dados da série temporal para entender melhor os dados ou para prever pontos futuros na série. Modelos ARIMA são aplicados em alguns casos em que os...",
+        "peso": 1
+    },
+    "alcoolismo": {
+        "texto": "Alcoolismo é um termo amplo para descrever qualquer consumo de álcool que cause problemas de saúde físicos ou mentais. Em medicina, o alcoolismo define-se pela presença de duas ou mais das seguintes condições: consumo de grande quantidade de álcool durante um longo período de tempo, dificuldade em consumir poucas quantidades, a aquisição e consumo de álcool ocupam uma parte significativa...",
+        "peso": 1
+    },
+    "alimentação e câncer": {
+        "texto": "A relação entre a alimentação e a ocorrência de câncer em seres humanos tem ganho notoriedade à medida que novas pesquisas apontam que os hábitos dos indivíduos têm mais relevância na ocorrência da doença do que os fatores genéticos. Pode-se afirmar que, de maneira geral, os estudos realizados indicam que uma dieta vegetariana, ou mesmo uma dieta rica em vegetais,...",
+        "peso": 1
+    },
+    "abscesso": {
+        "texto": "Abcesso (português europeu) ou abscesso (português brasileiro) é um acúmulo de pus que se forma no interior dos tecidos do corpo. Os sinais e sintomas incluem vermelhidão, dor, sensação de calor e inchaço. Quando pressionado, o inchaço pode parecer líquido. A área vermelha muitas vezes prolonga-se para fora do inchaço. Os carbúnculos e os furúnculos são dois tipos de abcesso...",
+        "peso": 1
+    },
+    "adoçante": {
+        "texto": "Adoçantes ou edulcorantes são substâncias de baixo ou inexistente valor energético que proporcionam, a um alimento, o gosto doce. Além da sacarose, são largamente utilizados a sacarina, ciclamato e taumatina, que são moléculas bastantes distintas dos glicídios naturais.",
+        "peso": 1
+    },
+    "agente antiespuma": {
+        "texto": "Um agente antiespuma, ou simplesmente antiespumante, é um aditivo alimentar que intenciona inibir a efusão e a efervescência durante o preparo e consumo de um alimento. Os agentes antiespuma estão incluídos em uma grande variedade de alimentos como os refrigerantes e empanados — na forma de polidimetilsiloxano, para evitar a produção demasiada de bolhas durante a fritura. São também utilizados...",
+        "peso": 1
+    },
+    "abscesso esplênico": {
+        "texto": "Abscesso esplênico é o abscesso no baço. Sua origem pode estar relacionada a episódios de bacteremia após infarto esplênico. Doenças como tuberculose, SIDA, neoplasias ou qualquer condição que leve à imunossupressão são capazes de alterar a apresentação clínica deste tipo de abscesso.",
+        "peso": 1
+    },
+    "robô": {
+        "texto": "Um robô é um dispositivo, ou grupo de dispositivos, eletromecânicos capazes de realizar trabalhos de maneira autônoma ou pré-programada. Os robôs são comumente utilizados na realização de tarefas em locais mal iluminados, ou na realização de tarefas sujas ou perigosas para os seres humanos. Os robôs industriais utilizados nas linhas de produção são a forma mais comum de robôs, uma...",
+        "peso": 1
+    },
+    "a origem das espécies": {
+        "texto": "A Origem das Espécies é uma obra de literatura científica escrita por Charles Darwin, que é considerada a base da biologia evolutiva. Publicado em 24 de novembro de 1859, ele introduziu a teoria científica de que as formas de vida evoluem ao longo das gerações por meio de um processo de seleção natural. O livro apresentou evidências de que a...",
+        "peso": 1
+    },
+    "abundância ecológica": {
+        "texto": "Em ecologia, a abundância é a representação relativa de uma espécie em um determinado ecossistema. Geralmente, é medida como o número de indivíduos encontrados por amostra. A proporção da abundância de uma espécie em relação a uma ou várias outras espécies que vivem em um ecossistema é chamada de abundância relativa de espécies. Ambos os indicadores são relevantes para os...",
+        "peso": 1
+    },
+    "alexandre-emile béguyer de chancourtois": {
+        "texto": "Alexandre-Émile Béguyer de Chancourtois foi geólogo francês. Sua principal contribuição foi a de observar a periodicidade dos elementos químicos. Foi um dos primeiros a classificar os elementos e assim formar uma tabela periódica.",
+        "peso": 1
+    },
+    "alquimia": {
+        "texto": "Alquimia é uma teoria científica obsoleta, também considerada uma pseudociência, desenvolvida na Idade Média. Esta, possuía quatro objetivos principais, relacionados ao misticismo e ao oculto. Apesar de não ter se originado neste período, por vezes, a alquimia é considerada a \"química da Idade Média\".",
+        "peso": 1
+    },
+    "abordagem de capacidade": {
+        "texto": "O abordagem de capacidade é uma abordagem normativa bem-estar isso se concentra na capacidade real das pessoas de alcançar vidas que valorizam, em vez de apenas ter um direito ou liberdade para fazê-lo (perspectiva). Foi concebido na década de 1980 como uma abordagem alternativa para economia do bem-estar.",
+        "peso": 1
+    },
+    "adam smith": {
+        "texto": "Adam Smith foi um filósofo e economista escocês, que teve como cenário para a sua vida o atribulado Século das Luzes, o século XVIII.",
+        "peso": 1
+    },
+    "agenda": {
+        "texto": "Agenda é um pequeno caderno onde o usuário faz as anotações de compromissos e horários e informações diversas.",
+        "peso": 1
+    },
+    "abraham maslow": {
+        "texto": "Abraham Harold Maslow foi um psicólogo americano, conhecido pela proposta Hierarquia de necessidades de Maslow. Maslow era o mais velho de sete irmãos, de uma família judia do Brooklyn, Nova Iorque, Trabalhou no MIT, fundando o centro de pesquisa National Laboratories for Group Dynamics.",
+        "peso": 1
+    },
+    "academia chinesa de ciências": {
+        "texto": "A Academia Chinesa de Ciências Sociais (ACCS), com origens históricas na Academia Sinica durante a era da República da China, é a principal organização de pesquisa acadêmica na República Popular da China na área de filosofia e ciências sociais, tendo como objetivo avançar e inovar a pesquisa científica de filosofia, ciências sociais e política. Foi descrita pela revista Foreign Policy...",
+        "peso": 1
+    },
+    "abstração (matemática)": {
+        "texto": "Em matemática, abstração é o processo de extrair a essência fundamental de um conceito matemático, removendo qualquer dependência do mundo real os objetos com os quais se pode originalmente ter estado ligado, e generalizando para que ele tenha mais aplicações ou correspondências entre outras descrições abstratas de equivalente fenômenos. Duas das mais abstratas áreas da matemática moderna são teoria das...",
+        "peso": 1
+    },
+    "amd64": {
+        "texto": "AMD64, é a extensão 64 bits do conjunto de instruções x86 em processadores anunciado em 1999. A especificação original foi desenhada pela AMD e é utilizada pelos processadores da AMD, da Intel, da VIA, e outros.",
+        "peso": 1
+    },
+    "api": {
+        "texto": "Apicultura é a ciência, ou arte, da criação de abelhas com ferrão. Trata-se de um ramo da zootecnia. A criação racional de abelhas para o lazer, ou fins comerciais, pode ter como objetivo, por exemplo, a produção de mel, própolis, geleia real, pólen, cera de abelha e veneno, ou mesmo fazer parte de um projeto de paisagismo, no Brasil não...",
+        "peso": 1
+    },
+    "acetilcoenzima a": {
+        "texto": "A acetilcoenzima A (Acetil-CoA) é um composto intermediário chave no metabolismo celular, constituído de um grupo acetilo, de dois carbonos, unidos de maneira covalente a coenzima A. A Acetil-CoA é resultado da oxidação total de moléculas orgânicas como o piruvato, ácidos graxos e aminoácidos.",
+        "peso": 1
+    },
+    "acelerador eletrostático": {
+        "texto": "Um acelerador eletrostático é um tipo de acelerador de partículas no qual partículas carregadas ganham energia cinética por meio de um campo elétrico produzido por uma grande diferença de potencial.",
+        "peso": 1
+    },
+    "acelerador linear": {
+        "texto": "Um acelerador linear é um tipo de acelerador de partículas no qual partículas carregadas percorrem uma trajetória retilínea, diferentemente de aceleradores circulares ou recirculados.",
+        "peso": 1
+    },
+    "acelerador linear de partículas": {
+        "texto": "Um acelerador linear é um tipo de acelerador de partículas no qual partículas carregadas percorrem uma trajetória retilínea, diferentemente de aceleradores circulares ou recirculados.",
+        "peso": 1
+    },
+    "agenda eletrônica": {
+        "texto": "Uma Agenda Eletrônica é um pequeno computador do tamanho de uma calculadora, frequentemente contendo função interna de diário, entre outras funções, tais como livro de endereços e calendário. Normalmente, possuem um pequeno teclado alfanumérico e uma tela LCD de uma, duas ou três linhas.",
+        "peso": 1
+    },
+    "agendamento": {
+        "texto": "A Hipótese do Agendamento foi formulada por Maxwell McCombs e Donald Shaw na década de 1970. Essa hipótese propõe a ideia de que os consumidores de notícias tendem a considerar mais importantes os assuntos que são veiculados com maior destaque na cobertura jornalística. Assim, no Agenda-setting, as notícias veiculadas na imprensa, se não necessariamente determinam o que as pessoas pensam...",
+        "peso": 1
+    },
+    "curso": {
+        "texto": "A palavra curso pode se referir a:Curso de água; Curso (navegação), o caminho da viagem; Curso (educação), termo acadêmico para a duração de uma instrução de certa(s) matéria(s); Curso (medicina), evacuação alvina do intestino humano, patológica ou normal;",
+        "peso": 1
+    },
+    "curso de água": {
+        "texto": "Curso de água, curso-d'água ou fluxo de água é qualquer corpo de água fluente, como rios, córregos, riachos, regatos, ribeiros, ribeirões, dentre outros.",
+        "peso": 1
+    },
+    "cursus": {
+        "texto": "Cursus :Cursus — um tipo de monumentos neolíticos em ilhas britânicas. Cursus ou Cursus publicus — sistema de transporte governamental na Roma Antiga, pré-imagem do posto moderno. Cursus velox — transporte rápido. Cursus clabularis — transporte pesado. Cursus — um padrão rítmico no final da frase em latim tardio : Cursus planus — padrão \"— x x — x\". Cursus...",
+        "peso": 1
+    },
+    "anidrita": {
+        "texto": "Anidrita ou anidrite é um mineral composto por sulfato de cálcio anidro, de fórmula química CaSO₄. Seu nome deriva do grego an (sem) e hydor (água), em referência à ausência de água em sua estrutura cristalina, diferenciando-se da gipsita, que é a forma hidratada.",
+        "peso": 1
+    },
+    "anião": {
+        "texto": "Um ânion (português brasileiro) ou anião (português europeu) é um íon com carga negativa. Eles são ametais que se ligam a metais formando a ligação iônica, quando em ligação, esses ametais, por terem alta eletronegatividade, tendem a atrair elétrons do metal com o qual está se ligando, então esse metal se transforma num cátion, pois perde elétrons e esse ametal...",
+        "peso": 1
+    },
+    "antimonato": {
+        "texto": "O antimônio (português brasileiro) ou antimónio (português europeu), também chamado estíbio, é um elemento químico de símbolo Sb de número atômico 51 e de massa atómica igual a 121,75 u. À temperatura ambiente, o antimônio encontra-se no estado sólido. O símbolo Sb é uma abreviatura do seu nome na língua latina, Stibium, convencionalmente abreviado Sb.",
+        "peso": 1
+    },
+    "aliteração": {
+        "texto": "A aliteração é uma figura de linguagem que consiste na reiteração de um mesmo fonema ou traço distintivo consonântico ao longo de um enunciado. Ela vem sendo considerada recurso fônico de intensificação.",
+        "peso": 1
+    },
+    "antiarte": {
+        "texto": "Antiarte é um termo usado livremente aplicado a uma série de conceitos e atitudes que rejeitam definições anteriores de arte e questionam a arte em geral. De forma um tanto paradoxal, a antiarte tende a conduzir esse questionamento e rejeição do ponto de vista da arte. O termo está associado ao dadaísmo e é geralmente aceito como atribuível a Marcel...",
+        "peso": 1
+    },
+    "aquífero": {
+        "texto": "Um aquífero é um conjunto de formações geológicas que pode armazenar água subterrânea. São rochas porosas e permeáveis, capazes de reter água e de cedê-la. Esses reservatórios móveis aos poucos abastecem rios e poços artesianos. Podem ser utilizados pelo ser humano como fonte de água para consumo. Tal como ocorre com as águas superficiais, demandam cuidados para evitar a sua...",
+        "peso": 1
+    },
+    "anacoluto": {
+        "texto": "Anacoluto é uma figura de linguagem em que, segundo a retórica clássica, na mesma frase, uma expressão não se liga a outra pelas regras da sintaxe, ou em que não há solução de continuidade.",
+        "peso": 1
+    },
+    "anadiplose": {
+        "texto": "Anadiplose é a figura de linguagem que consiste na repetição da última palavra ou expressão de uma oração ou frase no início da seguinte, com intenção de realce. Existem dois tipos de anadiplose: oblíqua e cárnea.",
+        "peso": 1
+    },
+    "anagrama": {
+        "texto": "Um anagrama é uma espécie de jogo de palavras criado com a reorganização das letras de uma palavra ou expressão para produzir outras palavras ou expressões, utilizando todas as letras originais exatamente uma vez. Exemplos amplamente conhecidos são Iracema e América e amor e Roma. Outro exemplo é o prenome da escritora brasileira Nélida Piñón, anagrama do prenome de seu...",
+        "peso": 1
+    },
+    "anfibologia": {
+        "texto": "A anfibologia é considerada um vício de linguagem que vem a ser, na lógica e na linguística moderna, um sinônimo de ambiguidade, isto é, a duplicidade de sentido em uma construção sintática. Um enunciado é ambíguo e, portanto, anfibológico quando permite mais de uma interpretação. É a falta de clareza que acarreta duplo sentido; em suma, significado duvidoso",
+        "peso": 1
+    },
+    "antonomásia": {
+        "texto": "Antônio Maria Araújo de Morais foi um cronista e compositor brasileiro. Muito além, foi o primeiro \"multimídia\" brasileiro. destacando-se também como locutor esportivo, jornalista, apresentador, produtor, diretor de rádio e televisão e, finalmente, boêmio. É considerado um dos reis do samba-canção, tendo também composto polcas, frevos, marchinhas de carnaval, valsas e sambas. Morto prematuramente aos 43 anos, foi uma das...",
+        "peso": 1
+    },
+    "antífrase": {
+        "texto": "A antífrase é uma figura de linguagem, facilmente confundida com as figuras da ironia, sarcasmo, eufemismo e sátira, e consiste na utilização de uma palavra com o sentido contrário àquele que tem normalmente. Camões refere este recurso estilístico de forma explícita na sua Canção IX: \"Junto a um seco, fero e estéril monte, (...) Cujo nome do vulgo introduzido, /...",
+        "peso": 1
+    },
+    "autoconhecimento": {
+        "texto": "O autoconhecimento ou conhecimento de si é a investigação de si mesmo. Ele envolve o uso da autoconsciência e o desenvolvimento da autoimagem. Também pode ser um projeto ético, quando o que se busca é a realização de algo que leve o sujeito a ser mestre de si mesmo e, consequentemente, um ser humano melhor. O autoconhecimento pode ser obtido...",
+        "peso": 1
+    },
+    "alongamento": {
+        "texto": "O alongamento é uma forma de exercício físico em que um músculo ou tendão específico é deliberadamente flexionado ou alongado para melhorar a elasticidade sentida do músculo e obter um tônus ​​​​muscular confortável. O resultado é uma sensação de maior controle muscular, flexibilidade e amplitude de movimento. O alongamento também é usado terapeuticamente para aliviar cãibras e melhorar a função...",
+        "peso": 1
+    },
+    "sono": {
+        "texto": "Sono é um estado sedentário da mente e do corpo. É caracterizada por consciência alterada, atividade sensorial relativamente inibida, atividade muscular reduzida e interações reduzidas com o ambiente. Distingue-se da vigília por uma capacidade diminuída de reagir a estímulos, mas mais reativa do que um coma ou distúrbios da consciência, com o sono exibindo diferentes padrões cerebrais ativos.",
+        "peso": 1
+    },
+    "linux": {
+        "texto": "Linux, também chamado de GNU/Linux, é uma família de sistemas operacionais que utilizam o núcleo Linux, desenvolvido pelo programador finlandês Linus Torvalds, inspirado no sistema operacional Minix. O seu código-fonte está disponível sob a licença GPLv2 para que qualquer pessoa o possa utilizar, estudar, modificar e distribuir livremente de acordo com os termos da licença. O Projeto GNU, a Free...",
+        "peso": 1
+    },
+    "amor": {
+        "texto": "Amor é uma emoção ou sentimento que leva uma pessoa a desejar o bem a outra pessoa ou a uma coisa. O uso do vocábulo, contudo, lhe empresta outros tantos significados, quer comuns, quer conforme a ótica de apreciação, tal como nas religiões, na filosofia e nas ciências humanas. O amor possui um mecanismo biológico que é determinado pelo sistema...",
+        "peso": 1
+    },
+    "autoestima": {
+        "texto": "Autoestima é a avaliação subjetiva que um índividuo faz de si mesmo como sendo intrinsecamente positiva ou negativa em algum grau. A autoestima envolve tanto crenças autossignificantes como emoções autossignificantes associadas. Também encontra expressão no comportamento.",
+        "peso": 1
+    },
+    "comunicação não violenta": {
+        "texto": "A comunicação não violenta é um processo de pesquisa contínua desenvolvido por Marshall Bertram Rosenberg e uma equipe internacional de colegas, que apoia o estabelecimento de relações de parceria e cooperação, em que predomina comunicação eficaz e com empatia. Enfatiza a importância de determinar ações à base de valores comuns.",
+        "peso": 1
+    },
+    "primeiros socorros": {
+        "texto": "De acordo com a Federação Internacional das Sociedades da Cruz Vermelha e do Crescente Vermelho, define-se os primeiros socorros como a prestação e assistência médica imediata a uma pessoa ou uma ferida até à chegada de ajuda profissional. Centra-se não só no dano físico ou de doença, mas também no atendimento inicial, incluindo o apoio psicológico para pessoas que sofrem...",
+        "peso": 1
+    },
+    "freelancer": {
+        "texto": "Freelancer, também conhecido popularmente no Brasil pelas expressões ou gírias freela ou frila, é o termo inglês para denominar o trabalhador autônomo que se autoemprega em diferentes empresas ou, ainda, guia seus trabalhos por projetos, captando e atendendo seus clientes de forma independente. É uma tendência muito em alta no mercado de tradutores, relações públicas, jornalismo, design, propaganda, Web, tecnologia...",
+        "peso": 1
+    },
+    "solidão": {
+        "texto": "Solidão é o estado de quem se encontra ou se sente desacompanhado, só. Um dos primeiros usos a serem gravados da palavra \"solitário\" está na tragédia Coriolanus, Ato IV Cena 1, de William Shakespeare, escrita em 1608.",
+        "peso": 1
+    },
+    "obesidade": {
+        "texto": "Obesidade é uma condição médica em que se verifica acumulação excessiva de tecido adiposo ao ponto de poder ter impacto negativo na saúde. Uma pessoa é considerada obesa quando o seu índice de massa corporal (IMC) é superior a 30 kg/m2, e com excesso de peso quando o seu IMC é superior a 25–30 kg/m2. O IMC é calculado dividindo...",
+        "peso": 1
+    },
+    "programação": {
+        "texto": "Programação é o processo de escrita, teste e manutenção de um programa de computador. O programa é escrito em uma linguagem de programação, embora seja possível, com alguma dificuldade, o escrever diretamente em linguagem de máquina. Diferentes partes de um programa podem ser escritas em diferentes linguagens.",
+        "peso": 1
+    },
+    "insônia": {
+        "texto": "Insónia (português europeu) ou insônia (português brasileiro) é uma perturbação do sono caracterizada por dificuldade em adormecer ou manter-se adormecido durante o tempo desejado. No dia seguinte, a pessoa geralmente apresenta sonolência, falta de energia, irritabilidade e depressão. As insónias podem aumentar o risco de acidentes rodoviários e problemas de concentração e aprendizagem. As insónias podem ser de curta duração,...",
+        "peso": 1
+    },
+    "investimento": {
+        "texto": "Em economia, em linhas gerais, investimento significa a aplicação de capital com a expectativa de um benefício futuro.",
+        "peso": 1
+    },
+    "promoção": {
+        "texto": "No campo da publicidade, promoção é qualquer ato que venha a elevar o status de um produto, indivíduo, situação, empresa etc. Não precisa envolver necessariamente remuneração prévia ou acordada. Promoção é um ramo direto da publicidade, do marketing, de relações públicas e do jornalismo, sendo este último num âmbito mais moderado e imparcial.",
+        "peso": 1
+    },
+    "meditação": {
+        "texto": "A meditação pode ser definida como uma prática na qual o indivíduo utiliza técnicas para focar sua mente num objeto, pensamento ou atividade em particular, visando alcançar um estado de clareza mental e emocional. Sua origem é muito antiga, remontando as tradições orientais, especialmente a ioga, mas o termo também se refere a práticas adotadas por alguns caminhos espirituais ou...",
+        "peso": 1
+    },
+    "trauma": {
+        "texto": "Trauma transgeracional são os efeitos psicológicos e fisiológicos que o trauma experimentado por pessoas tem sobre as gerações subsequentes daquele grupo. O principal modo de transmissão é o ambiente familiar compartilhado do infante, causando alterações psicológicas, comportamentais e sociais no indivíduo.",
+        "peso": 1
+    },
+    "demissão": {
+        "texto": "Demissão ou desligamento é o termo aplicado para a rescisão de uma atividade remunerada. Trata-se de uma prática que pode ser adotada por parte das empresas na busca de competitividade em tempos de globalização. Neste sentido, outros métodos de reorganização das empresas e que implicam em algum tipo de corte de pessoal têm sido adotados, sendo os mais comuns: downsizing,...",
+        "peso": 1
+    },
+    "instagram": {
+        "texto": "Instagram é uma rede social online de compartilhamento de fotos e vídeos entre os seus usuários, que permite aplicar filtros digitais e compartilhá-los em uma variedade de serviços de redes sociais, como Facebook, Twitter, Tumblr e Flickr. Originalmente, uma característica distintiva era a limitação das fotos para uma forma quadrada, semelhante ao Kodak Instamatic e de câmeras Polaroid, em contraste...",
+        "peso": 1
+    },
+    "celular": {
+        "texto": "Telefone celular, telefone móvel, telemóvel ou simplesmente celular, é um telefone portátil que pode fazer e receber chamadas através de um link de radiofrequência enquanto o usuário está se movendo dentro de uma área de serviço telefônico, em oposição a um telefone fixo. A ligação de radiofrequência estabelece uma conexão com os sistemas de comutação de uma operadora de telefonia...",
+        "peso": 1
+    },
+    "dieta": {
+        "texto": "Dieta refere-se à gama de hábitos ou regimes alimentares individuais e coletivos. Diferentes pessoas ou grupos de pessoas possuem uma dieta específica. Cada cultura costuma caracterizar-se por dietas particulares. Contudo, popularmente, o emprego da palavra \"dieta\" está associado a uma forma de conter o peso e/ou manter a saúde em boas condições.",
+        "peso": 1
+    },
+    "hidratação": {
+        "texto": "Hidratação essencialmente é a reposição de água no organismo, mantendo sua composição corporal. A água representa cerca de 60% do peso corporal de um adulto. A hidratação pode ser realizada por via oral ou intravenosa.",
+        "peso": 1
+    },
+    "respeito": {
+        "texto": "Respeito é um sentimento positivo ou uma ação de apreciação, estima e deferência por uma pessoa ou instituição. É demonstrado em relação a alguém ou algo considerado importante ou tido em alta estima ou consideração. Transmite um sentimento de admiração por qualidades boas ou valiosas. É também o processo de honrar alguém demonstrando cuidado, preocupação ou consideração por suas necessidades...",
+        "peso": 1
+    },
+    "redes sociais": {
+        "texto": "Rede social é uma estrutura de relações sociais composta por pessoas, grupos ou organizações, conectadas por um ou vários tipos de relações que variam em interação, intensidade, duração e função.",
+        "peso": 1
+    },
+    "medicina": {
+        "texto": "Medicina é uma das muitas áreas do conhecimento ligada à manutenção e restauração da saúde. Ela trabalha, num sentido amplo, com a prevenção e cura das doenças humanas e animais num contexto médico. Lida com ações de saúde pública e ambiental, incluindo a saúde animal, promoção, prevenção, controle, erradicação e tratamento das doenças, traumatismos ou qualquer outro agravo à integridade...",
+        "peso": 1
+    },
+    "motivação": {
+        "texto": "A motivação é o que explica por que pessoas ou animais iniciam, continuam ou terminam um certo comportamento em um momento determinado. Os estados motivacionais são comumente entendidos como forças atuantes dentro do agente que criam uma disposição para se envolver em um comportamento direcionado a um objetivo. Frequentemente, afirma-se que diferentes estados mentais competem entre si e que apenas...",
+        "peso": 1
+    },
+    "negociação": {
+        "texto": "Negociação é “um processo de comunicação.\"",
+        "peso": 1
+    },
+    "currículo": {
+        "texto": "Na educação, um currículo é amplamente definido como a totalidade das experiências dos alunos que ocorrem no processo educacional. O termo geralmente se refere especificamente a uma sequência planejada de instrução ou a uma visão das experiências do aluno em termos dos objetivos instrucionais do educador ou da escola. Um currículo pode incorporar a interação planejada dos alunos com o...",
+        "peso": 1
+    },
+    "ansiedade": {
+        "texto": "A ansiedade é uma emoção caracterizada por um estado desagradável de agitação interior, muitas vezes acompanhada de comportamento nervoso, como o de se embalar de trás para a frente. É o sentimento desagradável de terror por eventos antecipados, tal como a sensação de morte iminente. Ansiedade é um sentimento vago e desagradável de medo, apreensão, caracterizado por tensão ou desconforto...",
+        "peso": 1
+    },
+    "exercício": {
+        "texto": "Exercício pode se referir a :Exercício (contabilidade) Demonstração do resultado do exercícioExercício físico Exercício anaeróbicoExercícios espirituais inacianosO Exercício das Pequenas Coisas",
+        "peso": 1
+    },
+    "abuso narcisista": {
+        "texto": "Abuso narcisista foi originalmente definido como uma forma específica de abuso emocional de crianças por pais narcisistas – pais que exigem que a criança desista de seus próprios desejos e sentimentos para atender às suas necessidades. O termo surgiu no final do século XX devido às obras de Alice Miller e outros neo-freudianos, rejeitando a psicanálise como sendo semelhante à...",
+        "peso": 1
+    },
+    "acesso privilegiado": {
+        "texto": "Em epistemologia, e em filosofia da mente, se diz que a primeira pessoa tem acesso privilegiado aos seus próprios pensamentos. Isso significa que a primeira pessoa acessa (e conhece seus próprios pensamentos de uma maneira que a terceira pessoa não acessam. O acesso privilegiado pode ser caracterizado de duas maneiras:Caracterização positiva: O acesso privilegiado decorre da introspecção. Caracterização negativa: O...",
+        "peso": 1
+    },
+    "agostinho de hipona": {
+        "texto": "Aurélio Agostinho de Hipona, conhecido universalmente como Santo Agostinho, foi um dos mais importantes teólogos e filósofos nos primeiros séculos do cristianismo, cujas obras foram muito influentes no desenvolvimento do cristianismo e filosofia ocidental. Foi bispo de Hipona, uma cidade na província romana da África. Escrevendo na era patrística, é amplamente considerado como o mais importante dos Padres da Igreja...",
+        "peso": 1
+    },
+    "acédia": {
+        "texto": "Acédia é uma emoção humana, definida de várias maneiras como um estado de apatia ou torpor, de não se importar ou não se preocupar com a própria posição ou condição no mundo. Na Grécia antiga, acédia significava literalmente um estado inerte sem dor ou cuidado. Os primeiros monges cristãos usaram o termo para definir um estado espiritual de apatia e,...",
+        "peso": 1
+    },
+    "adolf hitler": {
+        "texto": "Adolf Hitler ; Braunau am Inn, 20 de abril de 1889 – Berlim, 30 de abril de 1945) foi um político alemão que serviu como líder do Partido Nazista, Chanceler do Reich e Führer (\"líder\") da Alemanha Nazista de 1934 até 1945. Como ditador do Reich Alemão, ele foi o principal instigador da Segunda Guerra Mundial na Europa e figura...",
+        "peso": 1
+    },
+    "adão e eva": {
+        "texto": "Segundo o mito de criação das religiões abraâmicas, Adão e Eva foram o primeiro homem e a primeira mulher criados por Deus, sendo o centro da crença na humanidade como essencialmente uma única família, com todos descendendo de um par original de ancestrais. Proveem também a base das doutrinas da queda do homem e do pecado original, embora estas não...",
+        "peso": 1
+    },
+    "antídoto": {
+        "texto": "Antídoto ou contraveneno é uma substância ou mistura que neutraliza os efeitos de um veneno.",
+        "peso": 1
+    },
+    "anvisa": {
+        "texto": "Agência Nacional de Vigilância Sanitária (Anvisa) é uma agência reguladora brasileira, sob a forma de autarquia de regime especial, vinculada ao Ministério da Saúde. A agência exerce o controle sanitário de todos os produtos e serviços submetidos à vigilância sanitária, tais como medicamentos, alimentos, cosméticos, saneantes, derivados do tabaco, produtos médicos, sangue, hemoderivados e serviços de saúde.",
+        "peso": 1
+    },
+    "animador": {
+        "texto": "Um animador é um artista que cria múltiplas imagens, chamadas de quadros, que dão a ilusão de movimento chamada animação quando mostrados em uma sequência rápida. Animadores podem trabalhar em uma variedade de campos, incluindo filmes, televisão e videogames. A animação é fortemente relacionada com a produção cinematográfica e tal qual, requer trabalho intensivo, o que significa que trabalhos proeminentes...",
+        "peso": 1
+    },
+    "amitriptilina": {
+        "texto": "Na química e na farmácia, a amitriptilina é um antidepressivo tricíclico utilizado para tratar várias condições que afectam o sistema nervoso central; entre elas estão principalmente a depressão e problemas de ansiedade, prevenção de enxaquecas, cefaleias de tensão, controlo da dor neuropática. Para além disso, é utilizado em casos de insónia, fibromialgia, síndrome do cólon irritável e, também enurese, entre...",
+        "peso": 1
+    },
+    "anfetamina": {
+        "texto": "Anfetamina é uma droga simpatomimética que têm a estrutura química básica da beta-fenetilamina. Sob esta designação, existem três categorias de drogas sintéticas que diferem entre si do ponto de vista químico. Algumas anfetaminas substituídas são a dextroanfetamina e a metanfetamina. A anfetamina é uma droga estimulante do sistema nervoso central, que provoca o aumento das capacidades físicas e psíquicas.",
+        "peso": 1
+    },
+    "administração financeira": {
+        "texto": "Administração financeira ou gestão financeira é o processo organizacional que trata dos assuntos relacionados à administração das finanças de empresas e organizações. Trata-se de um ramo privativo à administração.",
+        "peso": 1
+    },
+    "agnosticismo": {
+        "texto": "Agnosticismo é a doutrina ou posição filosófica que afirma que a existência de algo além dos fenômenos da experiência, como Deus, é inacessível ao conhecimento humano. O termo também pode ser usado para descrever uma atitude de suspensão do julgamento sobre questões fundamentais devido a evidências insuficientes, ou como uma rejeição dos princípios cristãos tradicionais sem necessariamente adotar uma posição...",
+        "peso": 1
+    },
+    "alex grey": {
+        "texto": "Alex Grey, é um artista americano especialista em arte espiritual e psicodélica ou arte visionária que é por vezes associados com o movimento da Nova Era. Grey é praticante da Vajrayana. Seus trabalhos de arte se estendem a uma variedade de formas, inclucindo performance, Process Art, arte de instalações, esculturas, Visionary Art e pintura.",
+        "peso": 1
+    },
+    "altar": {
+        "texto": "Altar, do latim altare ou ara é plataforma alta semelhante a uma mesa constituída por uma rocha, elevação ou outra estrutura que possibilite ao sacerdote, líder ou mentor espiritual, sacrificar à divindade, ou divindades, em um templo religioso ou local sagrado.",
+        "peso": 1
+    },
+    "telefone celular": {
+        "texto": "Telefone celular, telefone móvel, telemóvel ou simplesmente celular, é um telefone portátil que pode fazer e receber chamadas através de um link de radiofrequência enquanto o usuário está se movendo dentro de uma área de serviço telefônico, em oposição a um telefone fixo. A ligação de radiofrequência estabelece uma conexão com os sistemas de comutação de uma operadora de telefonia...",
+        "peso": 1
+    },
+    "alimentação forçada": {
+        "texto": "Alimentação forçada ou gavagem é a prática de alimentar é o método de introdução de alimentos líquidos no estômago através de um tubo colocado pelo nariz ou boca. Usado para alimentação de recém-nascidos ou animais de experimentação.",
+        "peso": 1
+    },
+    "alimento adulterado": {
+        "texto": "Alimento adulterado é o alimento cuja produção envolve ações com intuito de modificá-lo, tentando manter ou simular suas características únicas, sem alterar sua aparência. Considera-se também adulteração de alimentos a inclusão involuntária de substâncias estranhas a sua composição, em virtude de desconhecimento ou por falhas no controle do processamento dos produtos alimentícios.",
+        "peso": 1
+    },
+    "alma gêmea": {
+        "texto": "Alma gêmea (português brasileiro) ou Alma gémea (português europeu) está ligada a uma conexão entre pessoas onde há sobretudo afinidade. Isto pode ser relacionado com a similaridade, o amor, romance, a intimidade, sexualidade, espiritualidade, compatibilidade e confiança.",
+        "peso": 1
+    },
+    "altruísmo": {
+        "texto": "Altruísmo é a preocupação com o bem-estar dos outros, independentemente de benefício pessoal ou reciprocidade.",
+        "peso": 1
+    },
+    "amizade colorida": {
+        "texto": "Amizades coloridas ou \"amigos com benefícios\" são termos que descrevem relacionamentos em que duas pessoas se envolvem sexual e/ou romanticamente sem compromissos sérios ou a expectativa de um relacionamento amoroso tradicional ou convencional. Embora ambos os conceitos descrevam relações casuais, eles podem ser usados de maneira um pouco diferente, dependendo da cultura e do contexto.",
+        "peso": 1
+    },
+    "exercício anaeróbico": {
+        "texto": "O exercício anaeróbico é qualquer atividade física que trabalhe diversos grupos musculares durante um determinado e constante período de tempo, de forma contínua. O treino anaeróbico melhora significativamente o funcionamento do coração, pulmões e todo o sistema cardiovascular contribuindo para uma entrega de oxigênio mais rápida por todo o nosso corpo.",
+        "peso": 1
+    },
+    "exercício físico": {
+        "texto": "O exercício físico é qualquer atividade que mantém ou aumenta a aptidão física em geral, e tem o objetivo de alcançar a saúde e também a recreação. O motivo da prática de exercícios inclui: o reforço da musculatura e do sistema cardiovascular; o aperfeiçoamento das habilidades atléticas; a perda de peso e/ou a manutenção de alguma parte do corpo.",
+        "peso": 1
+    },
+    "exercícios espirituais inacianos": {
+        "texto": "Exercícios Espirituais, segundo o santo católico Inácio de Loyola, são \"qualquer modo de examinar a consciência, meditar, contemplar, orar vocal ou mentalmente e outras atividades espirituais Porque, assim como passear, caminhar e correr são exercícios corporais também se chamam exercícios espirituais os diferentes modos de a pessoa se preparar e dispor para tirar de si todas as afeições desordenadas e,...",
+        "peso": 1
+    },
+    "bombeiro": {
+        "texto": "Bombeiros são profissionais ou voluntários, que têm por missão humanitária o socorro a vítimas, combate a incêndios, prestação de socorro de emergência médica e pré-hospitalar, e várias tarefas de Proteção Civil⁣, em geral.",
+        "peso": 1
+    },
+    "akemi ôta": {
+        "texto": "Akemi Barbara Katsuki é uma modelo nipo-brasileira radicada em Taiwan. Akemi cresceu em Tóquio. Aos quinze anos iniciou a carreira como modelo. Atualmente, segue carreira ativa em Taiwan.",
+        "peso": 1
+    },
+    "andreas deja": {
+        "texto": "Andreas Deja é um animador teuto-americano nascido na Polônia mais conhecido pela sua especialidade em animar personagens dos estúdios Walt Disney Animation Studios. Créditos de Deja incluem design de personagens e supervisão de animação de personagens da Disney durante o período conhecido como Renascimento da Disney. Seus trabalhos incluem Rei Tritão em A Pequena Sereia, Gaston em Beauty and the...",
+        "peso": 1
+    },
+    "acordos de bretton woods": {
+        "texto": "O sistema de Bretton Woods de gestão monetária estabeleceu as regras para as relações comerciais entre 44 países, incluindo os Estados Unidos, Canadá, países europeus e Austrália, após o Acordo de Bretton Woods de 1944 até os Acordos da Jamaica em 1976. O sistema de Bretton Woods foi o primeiro exemplo de uma ordem monetária totalmente negociada destinada a governar...",
+        "peso": 1
+    },
+    "analista financeiro": {
+        "texto": "A análise financeira refere-se à avaliação ou estudo da viabilidade, estabilidade e capacidade de lucro de um negócio ou projeto. Engloba um conjunto de instrumentos e métodos que permitem realizar diagnósticos sobre a situação financeira de uma empresa, assim como prognósticos sobre o seu desempenho futuro.",
+        "peso": 1
+    },
+    "a. c. grayling": {
+        "texto": "Anthony Clifford ou AC Grayling (Luanshya, 3 de abril de 1949, é um filósofo, escritor, fundador e primeiro mestre do New College of the Humanities em Londres e membro supranumerário do St Anne's College, Oxford.",
+        "peso": 1
+    },
+    "alimento funcional": {
+        "texto": "Alimento funcional é todo alimento que produz efeitos metabólicos e/ou fisiológicos e/ou efeitos benéficos à saúde, quando consumidos usualmente e acompanhados por hábitos saudáveis.",
+        "peso": 1
+    },
+    "acidez": {
+        "texto": "Ácido, no âmbito da química, pode se referir a um composto capaz de transferir Íons (H+) numa reação química (vide ácido de Brønsted), podendo assim diminuir o pH de uma solução aquosa, ou a um composto capaz de formar ligações covalentes (vide ácido de Lewis) com um par de eléctrons. As bases são os análogos opostos aos ácidos.",
+        "peso": 1
+    },
+    "acidulante": {
+        "texto": "Acidulantes são substâncias adicionadas a gêneros alimentícios com a função de intensificar o gosto ácido (azedo) de alimentos acidulantes,no processamento de alimentos são usados ácidos orgânicos tais como ácido cítrico e inorgânicos como ácido fosfórico e outros. São adicionados, também, os sais desses ácidos, principalmente os sais de sódio para controle de pH e do gosto, assim como outras propriedades...",
+        "peso": 1
+    },
+    "exercício anaeróbio": {
+        "texto": "O exercício anaeróbico é qualquer atividade física que trabalhe diversos grupos musculares durante um determinado e constante período de tempo, de forma contínua. O treino anaeróbico melhora significativamente o funcionamento do coração, pulmões e todo o sistema cardiovascular contribuindo para uma entrega de oxigênio mais rápida por todo o nosso corpo.",
+        "peso": 1
+    },
+    "academia de ginástica": {
+        "texto": "Uma academia desportiva (português europeu) ou academia esportiva (português brasileiro), ginásio ou apenas academia é o local destinado ao ensino e à prática de esportes(pt-BR) ou desportos(pt), e dotados de equipamento específico para o trabalho do corpo humano.",
+        "peso": 1
+    },
+    "adenosina monofosfato": {
+        "texto": "O composto AMP, adenosina monofosfato ou monofosfato de adenosina é um nucleótido que é usado como monómero do RNA. Consiste num éster de ácido fosfórico com o nucleósido adenosina. É um composto de baixa energia, diferentemente de seus compostos di e trifosfatados ADP e ATP, respectivamente. Considerando esses dois últimos compostos como as verdadeiras moedas energéticas da célula, o AMP...",
+        "peso": 1
+    },
+    "alimento processado": {
+        "texto": "Alimento processado, ou alimento industrializado, é o alimento que é comercialmente preparado, muitas vezes através de processamento, para otimizar a facilidade de consumo e \"torná-los mais atraentes para o consumidor.\"",
+        "peso": 1
+    },
+    "alimento zero": {
+        "texto": "Um alimento zero é caracterizado pela retirada de algum componente do alimento original, com redução das calorias nele contidas. Alimentos sólidos deste tipo devem possuir, no máximo, 40 calorias em 100 gramas e alimentos líquidos devem possuir, no máximo, 20 calorias por 100 mililitros.",
+        "peso": 1
+    },
+    "alimentos construtores": {
+        "texto": "Os alimentos construtores são os alimentos que têm a função de ajudar na construção dos tecidos do organismo. São ricos em proteínas.",
+        "peso": 1
+    },
+    "alimento congelado": {
+        "texto": "O congelamento de um alimento é um método comum de preservação de alimentos que diminui sua decomposição e, transformando a água em gelo, o torna inacessível ao crescimento de bactérias e diminui também as reações químicas.",
+        "peso": 1
+    },
+    "alimentos ultraprocessados": {
+        "texto": "Alimentos ultraprocessados são produtos alimentares e bebidas que sofreram tipos específicos de processamento de alimentos, geralmente por Empresas transnacionais e outras grandes corporações. Esses alimentos são projetados para serem \"convenientes, consumidos em movimento, hiperpalatáveis e atraentes para os consumidores e, o mais importante, o segmento mais lucrativo dos portfólios das empresas por causa do baixo custo dos ingredientes\".",
+        "peso": 1
+    },
+    "astecas": {
+        "texto": "Os astecas eram uma cultura mesoamericana que floresceu no centro do México no período pós-clássico, de 1300 a 1521. Os povos astecas incluíam diferentes grupos étnicos do México central, particularmente aqueles grupos que falavam a língua náuatle e dominaram grandes partes da Mesoamérica entre os séculos XIV ao XVI. A cultura asteca era organizada em cidades-Estados (altepetl), algumas das quais...",
+        "peso": 1
+    },
+    "empatia": {
+        "texto": "A empatia envolve três componentes: afetivo, cognitivo e reguladores de emoções. O componente afetivo baseia-se em compartilhar, e na compreensão de estados emocionais de outros. O componente cognitivo refere-se à capacidade de deliberar sobre os estados mentais de outras pessoas. A regulação das emoções lida com o grau das respostas empáticas. A empatia parte da perspectiva referencial que é pessoal...",
+        "peso": 1
+    },
+    "blockchain": {
+        "texto": "A blockchain é uma tecnologia de registro distribuído que visa a descentralização como medida de segurança. São bases de registros e dados distribuídos e compartilhados, que têm a função de criar um índice global para todas as transações que ocorrem em um determinado mercado. Funciona como um livro-razão, só que de forma pública, compartilhada e universal, permitindo mecanismos de consenso...",
+        "peso": 1
+    },
+    "colesterol": {
+        "texto": "Colesterol é um lipídio constituído por um álcool policíclico de cadeia longa, usualmente denominado um esteroide, encontrado nas membranas celulares e transportado por uma nanopartícula natural chamada \"LDL\" — popularmente conhecida como o \"mau colesterol\" — que insere as moléculas de colesterol no seu interior, possibilitando seu transporte através da corrente sanguínea pelo plasma sanguíneo de todos os animais. É...",
+        "peso": 1
+    },
+    "comunicação": {
+        "texto": "A comunicação é um processo que envolve a troca de informações entre dois ou mais interlocutores por meio de signos e regras semióticas mutuamente entendíveis. Trata-se de um processo social primário, que permite criar e interpretar mensagens que provocam uma resposta.",
+        "peso": 1
+    },
+    "imunidade": {
+        "texto": "Na biologia, a imunidade é definida como a capacidade de resistir a um agente causador de doença. A imunidade envolve componentes específicos e inespecíficos: os componentes inespecíficos atuam como barreiras ou eliminadores de uma ampla gama de patógenos, independentemente de sua composição antigênica. Outros componentes do sistema imunológico se adaptam a cada nova doença encontrada e podem gerar imunidade específica...",
+        "peso": 1
+    },
+    "whatsapp": {
+        "texto": "WhatsApp é um aplicativo multiplataforma de mensagens instantâneas e chamadas de voz para smartphones. Além de mensagens de texto, os usuários podem enviar imagens, vídeos e documentos em PDF, além de fazer ligações grátis por meio de uma conexão com a internet. O software está disponível para Android, BlackBerry OS, iOS, Symbian, Windows Phone e Nokia. A empresa com o...",
+        "peso": 1
+    },
+    "abuso": {
+        "texto": "Abuso indica um comportamento inadequado, excessivo, contrário aos costumes e à harmonia. Em sentido estrito, refere-se a abuso sexual.",
+        "peso": 1
+    },
+    "segurança digital": {
+        "texto": "A segurança digital consiste na não violação da confidencialidade, integridade e disponibilidade de autenticidade de documentos e dados pessoais.",
+        "peso": 1
+    },
+    "dívida": {
+        "texto": "Débito é o que se deve; geralmente se refere ao ativo, mas o termo pode cobrir outras obrigações. Em se tratando de ativos, dívida é a maneira de se usar um futuro poder de aquisição no presente antes de que uma soma tenha sido ganha. Ou seja, quando forma uma conta a ordem em qualquer banco, de acordo com o...",
+        "peso": 1
+    },
+    "dependência emocional": {
+        "texto": "Predefinição:Sem revisão Dependência emocional é um padrão psicológico caracterizado pela necessidade excessiva e persistente de aprovação, atenção e suporte emocional de outra pessoa, frequentemente em detrimento do próprio bem-estar e autonomia. O conceito tem sido estudado no âmbito da psicologia clínica e da psicoterapia, sendo associado a dificuldades nos relacionamentos interpessoais e a maior vulnerabilidade a relacionamentos abusivos.",
+        "peso": 1
+    },
+    "desemprego": {
+        "texto": "Desemprego, de acordo com a OCDE, é a proporção de pessoas acima de uma determinada idade que não estão em empregos remunerados ou trabalhando por conta própria, mas que estão disponíveis para trabalhar durante o período de referência.",
+        "peso": 1
+    },
+    "alegria": {
+        "texto": "A alegria é um sentimento de contentamento, de prazer de viver, júbilo, satisfação, exultação. Nas pessoas, costuma ser expressa através de sorrisos.",
+        "peso": 1
+    },
+    "depressão": {
+        "texto": "Depressão pós-parto (DPP), também conhecida como depressão perinatal, é um transtorno de humor que pode ser experimentado por mulheres grávidas ou pós-parto. Os sintomas incluem tristeza em trema, baixa energia, ansiedade, episódios de choro, irritabilidade e mudanças extremas em padrões de sono ou fome. DPP pode também afetar negativamente crianças recém nascidas.",
+        "peso": 1
+    },
+    "terapia": {
+        "texto": "Terapia ou terapêutica significa o tratamento para uma determinada doença. As terapias dependem do diálogo com um profissional da área, num processo que demanda investimento de tempo e de dinheiro. Segundo a Associação Americana de Psiquiatria, até 75% dos pacientes com algum distúrbio apresentam melhoras após as sessões de psicoterapia.",
+        "peso": 1
+    },
+    "vírus": {
+        "texto": "Vírus são pequenos agentes infecciosos, a maioria com 20-300 nm de diâmetro, apesar de existirem vírus ɡiɡantes de (0,6–1,5 µm), que apresentam genoma constituído de uma ou várias moléculas de ácido nucleico, as quais possuem a forma de fita simples ou dupla. Os ácidos nucleicos dos vírus geralmente apresentam-se revestidos por um envoltório proteico formado por uma ou várias proteínas,...",
+        "peso": 1
+    },
+    "cartão de crédito": {
+        "texto": "Cartão de crédito é uma forma de pagamento eletrônico. É um cartão de plástico que pode conter ou não um chip e apresenta na frente o nome do portador, número do cartão e data de validade e, no verso, um campo para assinatura do cliente, o número de segurança (CVV2) e a tarja magnética. A maioria de cartões de crédito...",
+        "peso": 1
+    },
+    "tristeza": {
+        "texto": "Tristeza é uma emoção e um sentimento muito típico dos seres humanos, caracterizado pela falta da alegria, ânimo, disposição e outras emoções de insatisfação.",
+        "peso": 1
+    },
+    "senha": {
+        "texto": "Senha, palavra-passe, palavra-chave ou password é uma palavra ou código secreto previamente convencionado entre as partes como forma de reconhecimento. Em sistemas de computação, senhas são amplamente utilizadas para autenticar usuários e conceder-lhes privilégios — para agir como administradores de um sistema, por exemplo ou permitir-lhes o acesso a informações personalizadas armazenadas no sistema.",
+        "peso": 1
+    },
+    "trabalho em equipe": {
+        "texto": "Trabalho em equipe ou trabalho de equipe é quando um grupo ou uma sociedade resolve criar um esforço coletivo para resolver um problema.",
+        "peso": 1
+    },
+    "raiva": {
+        "texto": "A raiva, é uma doença infecciosa que afeta os mamíferos causada pelo vírus da raiva que se instala e multiplica primeiro nos nervos periféricos e depois no sistema nervoso central e dali para as glândulas salivares, de onde se multiplica e propaga. Por ocorrer em animais e também afetar o ser humano, é considerada uma zoonose.",
+        "peso": 1
+    },
+    "banco de dados": {
+        "texto": "Na informática, banco de dados (português brasileiro) ou base de dados (português europeu) é um conjunto de arquivos ou dados relacionados, contendo registros sobre pessoas, lugares ou informações em geral, normalmente acessíveis de maneira eletrônica. É um tipo de armazenamento de dados baseado no uso de um sistema de gerenciamento de banco de dados (DBMS) - um software que interage...",
+        "peso": 1
+    },
+    "faculdade": {
+        "texto": "Faculdade é uma divisão dentro de uma universidade ou faculdade que compreende uma área temática ou um grupo de áreas temáticas relacionadas, possivelmente também delimitadas por nível . Nos Estados Unidos, essas divisões são geralmente chamadas de faculdades ou escolas, mas também podem misturar terminologia. Em Portugal, é uma das denominações adaptadas pelas universidades para as suas unidades orgânicas; No...",
+        "peso": 1
+    },
+    "organização": {
+        "texto": "Organização é uma palavra originada do grego \"organon\", que significa instrumento, utensílio.",
+        "peso": 1
+    },
+    "abuso de poder": {
+        "texto": "Abuso de poder ou abuso de autoridade é conceituado como o ato humano de se prevalecer de cargos para fazer valer vontades particulares. No caso do agente público, ele atua contrariamente ao interesse público, desviando-se da finalidade pública. A democracia direta é um sistema que se opõe a este tipo de atitude. O abuso de poder pode se dar em...",
+        "peso": 1
+    },
+    "anonimato": {
+        "texto": "O anonimato é a qualidade ou condição de alguém ou algo ser anónimo, ou seja, não identificado por nome ou assinatura. O termo deriva do grego antigo ἀνωνυμία (anōnymía), que significa literalmente «sem nome».",
+        "peso": 1
+    },
+    "aplicação web": {
+        "texto": "Em computação, aplicação web é um sistema de software acessado por meio de um navegador web, utilizando tecnologias da World Wide Web como HTML, CSS e JavaScript. Essas aplicações podem ser executadas em um servidor web e são consumidas por um cliente via internet.",
+        "peso": 1
+    },
+    "acidose": {
+        "texto": "Acidose refere-se ao processo de diminuição do pH sanguíneo para menos de 7,35 (aumento de H+) causando acidemia (Acidemia refere-se ao estado acídico do sangue; Acidose, por outro lado, corresponde ao processo que acidifica. Ou seja, uma acidose não tem, necessariamente de estar associada a uma acidemia uma vez que, por exemplo, num caso de existir uma acidose respiratória e...",
+        "peso": 1
+    },
+    "a criação de adão": {
+        "texto": "A Criação de Adão é um afresco de 280 cm x 570 cm, pintado por Michelangelo Buonarroti por volta de 1511, que fica no teto da Capela Sistina. A cena representa um episódio do Livro do Gênesis no qual Deus cria o primeiro homem a partir do pó da terra: Adão.",
+        "peso": 1
+    },
+    "a república": {
+        "texto": "A República é um diálogo socrático escrito por Platão, filósofo grego, no século IV a.C..",
+        "peso": 1
+    },
+    "abinavagupta": {
+        "texto": "Abinavagupta foi um filósofo, místico e teórico da estética da Caxemira. Ele também foi considerado um influente músico, poeta, dramaturgo, exegeta, teólogo e lógico—uma personalidade polimática que exerceu fortes influências na cultura indiana.",
+        "peso": 1
+    },
+    "adsl2+": {
+        "texto": "Asymmetric Digital Subscriber Line (ADSL) é um formato de DSL, uma tecnologia de comunicação de dados que permite uma transmissão de dados mais rápida através de linhas de telefone do que um modem convencional pode oferecer.",
+        "peso": 1
+    },
+    "apnic": {
+        "texto": "APNIC é o registro regional de endereços da Internet (RIR) para a região Ásia-Pacífico. É um dos cinco RIRs do mundo e faz parte da Number Resource Organization (NRO).",
+        "peso": 1
+    },
+    "arpanet": {
+        "texto": "A Advanced Research Projects Agency Network foi uma rede de computadores construída em 1969 para transmissão de dados militares sigilosos e interligação dos departamentos de pesquisa nos Estados Unidos, inicialmente financiada pela então Agência de Projetos de Pesquisa Avançada do Departamento de Defesa dos Estados Unidos.",
+        "peso": 1
+    },
+    "abu dhabi": {
+        "texto": "Abu Dhabi ou, em grafia alternativa portuguesa, Abu Dabi é a capital dos Emirados Árabes Unidos e também o maior de todos os Emirados com uma área de 67 340 quilômetros quadrados, equivalente a 86,7% da área total do país, excluindo as ilhas. Tem um litoral que se estende por mais de 400 quilômetros e é dividido para propósitos administrativos...",
+        "peso": 1
+    },
+    "academia.edu": {
+        "texto": "Academia.edu é um site eletrónico para acadêmicos em formato de rede social. Foi lançado em setembro de 2008. A plataforma pode ser usada para compartilhar artigos, monitorar seu impacto de acessos, além de acompanhar pesquisas em campos particulares do conhecimento. Academia.edu foi fundado por Richard Price, Brent Hoberman, dentre outras pessoas. Em 2014, possuía 18 milhões de usuários registrados, cinco...",
+        "peso": 1
+    },
+    "activitypub": {
+        "texto": "ActivityPub é um protocolo de rede social aberto e descentralizado, baseado no protocolo ActivityPump do Pump.io. Ele fornece uma API cliente / servidor para criar, atualizar e excluir conteúdo, bem como uma API federada de servidor para servidor para entrega de notificações e conteúdo.",
+        "peso": 1
+    },
+    "a riqueza das nações": {
+        "texto": "Uma Investigação sobre a Natureza e as Causas da Riqueza das Nações, mais conhecida simplesmente como A Riqueza das Nações, é a obra mais famosa de Adam Smith. Publicado pela primeira vez em 1776, o livro oferece um dos primeiros relatos conectados do mundo sobre o que constrói a riqueza das nações e se tornou um trabalho fundamental na economia...",
+        "peso": 1
+    },
+    "apego": {
+        "texto": "Teoria do apego (português brasileiro) ou teoria da vinculação (português europeu) é a teoria que descreve certos aspectos a curto e longo-termo de relacionamentos entre humanos e entre outros primatas. Seu princípio mais importante declara que um recém-nascido precisa desenvolver um relacionamento com, pelo menos, um cuidador primário para que seu desenvolvimento social e emocional ocorra normalmente. A teoria do...",
+        "peso": 1
+    },
+    "agregado (economia)": {
+        "texto": "Em macroeconomia um agregado é uma medida síntese descrevendo um mercado ou economia. Ele substitui um vetor composto de muitos números reais por um único número real, ou um escalar. Consequentemente, ocorrem vários problemas inerentes às formulações que utilizam variáveis ​​agregadas.",
+        "peso": 1
+    },
+    "acupuntura": {
+        "texto": "Acupuntura (português brasileiro) ou acupunctura (português europeu) é uma forma de medicina alternativa e um ramo da medicina tradicional chinesa (MTC) no qual finas agulhas são inseridas no corpo do paciente. A medicina tradicional chinesa é uma pseudociência, pois suas teorias e práticas são baseadas em crenças contrárias ao conhecimento científico. A acupuntura foi declarada Patrimônio Cultural Intangível da Humanidade...",
+        "peso": 1
+    },
+    "aflição": {
+        "texto": "A aflição é um sentimento de agonia, sofrimento intenso, preocupação ou desassossego por alguma causa ou coisa em que vá afetar a vida direta, ou indiretamente.",
+        "peso": 1
+    },
+    "arn transportador": {
+        "texto": "Ácido ribonucleico transportador, abreviado como ARNt, tARN, tRNA ou RNAt, é um ácido ribonucleico (ARN) funcional de menor peso molecular, sendo sintetizado pela RNA polimerase III a partir do processo de transcrição do DNA e que é responsável por transportar os aminoácidos para a síntese proteica participando do processo de tradução. Sua existência foi postulada por Crick, que deduziu que...",
+        "peso": 1
+    },
+    "abelha": {
+        "texto": "Abelhas são insetos voadores, conhecidos pelo seu importante papel na polinização. Pertencem à ordem Hymenoptera, da superfamília Apoidea, subgrupo Anthophila, e são aparentados das vespas e formigas.",
+        "peso": 1
+    },
+    "abdómen": {
+        "texto": "Em muitos vertebrados, o abdómen (português europeu) ou abdômen (português brasileiro), vulgarmente designado de barriga, é uma parte do corpo situada entre o tórax e a pelve. No seu interior encontra-se a cavidade abdominal, que contém a maior parte das vísceras.",
+        "peso": 1
+    },
+    "oi": {
+        "texto": "Oi, anteriormente conhecida como Telemar, é uma empresa que atua no segmento de telecomunicações no Brasil. É a terceira maior operadora de telefonia fixa e até então uma das maiores empresas do setor de telecomunicações na América do Sul. Atuava no país inteiro além de possuir um instituto de inovação e criatividade para impacto social, o Instituto Oi Futuro.",
+        "peso": 1
+    },
+    "eae": {
+        "texto": "\"Eaea\" é uma canção da cantora espanhola Blanca Paloma. A música foi co-escrita pela interprete junto com José Pablo Polo e Álvaro Tato. Foi lançada a 20 de dezembro de 2022 pela Universal. A música representou Espanha no Festival Eurovisão da Canção de 2023, onde acabou por ficar em 17.º lugar na final com 100 pontos.",
+        "peso": 1
+    },
+    "to mal": {
+        "texto": "Toma Lá, Dá Cá é um seriado de televisão brasileiro produzido pela TV Globo, criado por Maria Carmem Barbosa e por Miguel Falabella e exibido entre 7 de agosto de 2007 e 22 de dezembro de 2009; tendo iniciado originalmente como um especial de fim de ano, exibido em 29 de dezembro de 2005. O episódio piloto deu origem ao...",
+        "peso": 1
+    },
+    "to bem": {
+        "texto": "\"Tô de Bem Com a Vida\" foi a nona turnê realizada pela apresentadora e cantora Xuxa Meneghel, a turnê tem em base seu álbum \"Tô de Bem com a Vida\", a turnê foi apresentada em várias cidades do Brasil como: Rio de Janeiro, Belo Horizonte, São Paulo, Recife, Fortaleza, Curitiba, Florianópolis e Porto Alegre. O show teve bastante divulgação, trechos...",
+        "peso": 1
+    },
+    "cat words": {
+        "texto": "CART World Series é um jogo eletrônico de corrida para PlayStation desenvolvido pela Sony Computer Entertainment para o PlayStation lançado em 1997, baseados na temporada da CART de 1997.",
+        "peso": 1
+    },
+    "depressao": {
+        "texto": "Depressão pós-parto (DPP), também conhecida como depressão perinatal, é um transtorno de humor que pode ser experimentado por mulheres grávidas ou pós-parto. Os sintomas incluem tristeza em trema, baixa energia, ansiedade, episódios de choro, irritabilidade e mudanças extremas em padrões de sono ou fome. DPP pode também afetar negativamente crianças recém nascidas.",
+        "peso": 1
+    },
+    "aposentadoria": {
+        "texto": "A aposentadoria — também referida como reforma em alguns países de língua portuguesa — refere-se ao afastamento remunerado que um trabalhador faz de suas atividades após cumprir determinados requisitos estabelecidos no direito previdenciário a fim de gozar dos benefícios de uma previdência social e/ou privada.",
+        "peso": 1
+    },
+    "resiliência": {
+        "texto": "Resiliência pode se referir a:Resiliência Resiliência (ecologia) Resiliência (psicologia) Resiliência corporativa",
+        "peso": 1
+    },
+    "cinema": {
+        "texto": "Cinema, conhecido também como Sétima Arte e, em alguns contextos, cinematografia, é um termo que pode ser definido como a técnica e a arte que reproduz fotogramas de forma rápida e sequencial, criando \"ilusão de movimento\", bem como a indústria que produz essas imagens. O termo \"cinema\" também é comumente utilizado para designar a sala onde são projetados esses filmes.",
+        "peso": 1
+    },
+    "dinheiro": {
+        "texto": "O dinheiro é, na sua aparência mais imediata, o meio usado na troca de bens, podendo fazê-lo na forma de moedas, notas, ou, como atualmente, sinais elétricos carregados de informação, chamados bits. Vê-se assim como dinheiro e moeda se confundem; sendo que as moedas - quando mais físicas são - mais obscurecem que esclarecem o que este é realmente. Isso...",
+        "peso": 1
+    },
+    "postura": {
+        "texto": "Postura é o conjunto em posição das articulações de um corpo em um determinado momento atuando para fornecer o equilíbrio no espaço, uma entidade formada em conjunto com o sistema nervoso e os músculos. Embora muitas pessoas achem que postura seria só o conjunto ditado pela coluna vertebral, esta também é parte primordial e essencial.",
+        "peso": 1
+    },
+    "dor nas costas": {
+        "texto": "Dor nas costas é a dor sentida nas costas. Pode provir dos músculos, nervos, ossos, articulações ou outras estruturas ligadas à coluna vertebral. A dor pode ser constante ou intermitente, localizada ou difusa. Pode ter características em picada ou ardor. A dor cervical pode deslocar-se pelo braço e mão e parte superior das costas. Na parte inferior pode deslocar-se pela...",
+        "peso": 1
+    },
+    "emprego": {
+        "texto": "A relação de emprego, ou o vínculo empregatício, é um fato jurídico que se configura quando alguém presta serviço a uma outra pessoa, física ou jurídica, de forma subordinada, pessoal, não eventual e onerosa. Essa relação geralmente é baseada num contrato em que uma das partes é o empregado remunerado pela outra parte, que é a empregadora, podendo ser uma...",
+        "peso": 1
+    },
+    "produtividade": {
+        "texto": "A produtividade é basicamente definida como a relação entre a produção e os factores de produção utilizados. A produção é definida como os bens produzidos. Os fatores de produção são definidos como sejam pessoas, máquinas, materiais e outros. Quanto maior for a relação entre a quantidade produzida por fatores utilizados maior é a produtividade.",
+        "peso": 1
+    },
+    "amizade": {
+        "texto": "Amizade é uma relação afetiva, a princípio sem características romântico-sexuais, entre duas pessoas. Em sentido amplo, é um relacionamento humano que envolve o conhecimento mútuo e a afeição, além de lealdade ao ponto do altruísmo. Neste aspecto, pode-se dizer que uma relação entre pais e filhos, entre irmãos, demais familiares, cônjuges ou namorados, pode ser também uma relação de amizade,...",
+        "peso": 1
+    },
+    "empreendedorismo": {
+        "texto": "Empreendedorismo é o processo de iniciativa de implementar novos negócios ou mudanças em empresas já existentes. É um termo bastante usado no âmbito empresarial e muitas vezes está relacionado com a criação de empresas ou produtos novos, normalmente envolvendo inovações e riscos.",
+        "peso": 1
+    },
+    "inflação": {
+        "texto": "Em economia, a inflação é um aumento geral nos preços de bens e serviços em uma economia. Quando o nível geral de preços aumenta, cada unidade de moeda compra menos bens e serviços; consequentemente, a inflação corresponde a uma redução do poder de compra do dinheiro. O oposto da inflação é a deflação, uma diminuição sustentada do nível geral de...",
+        "peso": 1
+    },
+    "foco": {
+        "texto": "Foco em geral é tomado como o centro de e é nessa asserção que é tomada como o ponto onde se concentram os raios luminosos que passam por uma superfície transparente. Alternativamente é o ponto de convergência ou donde saem emanações.",
+        "peso": 1
+    },
+    "ciúme": {
+        "texto": "De acordo com os psicólogos Ayala Pines e Elliot Aronson, ciúme é \"a reação complexa a uma ameaça perceptível a uma relação valiosa ou à sua qualidade.\". Provoca o temor da perda e envolve sempre três ou mais pessoas, a pessoa que sente ciúmes - sujeito ativo do ciúme -, a pessoa de quem se sente ciúmes - sujeito analítico...",
+        "peso": 1
+    },
+    "poupança": {
+        "texto": "Poupança ou aforro é a parcela da renda ou do patrimônio que não é gasto ou consumido no período em que é recebido e, por consequência, é guardado para ser utilizado em um momento futuro.",
+        "peso": 1
+    },
+    "medicamento": {
+        "texto": "Um medicamento é um fármaco usada para diagnosticar, curar, tratar ou prevenir doenças. A terapia medicamentosa (farmacoterapia) é uma parte importante da área médica e depende da ciência da farmacologia para o avanço contínuo e da farmácia para o manejo adequado.",
+        "peso": 1
+    },
+    "reunião": {
+        "texto": "Reunião é o encontro de três ou mais pessoas com propósito de discutir alguns temas ou realizar alguma atividade.",
+        "peso": 1
+    },
+    "concurso": {
+        "texto": "Concurso pode se referir a:Concurso público Concurso geral Concurso de beleza",
+        "peso": 1
+    },
+    "liderança": {
+        "texto": "Liderança é considerada a habilidade de motivar, influenciar, inspirar e comandar um grupo de pessoas a fim de atingir objetivos.",
+        "peso": 1
+    },
+    "imposto": {
+        "texto": "Imposto é um tributo cobrado pelas autoridades públicas sobre os recursos ou bens das pessoas físicas ou jurídicas estabelecidas ou que tenham interesses em seu território. A partir da ocorrência de um fato gerador, o imposto é calculado mediante a aplicação de uma alíquota a uma base de cálculo, e o não pagamento do valor estipulado acarreta a imposição de...",
+        "peso": 1
+    },
+    "perdão": {
+        "texto": "Perdão é o processo intencional e voluntário pelo qual a vítima ou geralmente o agressor passa por uma mudança de sentimentos e atitudes em relação a uma ofensa criminosa, deixa de lado as emoções negativas, como a vingança com uma capacidade aumentada de desejar bem ao agressor. O perdão é diferente de tolerar, desculpar, esquecer, indulto e reconciliação.",
+        "peso": 1
+    },
+    "estudo": {
+        "texto": "Estudo é o ato de se investir na obtenção de conhecimentos. Estuda-se visando à preparação para exames, ou, de um modo mais abrangente, para o futuro.",
+        "peso": 1
+    },
+    "burnout": {
+        "texto": "Burnout Paradise é o sétimo jogo da série Burnout, criado e desenvolvido pela Criterion Games e publicado pela Electronic Arts. Lançado a 22 de janeiro de 2008 nos Estados Unidos, e a 25 de Janeiro de 2008 na Europa, disponível originalmente para PlayStation 3, Xbox 360 e, em Janeiro de 2009, para Windows. Esta nova versão de Burnout é \"open-world\"...",
+        "peso": 1
+    },
+    "aluguel": {
+        "texto": "Uma locação, aluguel (português brasileiro) ou aluguer (português europeu) é um negócio jurídico onde uma das partes cede à outra o usufruto de um bem de sua propriedade em troca de um pagamento.",
+        "peso": 1
+    },
+    "home office": {
+        "texto": "Home office, também chamado de trabalho remoto, trabalho à distância ou teletrabalho, é uma tendência laboral na qual o empregado trabalha em casa ou em qualquer outro local, desde que disponha de recursos digitais básicos, como internet e um aparelho eletrônico, como um smartphone ou um laptop. Basicamente, trata-se de permitir que o colaborador trabalhe de qualquer lugar. Desde o...",
+        "peso": 1
+    },
+    "metas": {
+        "texto": "Metasequoia é um género monotípico de coníferas pertencente à família Cupressaceae, que tem como única espécie extante Metasequoia glyptostroboides, uma conífera caducifólia de crescimento rápido, considerada um fóssil vivo ameaçado de extinção na natureza, com distribuição natural restrita a uma pequena região da China. Introduzida em cultivo na década de 1960 é atualmente uma popular árvore ornamental nas regiões subtropicais...",
+        "peso": 1
+    },
+    "cibersegurança": {
+        "texto": "Segurança de computadores ou cibersegurança é a proteção de sistemas de computador contra roubo ou danos ao hardware, software ou dados eletrônicos, bem como a interrupção ou desorientação dos serviços que fornecem. O campo está crescendo em importância devido à crescente dependência de sistemas de computadores, internet e redes sem fio, como Bluetooth e Wi-Fi, e devido ao crescimento de...",
+        "peso": 1
+    },
+    "planejamento": {
+        "texto": "O planejamento (português brasileiro) ou planeamento (português europeu) é uma ferramenta administrativa, que possibilita perceber a realidade, avaliar os caminhos, construir um referencial futuro, o trâmite adequado e reavaliar todo o processo a que o acoplamento se destina. Sendo, portanto, o lado racional da ação. Tratando-se de um processo de deliberação abstrato e explícito que escolhe e organiza ações, antecipando...",
+        "peso": 1
+    },
+    "estresse": {
+        "texto": "Estresse (português brasileiro) ou stresse (português europeu) define a resposta fisiológica, biológica ou psicológica de um organismo sobre pressão. O estresse pode ser causado pela ansiedade e pela depressão devido à mudança brusca no estilo de vida e a exposição a um determinado ambiente, que leva a pessoa a sentir um determinado tipo de angústia. Quando os sintomas de estresse...",
+        "peso": 1
+    },
+    "automação": {
+        "texto": "Automação é um sistema automático pelo qual os mecanismos verificam seu próprio funcionamento, efetuando medições e introduzindo correções, sem a necessidade da interferência do homem. Em seu uso moderno, a automação pode ser definida como uma tecnologia que utiliza comandos programados para operar um dado processo, combinados com retroação de informação para determinar que os comandos sejam executados corretamente, frequentemente...",
+        "peso": 1
+    },
+    "orçamento": {
+        "texto": "Orçamento é a parte de um plano financeiro estratégico que compreende a previsão de receitas e despesas futuras para a administração de determinado exercício. Aplica-se tanto ao setor governamental quanto ao privado, pessoa jurídica ou física.",
+        "peso": 1
+    },
+    "prazo": {
+        "texto": "O prazo processual refere-se ao período de tempo para a prática de atos no âmbito de um processo judicial, determinados por lei, juiz, acordo entre as partes ou outros instrumentos legais, cujo objetivo é o curso adequado, correto e regular do processo.",
+        "peso": 1
+    },
+    "feedback": {
+        "texto": "Os feedbacks climáticos são processos naturais que afetam o aumento da temperatura global para uma determinada quantidade de emissões de gases de efeito estufa. Os feedbacks positivos amplificam o aquecimento global, enquanto os feedbacks negativos o diminuem. Os feedbacks influenciam tanto a quantidade de gases de efeito estufa na atmosfera quanto a quantidade de mudança de temperatura que ocorre como...",
+        "peso": 1
+    },
+    "relacionamento": {
+        "texto": "Namoro é uma instituição de relacionamento interpessoal não moderna, que tem como função a concretização do sentimental e/ou ato sexual entre duas, ou mais, pessoas em troca de conhecimentos e uma vivência com um grau de comprometimento inferior à do matrimônio. A grande maioria utiliza o namoro como pré-condição para o estabelecimento de um noivado ou casamento, definido este último...",
+        "peso": 1
+    },
+    "felicidade": {
+        "texto": "Felicidade pode ser definida por um momento em que há a percepção de um conjunto de sentimentos prazerosos. A felicidade é um estado durável de plenitude, satisfação e equilíbrio físico e psíquico, em que o sofrimento e a inquietude são transformados em emoções ou sentimentos que vão desde o contentamento até a alegria intensa ou júbilo. A felicidade tem, ainda,...",
+        "peso": 1
+    },
+    "entrevista": {
+        "texto": "Entrevista é uma conversa entre duas ou mais pessoas (o/s) ,entrevistador(es) e o(s) entrevistado(s). Onde perguntas são feitas pelo entrevistador de modo a obter informação necessária por parte do entrevistado.",
+        "peso": 1
+    },
+    "automação comercial": {
+        "texto": "Automação comercial é a aplicação de métodos e ferramentas para automatizar processos comerciais, isto é, agilizar processos manuais e sistemas gerenciais, alcançando a total eficiência. Isso se deve à facilidade com a qual softwares e equipamentos de automação comercial conseguem coletar e gerar dados, facilitando a análise da operação como um todo.",
+        "peso": 1
+    },
+    "automação de escritório": {
+        "texto": "Automação de escritório é um conceito que envolve a automatização de tarefas para cumprimento de objetivos em um escritório. Sendo considerado um ramo da automação comercial, caracteriza-se pelo uso de softwares de automação para criar, coletar, armazenar, manipular e retransmitir digitalmente as informações necessárias para armazenamento de dados brutos, transferências eletrônicas e gerenciamento eletrônico de informações de negócios dos mais...",
+        "peso": 1
+    },
+    "automação industrial": {
+        "texto": "Automação industrial é definida como a utilização de máquinas eletromecânicas, softwares e equipamentos específicos para automatizar processos industriais. Possui como objetivo aumentar a eficiência dos processos, maximizar a produção com o menor consumo de energia, menor emissão de resíduos e melhores condições de segurança, seja material, humana ou das informações. É um passo além da mecanização, onde operadores humanos são...",
+        "peso": 1
+    },
+    "agressividade": {
+        "texto": "Agressão é um ato em que um indivíduo prejudica ou lesa outro(s) de sua própria espécie. O comportamento agressivo em humanos pode ser definido em termos gerais como um comportamento social hostil, como o de infligir dano ou causar prejuízo a uma pessoa ou grupo. Ainda é um tema controverso se esse comportamento de causar danos em alguém é devido...",
+        "peso": 1
+    },
+    "alegria (sentimento)": {
+        "texto": "A alegria é um sentimento de contentamento, de prazer de viver, júbilo, satisfação, exultação. Nas pessoas, costuma ser expressa através de sorrisos.",
+        "peso": 1
+    },
+    "ambivalência": {
+        "texto": "Ambivalência é um estado de ter, simultaneamente, sentimentos conflitantes perante uma pessoa ou coisa. De outro modo, ambivalência é a experiência de ter pensamentos e emoções simultaneamente positivas e negativas em relação a alguém ou alguma coisa. Um exemplo comum de ambivalência é o sentimento de amor e ódio por uma mesma pessoa.",
+        "peso": 1
+    },
+    "agência de notícias": {
+        "texto": "Agência de notícias ou agência noticiosa, é uma organização de jornalismo especializada em coletar informações e difundir notícias diretamente das fontes para os veículos de comunicação. As agências não fornecem diretamente ao público, mas sim para jornais, revistas, rádios, TVs, websites, a chamada comunicação social.",
+        "peso": 1
+    },
+    "controlador lógico programável": {
+        "texto": "Controlador lógico programável é um equipamento eletrônico especializado que desempenha funções de controlePE e monitoramento de máquinas e processos industriais de diversos tipos e níveis de complexidade, através de programas específicos desenvolvidos pelo usuário PB.",
+        "peso": 1
+    },
+    "controle numérico computadorizado": {
+        "texto": "Controle Numérico Computadorizado (português brasileiro) ou Controlo Numérico Computorizado (português europeu), eventualmente chamado de comando numérico computadorizado, é um método que controla os movimentos de máquinas pela interpretação direta de instruções codificadas na forma de números e letras. O sistema interpreta os dados e gera o sinal de saída que controla os componentes da máquina.",
+        "peso": 1
+    },
+    "agressão": {
+        "texto": "Agressão é um ato em que um indivíduo prejudica ou lesa outro(s) de sua própria espécie. O comportamento agressivo em humanos pode ser definido em termos gerais como um comportamento social hostil, como o de infligir dano ou causar prejuízo a uma pessoa ou grupo. Ainda é um tema controverso se esse comportamento de causar danos em alguém é devido...",
+        "peso": 1
+    },
+    "amígdala cerebelosa": {
+        "texto": "As amígdalas ou amídalas cerebelosas são grupos de neurônios que, juntos, formam duas massas esferóides de substância cinzenta com cerca de três centímetros de diâmetro, localizadas no pólo temporal de cada hemisfério cerebral de grande parte dos vertebrados, incluindo o ser humano.",
+        "peso": 1
+    },
+    "anatomia": {
+        "texto": "Anatomia é um ramo da biologia que estuda a organização estrutural dos seres vivos, incluindo os sistemas, órgãos e tecidos que os constituem, a aparência e posição das várias partes, as substâncias de que são feitos, a sua localização e a sua relação com outras partes do corpo. O termo anatomia é geralmente usado como sinónimo de anatomia humana. No...",
+        "peso": 1
+    },
+    "comportamento sexual": {
+        "texto": "O comportamento sexual humano é o conjunto das atitudes e posicionamentos do ser humano em relação ao sexo. Ele variou ao longo da história. Atualmente, devido ao avanço das ciências em geral, especialmente com o avanço da medicina e da educação sexual nas escolas, passou a ser tratado de forma científica, sem interferências de crenças ou religiões, estando orientado para...",
+        "peso": 1
+    },
+    "dor de cabeça": {
+        "texto": "Cefaleia ou cefalgia são os termos médicos para dor de cabeça. É um dos sintomas mais comuns na medicina. É uma das queixas mais frequentes de consultas a profissionais de saúde, e também um dos motivos mais comuns de falta ao trabalho. A cefaleia é um sintoma universal no ser humano.",
+        "peso": 1
+    },
+    "inteligência emocional": {
+        "texto": "Inteligência emocional é um conceito em psicologia que descreve a capacidade de reconhecer e avaliar os seus próprios sentimentos e os dos outros, assim como a capacidade de lidar com eles. Pelo ponto de vista da filosofia ikigai, é a competência responsável por boa parte do sucesso e da capacidade de liderança de um ser humano.",
+        "peso": 1
+    },
+    "salário": {
+        "texto": "O salário é a contraprestação económica, habitual e direta, devida por um empregador a um empregado em troca do trabalho por este realizado, sob subordinação e de acordo com os termos de um contrato de trabalho.",
+        "peso": 1
+    },
+    "alimentação": {
+        "texto": "A alimentação é o processo pelo qual os organismos obtêm e assimilam alimentos ou nutrientes para as suas funções vitais, incluindo o crescimento, movimento, reprodução e manutenção da temperatura do corpo.",
+        "peso": 1
+    },
+    "centro": {
+        "texto": "O centro, em geometria, é o ponto que está no meio de uma figura geométrica. É um conceito que varia em sua definição, dependendo da figura de que estamos tratando. Tal figura pode ter duas ou três dimensões.",
+        "peso": 1
+    },
+    "câmera digital": {
+        "texto": "Uma câmara digital (português europeu) ou câmera digital (português brasileiro) é uma câmara que codifica vídeo e imagens digitais de forma eletrônica, armazenando-as para posterior reprodução. A maior parte das câmaras vendidas atualmente são digitais, e grande parte encontra-se incorporada nos mais diversos aparelhos, desde veículos a PDAs e telemóveis.",
+        "peso": 1
+    },
+    "distância focal": {
+        "texto": "A distância focal é, junto com a abertura do diafragma, uma das mais importantes características de uma objetiva. É a partir dela que o usuário define, por exemplo, a maior ou menor aproximação de uma imagem, ou ainda escolhe o campo de visão que deseja trabalhar.",
+        "peso": 1
+    },
+    "agronomia": {
+        "texto": "Agronomia é um campo da Gestão Ambiental e abarcado pelas ciências agrárias, sendo uma área multidisciplinar que inclui subáreas aplicadas das ciências naturais, exatas, sociais e econômicas que trabalham em conjunto visando aumentar a compreensão da agropecuária e aperfeiçoar as práticas agrícolas e zootécnicas, por meio de técnicas e tecnologias em favor de uma otimização da produção dos pontos de...",
+        "peso": 1
+    },
+    "alienação social": {
+        "texto": "Alienação nas Ciências sociais, é um conceito que designa indivíduos que estão alheios a si próprios ou a outrem tornando-se escravos de atividades ou instituições humanas, devido a questões econômicas, sociais ou ideológicas. Desta forma, refere-se também à diminuição da capacidade dos indivíduos em pensarem e agirem por si próprios. Há quem defina a alienação como \"a falta de consciência...",
+        "peso": 1
+    },
+    "anarcossindicalismo": {
+        "texto": "Anarcossindicalismo também conhecido como o sindicalismo revolucionário ou anarco-sindicalismo, não é uma simples vertente anarquista que tem como forma de organização transformacional principal o sindicalismo enquanto modo de organização, mas uma corrente autônoma, fundamentada em uma doutrina própria, que conserva tanto elementos do anarquismo como do marxismo. Os anarco-sindicalistas, ou anarcossindicalistas, acreditam que os sindicatos podem ser utilizados como instrumentos...",
+        "peso": 1
+    },
+    "ei": {
+        "texto": "Eike Fuhrken Batista da Silva é um empresário teuto-brasileiro, que fez fortuna na exploração de mineração, petróleo, gás, logística, energia, indústria naval e carvão mineral.",
+        "peso": 1
+    },
+    "avenged sevenfold": {
+        "texto": "Avenged Sevenfold é uma banda norte americana de heavy metal, fundada em 1999 em Huntington Beach, Califórnia. A banda consiste no vocalista M. Shadows, nas guitarras Zacky Vengeance e Synyster Gates, no baixo Johnny Christ e na bateria Brooks Wackerman.",
+        "peso": 5
+    },
+    "syn gates": {
+        "texto": "Sangatsu no Lion é uma série de mangá japonesa escrita e ilustrada por Chica Umino. Ele foi serializado na revista de mangá seinen Young Animal da Hakusensha desde julho de 2007, com seus capítulos coletados em dezoito volumes tankōbon, até setembro de 2025. A trama apresenta a vida de Rei Kiriyama, um jogador profissional de shogi introvertido e solitário que,...",
+        "peso": 1
+    },
+    "synyster gates": {
+        "texto": "Synyster Gates, nome de nascimento Brian Elwin Haner, Jr. é o guitarrista solo da banda americana de heavy metal Avenged Sevenfold. Syn, como também é conhecido nasceu em 7 de julho de 1981 em Huntington Beach, California, filho do também guitarrista Sr. Brian Haner e filho adotivo de Suzy Haner. Ele também tem o irmão Brent e a meia-irmã McKenna.",
+        "peso": 3
+    },
+    "zacky venger": {
+        "texto": "Avenged Sevenfold é uma banda norte americana de heavy metal, fundada em 1999 em Huntington Beach, Califórnia. A banda consiste no vocalista M. Shadows, nas guitarras Zacky Vengeance e Synyster Gates, no baixo Johnny Christ e na bateria Brooks Wackerman.",
+        "peso": 1
+    },
+    "zacky vengeance": {
+        "texto": "Avenged Sevenfold é uma banda norte americana de heavy metal, fundada em 1999 em Huntington Beach, Califórnia. A banda consiste no vocalista M. Shadows, nas guitarras Zacky Vengeance e Synyster Gates, no baixo Johnny Christ e na bateria Brooks Wackerman.",
+        "peso": 1
+    }
+}

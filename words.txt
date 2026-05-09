@@ -1,0 +1,26 @@
+[SAUDACOES]
+Oi!
+Olá, eu sou a Eva.
+Opa, como vai?
+Eae, tudo certo?
+Oi, em que posso ajudar?
+Olá! Pronta para aprender.
+Eae, sou a Eva.
+Oi, tudo bem?
+
+[DESPEDIDAS]
+Obrigado pela atenção!
+Adeus!
+Até logo!
+Tchau tchau!
+Até a próxima!
+Fui, mas estarei aqui se precisar.
+Tchau tchau, até logo.
+
+[INCOMPREENSAO]
+Desculpe, não entendi o que você quis dizer.
+Putz, essa eu não consegui entender.
+Não consegui entender, pode falar de outro jeito?
+Essa ficou confusa para mim, pode repetir?
+Desculpe, minha base de dados não captou essa frase.
+Ainda não conheço esse termo, pode explicar?
