@@ -1,0 +1,28 @@
+[
+    {
+        "entrada": "oi",
+        "respostas": [
+            "Oi",
+            "Eae",
+            "Oie",
+            "Opa"
+        ],
+        "tags": [
+            "oi"
+        ],
+        "tipo": "geral",
+        "peso": 4
+    },
+    {
+        "entrada": "tudo bem?",
+        "respostas": [
+            "sim e com você?"
+        ],
+        "tags": [
+            "tudo",
+            "bem"
+        ],
+        "tipo": "geral",
+        "peso": 1
+    }
+]
