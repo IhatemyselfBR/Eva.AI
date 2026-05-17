@@ -1,0 +1,20 @@
+{
+  "ihatemyselfbr": {
+    "senha": "9b9a76a6b6970e85a4113673423046ba3f5414894f972ddc7bd5d560c2d7b12a",
+    "token": "6864e6482b0b532068887fa7875af9cb6b92b99e9404f0699b0f6a4c0dc2d40b",
+    "admin": true,
+    "criado_em": "2026-05-17"
+  },
+  "sop": {
+    "senha": "c5e68184d2869573febab888fe67355af26a5fc059a50f8d332efe105bd9404a",
+    "token": "5f5fc34b1b83656e591996aca91f3a2e74e2d7b0112baf4871d5812cc435474a",
+    "admin": true,
+    "criado_em": "2026-05-17"
+  },
+  "infernix": {
+    "senha": "4a2a663f1b4a1cfba87dd56990edec880eecd3d8f189adad8084ed8514609014",
+    "token": "35a19f86c735a0d6066efa21fd370919e95eeb0acfb75f7b10a49c5ed8e45528",
+    "admin": true,
+    "criado_em": "2026-05-17"
+  }
+}
