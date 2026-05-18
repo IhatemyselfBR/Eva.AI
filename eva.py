@@ -129,6 +129,7 @@ def perfil_padrao(username):
             "humor_frequente": None,
             "problemas_relatados": [],
             "aniversario": None,
+            "interesses": [],
             "outros": []
         }
     }
@@ -298,11 +299,11 @@ def menu_admin(username, users):
 
     elif opcao == "3":
         user_alvo = pedir_input("Username: ").lower()
-        campo = pedir_input("Campo (gostos/nao_gosta/outros/nome/aniversario): ").lower()
+        campo = pedir_input("Campo (gostos/nao_gosta/interesses/outros/nome/aniversario): ").lower()
         valor = pedir_input("Valor: ")
         mem = carregar_memoria(user_alvo)
         perfil = mem.get("perfil", {})
-        if campo in ["gostos", "nao_gosta", "problemas_relatados", "outros"]:
+        if campo in ["gostos", "nao_gosta", "problemas_relatados", "interesses", "outros"]:
             if campo not in perfil:
                 perfil[campo] = []
             if valor not in perfil[campo]:
@@ -323,7 +324,7 @@ def menu_admin(username, users):
         campo = pedir_input("Campo: ").lower()
         mem = carregar_memoria(user_alvo)
         perfil = mem.get("perfil", {})
-        if campo in ["gostos", "nao_gosta", "problemas_relatados", "outros"]:
+        if campo in ["gostos", "nao_gosta", "problemas_relatados", "interesses", "outros"]:
             perfil[campo] = []
             salvar_memoria(mem, user_alvo)
             print(f"{Cor.VERDE}  ✓ Limpo!{Cor.RESET}\n")
@@ -410,7 +411,7 @@ def iniciar_servidor():
     devnull = open(os.devnull, "w")
     servidor_proc = subprocess.Popen(
         ["llama-server", "-m", MODEL_PATH, "--host", "127.0.0.1",
-         "--port", "8080", "--ctx-size", "2048", "-ngl", "0", "--log-disable"],
+        "--port", "8080", "--ctx-size", "2048", "-ngl", "0", "--log-disable"],
         stdout=devnull, stderr=devnull
     )
     for _ in range(30):
@@ -439,6 +440,7 @@ def montar_contexto(perfil):
     if perfil.get("humor_frequente"): partes.append(f"humor: {perfil['humor_frequente']}")
     if perfil.get("problemas_relatados"): partes.append(f"já relatou: {', '.join(perfil['problemas_relatados'][-3:])}")
     if perfil.get("aniversario"): partes.append(f"aniversário: {perfil['aniversario']}")
+    if perfil.get("interesses"):  partes.append(f"interesses/curiosidades: {', '.join(perfil['interesses'][-5:])}")
     if perfil.get("outros"):      partes.append(f"outros: {', '.join(perfil['outros'][-5:])}")
     return " | ".join(partes)
 
@@ -487,7 +489,7 @@ _RE_GOSTO = re.compile(r"(?:gosto de|adoro|amo|curto|meu hobby é|minha paixão 
 _RE_NAO_GOSTO = re.compile(r"(?:não gosto de|odeio|detesto|não curto|não suporto)\s+(.+?)(?=\s*(?:e gosto|mas gosto)|$)", re.IGNORECASE)
 _RE_PROBLEMA = re.compile(r"(?:tô|estou|me sinto)\s+(mal|triste|ansioso|ansiosa|sozinho|sozinha|deprimido|deprimida|cansado|cansada|com medo|estressado|estressada)", re.IGNORECASE)
 _RE_HUMOR_BOM = re.compile(r"(?:tô|estou|me sinto)\s+(bem|feliz|ótimo|ótima|animado|animada)", re.IGNORECASE)
-_RE_ANIVERSARIO = re.compile(r"(?:meu aniversário é|faço aniversário|nasci em|nasci no dia)\s+(.+?)(?:\s*[,.]|$)", re.IGNORECASE)
+_RE_ANIVERSARIO = re.compile(r"(?:meu aniversário é|faço aniversário|nasci em|nasci no dia)\s+(.+?)(:\s*[,.]|$)", re.IGNORECASE)
 _RE_OUTROS = re.compile(r"(?:tenho\s+\d+\s+anos|moro em|trabalho\s+(?:em|como|na|no)|estudo\s+(?:em|na|no)|sou\s+\w+)", re.IGNORECASE)
 
 def classificar_e_salvar(msg, perfil):
@@ -552,9 +554,49 @@ def perguntar_aprender(msg, memoria, username):
         else:
             print(f"{Cor.CINZA}  Não consegui classificar.{Cor.RESET}\n")
 
+def extrair_interesse_com_ia(msg, perfil):
+    payload = json.dumps({
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "Você é um extrator de interesses. Analise o que o usuário disse e identifique se ele demonstrou "
+                    "um interesse claro, hobby ou curiosidade sobre algum tema (ex: culinária, programação, música, etc). "
+                    "Responda APENAS com o nome do interesse limpo (ex: 'Culinária (Doces)', 'Música', 'Academia'). "
+                    "Se a frase não revelar nenhum interesse útil ou for genérica, responda estritamente 'NADA'."
+                )
+            },
+            {"role": "user", "content": f"Frase do usuário: '{msg}'"}
+        ],
+        "temperature": 0.1,
+        "top_p": 0.9,
+        "n_predict": 20,
+        "stream": False
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        f"{SERVER_URL}/v1/chat/completions",
+        data=payload,
+        headers={"Content-Type": "application/json"},
+        method="POST"
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            dados = json.loads(resp.read().decode("utf-8"))
+            resultado = dados["choices"][0]["message"]["content"].strip().replace("'", "").replace('"', '')
+            if resultado and resultado.upper() != "NADA" and len(resultado) < 40:
+                if "interesses" not in perfil:
+                    perfil["interesses"] = []
+                if resultado not in perfil["interesses"]:
+                    perfil["interesses"].append(resultado)
+                    return True
+    except:
+        pass
+    return False
+
 def mostrar_perfil(memoria):
     perfil = memoria.get("perfil", {})
-    tem = any(perfil.get(k) for k in ["gostos","nao_gosta","humor_frequente","problemas_relatados","aniversario","outros"])
+    tem = any(perfil.get(k) for k in ["gostos","nao_gosta","humor_frequente","problemas_relatados","aniversario","interesses","outros"])
     if not tem:
         eva_fala("Ainda não aprendi nada especial... mas tô prestando atenção 👀")
         return
@@ -562,9 +604,10 @@ def mostrar_perfil(memoria):
     if perfil.get("nome"):        print(f"  Nome:        {perfil['nome']}")
     if perfil.get("gostos"):      print(f"  Gosta de:    {', '.join(perfil['gostos'])}")
     if perfil.get("nao_gosta"):   print(f"  Não gosta:   {', '.join(perfil['nao_gosta'])}")
-    if perfil.get("humor_frequente"): print(f"  Humor:       {perfil['humor_frequente']}")
+    if perfil.get("humor_frequente"): print(f"  Humor:        {perfil['humor_frequente']}")
     if perfil.get("problemas_relatados"): print(f"  Já relatou:  {', '.join(perfil['problemas_relatados'])}")
     if perfil.get("aniversario"): print(f"  Aniversário: {perfil['aniversario']}")
+    if perfil.get("interesses"):  print(f"  Interesses:  {', '.join(perfil['interesses'])}")
     if perfil.get("outros"):      print(f"  Outros:      {', '.join(perfil['outros'])}")
     print()
 
@@ -663,6 +706,9 @@ def main():
 
             if detectar_aprendizado(entrada):
                 perguntar_aprender(entrada, memoria, username)
+            else:
+                if extrair_interesse_com_ia(entrada, memoria["perfil"]):
+                    salvar_memoria(memoria, username)
 
             if len(historico) > MAX_HISTORY * 2:
                 historico = historico[-MAX_HISTORY:]
