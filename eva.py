@@ -18,8 +18,8 @@ import urllib.error
 
 # ─── CONFIGS ───────────────────────────────────────────────────────────────────
 MODEL_PATH   = os.path.expanduser("~/eva/models/gemma-2-2b-it-Q4_K_M.gguf")
-LEARNS_DIR   = os.path.expanduser("~/eva/learns")
-USERS_FILE   = os.path.expanduser("~/eva/users.json")
+LEARNS_DIR   = os.path.expanduser("~/eva-db/learns")   # banco privado
+USERS_FILE   = os.path.expanduser("~/eva-db/users.json") # banco privado
 SESSION_FILE = os.path.expanduser("~/.eva_session")
 SERVER_URL   = "http://127.0.0.1:8080"
 MAX_HISTORY  = 10
@@ -247,7 +247,7 @@ def login():
 def verificar_token_admin():
     token_env = os.environ.get("EVA_ADMIN_TOKEN", "")
     if not token_env:
-        print(f"{Cor.VERMELHO}  Token admin não configurado no ambiente.{Cor.RESET}\n")
+        print(f"{Cor.VERMELHO}  Token admin não configurado.{Cor.RESET}\n")
         return False
     import getpass
     try:
@@ -264,20 +264,15 @@ def menu_admin(username, users):
     superadmin = is_superadmin(username, users)
 
     print(f"\n{Cor.VERMELHO}{Cor.BOLD}  ── MENU ADMIN ──{Cor.RESET}")
+    print(f"{Cor.CINZA}  1. Listar usuários")
     if superadmin:
-        print(f"{Cor.CINZA}  1. Listar usuários")
-        print(f"  2. Ver perfil de um usuário")  # só superadmin
-        print(f"  3. Ensinar algo sobre um usuário")
-        print(f"  4. Apagar campo do perfil de um usuário")
-        print(f"  5. Resetar perfil de um usuário")
+        print(f"  2. Ver perfil de um usuário")
+    print(f"  3. Ensinar algo sobre um usuário")
+    print(f"  4. Apagar campo do perfil de um usuário")
+    print(f"  5. Resetar perfil de um usuário")
+    if superadmin:
         print(f"  6. Promover usuário a admin")
-        print(f"  7. Sair do menu admin{Cor.RESET}\n")
-    else:
-        print(f"{Cor.CINZA}  1. Listar usuários")
-        print(f"  3. Ensinar algo sobre um usuário")
-        print(f"  4. Apagar campo do perfil de um usuário")
-        print(f"  5. Resetar perfil de um usuário")
-        print(f"  7. Sair do menu admin{Cor.RESET}\n")
+    print(f"  7. Sair do menu admin{Cor.RESET}\n")
 
     opcao = pedir_input("Opção: ")
 
@@ -313,29 +308,29 @@ def menu_admin(username, users):
             if valor not in perfil[campo]:
                 perfil[campo].append(valor)
                 salvar_memoria(mem, user_alvo)
-                print(f"{Cor.VERDE}  ✓ Salvo em {campo} de {user_alvo}!{Cor.RESET}\n")
+                print(f"{Cor.VERDE}  ✓ Salvo!{Cor.RESET}\n")
             else:
                 print(f"{Cor.CINZA}  Já existe.{Cor.RESET}\n")
         elif campo in ["nome", "aniversario", "humor_frequente"]:
             perfil[campo] = valor
             salvar_memoria(mem, user_alvo)
-            print(f"{Cor.VERDE}  ✓ {campo} de {user_alvo} atualizado!{Cor.RESET}\n")
+            print(f"{Cor.VERDE}  ✓ Atualizado!{Cor.RESET}\n")
         else:
             print(f"{Cor.AMARELO}  Campo inválido.{Cor.RESET}\n")
 
     elif opcao == "4":
         user_alvo = pedir_input("Username: ").lower()
-        campo = pedir_input("Campo (gostos/nao_gosta/outros/nome/aniversario/humor_frequente): ").lower()
+        campo = pedir_input("Campo: ").lower()
         mem = carregar_memoria(user_alvo)
         perfil = mem.get("perfil", {})
         if campo in ["gostos", "nao_gosta", "problemas_relatados", "outros"]:
             perfil[campo] = []
             salvar_memoria(mem, user_alvo)
-            print(f"{Cor.VERDE}  ✓ {campo} de {user_alvo} limpo!{Cor.RESET}\n")
+            print(f"{Cor.VERDE}  ✓ Limpo!{Cor.RESET}\n")
         elif campo in ["nome", "aniversario", "humor_frequente"]:
             perfil[campo] = None
             salvar_memoria(mem, user_alvo)
-            print(f"{Cor.VERDE}  ✓ {campo} de {user_alvo} apagado!{Cor.RESET}\n")
+            print(f"{Cor.VERDE}  ✓ Apagado!{Cor.RESET}\n")
         else:
             print(f"{Cor.AMARELO}  Campo inválido.{Cor.RESET}\n")
 
@@ -346,7 +341,7 @@ def menu_admin(username, users):
             mem = carregar_memoria(user_alvo)
             mem["perfil"] = perfil_padrao(user_alvo)["perfil"]
             salvar_memoria(mem, user_alvo)
-            print(f"{Cor.VERDE}  ✓ Perfil de {user_alvo} resetado!{Cor.RESET}\n")
+            print(f"{Cor.VERDE}  ✓ Resetado!{Cor.RESET}\n")
         else:
             print(f"{Cor.CINZA}  Cancelado.{Cor.RESET}\n")
 
@@ -592,7 +587,7 @@ def main():
         sys.exit(1)
 
     username, memoria, users = login()
-    historico  = []
+    historico   = []
     admin_ativo = False
 
     memoria["total_conversas"] = memoria.get("total_conversas", 0) + 1
