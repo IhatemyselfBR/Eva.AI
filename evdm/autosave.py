@@ -1,7 +1,13 @@
 import os
 import getpass
 
-SENHA = "hatepass"
+# Senha vem da variável de ambiente, nunca hardcoded
+SENHA = os.environ.get("EVA_SAVE_PASS", "")
+
+if not SENHA:
+    print("Erro: variável EVA_SAVE_PASS não configurada.")
+    print("Roda: export EVA_SAVE_PASS='sua_senha'")
+    exit()
 
 senha = getpass.getpass("Senha: ")
 
@@ -11,12 +17,9 @@ if senha != SENHA:
 
 print("Salvando no GitHub...")
 
-# pasta do projeto
 PASTA = "/data/data/com.termux/files/home/eva"
-
 os.chdir(PASTA)
 
-# comandos git
 os.system("git add .")
 os.system('git commit -m "AutoSave EVA"')
 os.system("git push origin main")
