@@ -15,13 +15,18 @@ if senha != SENHA:
     print("Senha incorreta.")
     exit()
 
-print("Salvando no GitHub...")
-
-PASTA = "/data/data/com.termux/files/home/eva"
-os.chdir(PASTA)
-
+# ─── Sobe o código (repo público) ──────────────────────────────────────────────
+print("\nSalvando código...")
+os.chdir("/data/data/com.termux/files/home/eva")
 os.system("git add .")
 os.system('git commit -m "AutoSave EVA"')
 os.system("git push origin main")
 
-print("Backup enviado.")
+# ─── Sobe o banco de dados (repo privado) ──────────────────────────────────────
+print("\nSalvando banco de dados...")
+os.chdir("/data/data/com.termux/files/home/eva-db")
+os.system("git add .")
+os.system('git commit -m "AutoSave DB"')
+os.system("git push origin main")
+
+print("\nTudo salvo!")
