@@ -20,7 +20,7 @@ import urllib.error
 MODEL_PATH   = os.path.expanduser("~/eva/models/gemma-2-2b-it-Q4_K_M.gguf")
 LEARNS_DIR   = os.path.expanduser("~/eva/learns")
 USERS_FILE   = os.path.expanduser("~/eva/users.json")
-SESSION_FILE = os.path.expanduser("~/.eva_session")  # escondido na home
+SESSION_FILE = os.path.expanduser("~/.eva_session")
 SERVER_URL   = "http://127.0.0.1:8080"
 MAX_HISTORY  = 10
 
@@ -42,14 +42,12 @@ BOAS_VINDAS_NOVO = [
     "Salve! Sou a Eva. Como você tá?",
     "Oi! Eva aqui. Fala comigo 🙂",
 ]
-
 BOAS_VINDAS_VOLTOU = [
     "Que bom te ver de novo, {nome} 😊 Como tá?",
     "Ei {nome}! Sumido(a)! Tô aqui 😄",
     "{nome}! Apareceu! Como tá o dia?",
     "Oi {nome} 👋 tava com saudade já!",
 ]
-
 DESPEDIDAS = [
     "Até logo! Qualquer coisa tô aqui 😊",
     "Vai lá! Me chama quando quiser.",
@@ -59,15 +57,16 @@ DESPEDIDAS = [
 
 # ─── CORES ─────────────────────────────────────────────────────────────────────
 class Cor:
-    ROSA    = "\033[95m"
-    AZUL    = "\033[94m"
-    VERDE   = "\033[92m"
-    AMARELO = "\033[93m"
-    CINZA   = "\033[90m"
-    BRANCO  = "\033[97m"
-    RESET   = "\033[0m"
-    BOLD    = "\033[1m"
-    DIM     = "\033[2m"
+    ROSA     = "\033[95m"
+    AZUL     = "\033[94m"
+    VERDE    = "\033[92m"
+    AMARELO  = "\033[93m"
+    CINZA    = "\033[90m"
+    VERMELHO = "\033[91m"
+    BRANCO   = "\033[97m"
+    RESET    = "\033[0m"
+    BOLD     = "\033[1m"
+    DIM      = "\033[2m"
 
 # ─── HASH E TOKEN ──────────────────────────────────────────────────────────────
 def hash_senha(senha):
@@ -80,7 +79,6 @@ def salvar_session(username, token):
     dados = {"username": username, "token": token}
     with open(SESSION_FILE, "w", encoding="utf-8") as f:
         json.dump(dados, f)
-    # Permissão só pro dono do arquivo
     os.chmod(SESSION_FILE, 0o600)
 
 def carregar_session():
@@ -110,6 +108,12 @@ def carregar_users():
 def salvar_users(users):
     with open(USERS_FILE, "w", encoding="utf-8") as f:
         json.dump(users, f, ensure_ascii=False, indent=2)
+
+def is_admin(username, users):
+    return users.get(username, {}).get("admin", False)
+
+def is_superadmin(username, users):
+    return users.get(username, {}).get("superadmin", False)
 
 # ─── MEMÓRIA ───────────────────────────────────────────────────────────────────
 def perfil_padrao(username):
@@ -163,7 +167,6 @@ def pedir_input(prompt):
         sys.exit(0)
 
 def pedir_senha(prompt="Senha: "):
-    """Pede senha sem eco no terminal"""
     import getpass
     try:
         return getpass.getpass(f"{Cor.AZUL}{Cor.BOLD}  {prompt}{Cor.RESET}")
@@ -174,44 +177,37 @@ def pedir_senha(prompt="Senha: "):
 def login():
     users = carregar_users()
 
-    # Verifica sessão salva no dispositivo
     session = carregar_session()
     if session:
         username = session.get("username")
         token    = session.get("token")
         if username in users and users[username].get("token") == token:
-            mem = carregar_memoria(username)
-            return username, mem
+            return username, carregar_memoria(username), users
         else:
-            # Token inválido, limpa
             limpar_session()
 
-    # Pede username
     username = pedir_input("User: ").lower().replace(" ", "_")
     if not username:
         return login()
 
     if username in users:
-        # Usuário existe — pede senha
         for tentativa in range(3):
             senha = pedir_senha("Senha: ")
             if hash_senha(senha) == users[username]["senha"]:
-                # Senha correta — gera token e salva sessão
                 token = gerar_token()
                 users[username]["token"] = token
                 salvar_users(users)
                 salvar_session(username, token)
                 print(f"{Cor.VERDE}  ✓ Bem-vindo de volta!{Cor.RESET}\n")
-                return username, carregar_memoria(username)
+                return username, carregar_memoria(username), users
             else:
                 restam = 2 - tentativa
                 if restam > 0:
                     print(f"{Cor.AMARELO}  Senha errada. {restam} tentativa(s) restante(s).{Cor.RESET}")
                 else:
-                    print(f"{Cor.AMARELO}  Muitas tentativas. Tenta de novo.{Cor.RESET}\n")
+                    print(f"{Cor.AMARELO}  Muitas tentativas.{Cor.RESET}\n")
                     sys.exit(0)
     else:
-        # Usuário não existe
         print(f"{Cor.AMARELO}  Usuário não encontrado. Deseja criar? (S/N): {Cor.RESET}", end="")
         try:
             resp = input().strip().lower()
@@ -222,7 +218,6 @@ def login():
             print(f"{Cor.CINZA}  Ok, até mais!{Cor.RESET}\n")
             sys.exit(0)
 
-        # Cria conta
         senha = pedir_senha("Crie uma senha: ")
         if not senha:
             print(f"{Cor.AMARELO}  Senha não pode ser vazia.{Cor.RESET}\n")
@@ -230,22 +225,147 @@ def login():
 
         confirma = pedir_senha("Confirme a senha: ")
         if senha != confirma:
-            print(f"{Cor.AMARELO}  Senhas não batem. Tenta de novo.{Cor.RESET}\n")
+            print(f"{Cor.AMARELO}  Senhas não batem.{Cor.RESET}\n")
             sys.exit(0)
 
         token = gerar_token()
         users[username] = {
             "senha": hash_senha(senha),
             "token": token,
+            "admin": False,
+            "superadmin": False,
             "criado_em": str(datetime.date.today())
         }
         salvar_users(users)
         salvar_session(username, token)
-
         mem = perfil_padrao(username)
         salvar_memoria(mem, username)
         print(f"{Cor.VERDE}  ✓ Conta criada!{Cor.RESET}\n")
-        return username, mem
+        return username, mem, users
+
+# ─── ADMIN ─────────────────────────────────────────────────────────────────────
+def verificar_token_admin():
+    token_env = os.environ.get("EVA_ADMIN_TOKEN", "")
+    if not token_env:
+        print(f"{Cor.VERMELHO}  Token admin não configurado no ambiente.{Cor.RESET}\n")
+        return False
+    import getpass
+    try:
+        token_digitado = getpass.getpass(f"{Cor.AMARELO}  Token admin: {Cor.RESET}")
+    except (KeyboardInterrupt, EOFError):
+        return False
+    if token_digitado == token_env:
+        print(f"{Cor.VERDE}  ✓ Token válido!{Cor.RESET}\n")
+        return True
+    print(f"{Cor.VERMELHO}  Token inválido.{Cor.RESET}\n")
+    return False
+
+def menu_admin(username, users):
+    superadmin = is_superadmin(username, users)
+
+    print(f"\n{Cor.VERMELHO}{Cor.BOLD}  ── MENU ADMIN ──{Cor.RESET}")
+    if superadmin:
+        print(f"{Cor.CINZA}  1. Listar usuários")
+        print(f"  2. Ver perfil de um usuário")  # só superadmin
+        print(f"  3. Ensinar algo sobre um usuário")
+        print(f"  4. Apagar campo do perfil de um usuário")
+        print(f"  5. Resetar perfil de um usuário")
+        print(f"  6. Promover usuário a admin")
+        print(f"  7. Sair do menu admin{Cor.RESET}\n")
+    else:
+        print(f"{Cor.CINZA}  1. Listar usuários")
+        print(f"  3. Ensinar algo sobre um usuário")
+        print(f"  4. Apagar campo do perfil de um usuário")
+        print(f"  5. Resetar perfil de um usuário")
+        print(f"  7. Sair do menu admin{Cor.RESET}\n")
+
+    opcao = pedir_input("Opção: ")
+
+    if opcao == "1":
+        print(f"\n{Cor.AMARELO}  Usuários cadastrados:{Cor.RESET}")
+        for u, dados in users.items():
+            tags = []
+            if dados.get("superadmin"): tags.append(f"{Cor.VERMELHO}superadmin{Cor.RESET}")
+            elif dados.get("admin"):    tags.append(f"{Cor.AMARELO}admin{Cor.RESET}")
+            tag_str = f" [{', '.join(tags)}]" if tags else ""
+            print(f"  • {u}{tag_str} — desde {dados.get('criado_em','?')}")
+        print()
+
+    elif opcao == "2":
+        if not superadmin:
+            print(f"{Cor.VERMELHO}  Sem permissão.{Cor.RESET}\n")
+            return
+        user_alvo = pedir_input("Username: ").lower()
+        mem = carregar_memoria(user_alvo)
+        print(f"\n{Cor.AMARELO}  Perfil de {user_alvo}:{Cor.RESET}")
+        print(json.dumps(mem.get("perfil", {}), ensure_ascii=False, indent=4))
+        print()
+
+    elif opcao == "3":
+        user_alvo = pedir_input("Username: ").lower()
+        campo = pedir_input("Campo (gostos/nao_gosta/outros/nome/aniversario): ").lower()
+        valor = pedir_input("Valor: ")
+        mem = carregar_memoria(user_alvo)
+        perfil = mem.get("perfil", {})
+        if campo in ["gostos", "nao_gosta", "problemas_relatados", "outros"]:
+            if campo not in perfil:
+                perfil[campo] = []
+            if valor not in perfil[campo]:
+                perfil[campo].append(valor)
+                salvar_memoria(mem, user_alvo)
+                print(f"{Cor.VERDE}  ✓ Salvo em {campo} de {user_alvo}!{Cor.RESET}\n")
+            else:
+                print(f"{Cor.CINZA}  Já existe.{Cor.RESET}\n")
+        elif campo in ["nome", "aniversario", "humor_frequente"]:
+            perfil[campo] = valor
+            salvar_memoria(mem, user_alvo)
+            print(f"{Cor.VERDE}  ✓ {campo} de {user_alvo} atualizado!{Cor.RESET}\n")
+        else:
+            print(f"{Cor.AMARELO}  Campo inválido.{Cor.RESET}\n")
+
+    elif opcao == "4":
+        user_alvo = pedir_input("Username: ").lower()
+        campo = pedir_input("Campo (gostos/nao_gosta/outros/nome/aniversario/humor_frequente): ").lower()
+        mem = carregar_memoria(user_alvo)
+        perfil = mem.get("perfil", {})
+        if campo in ["gostos", "nao_gosta", "problemas_relatados", "outros"]:
+            perfil[campo] = []
+            salvar_memoria(mem, user_alvo)
+            print(f"{Cor.VERDE}  ✓ {campo} de {user_alvo} limpo!{Cor.RESET}\n")
+        elif campo in ["nome", "aniversario", "humor_frequente"]:
+            perfil[campo] = None
+            salvar_memoria(mem, user_alvo)
+            print(f"{Cor.VERDE}  ✓ {campo} de {user_alvo} apagado!{Cor.RESET}\n")
+        else:
+            print(f"{Cor.AMARELO}  Campo inválido.{Cor.RESET}\n")
+
+    elif opcao == "5":
+        user_alvo = pedir_input("Username: ").lower()
+        confirma = pedir_input(f"Resetar TUDO de {user_alvo}? (sim/não): ").lower()
+        if confirma in ["sim", "s"]:
+            mem = carregar_memoria(user_alvo)
+            mem["perfil"] = perfil_padrao(user_alvo)["perfil"]
+            salvar_memoria(mem, user_alvo)
+            print(f"{Cor.VERDE}  ✓ Perfil de {user_alvo} resetado!{Cor.RESET}\n")
+        else:
+            print(f"{Cor.CINZA}  Cancelado.{Cor.RESET}\n")
+
+    elif opcao == "6":
+        if not superadmin:
+            print(f"{Cor.VERMELHO}  Sem permissão.{Cor.RESET}\n")
+            return
+        user_alvo = pedir_input("Username: ").lower()
+        if user_alvo in users:
+            users[user_alvo]["admin"] = True
+            salvar_users(users)
+            print(f"{Cor.VERDE}  ✓ {user_alvo} agora é admin!{Cor.RESET}\n")
+        else:
+            print(f"{Cor.AMARELO}  Usuário não encontrado.{Cor.RESET}\n")
+
+    elif opcao == "7":
+        return
+    else:
+        print(f"{Cor.CINZA}  Opção inválida.{Cor.RESET}\n")
 
 # ─── INTERFACE ─────────────────────────────────────────────────────────────────
 def limpar():
@@ -291,23 +411,13 @@ def iniciar_servidor():
     global servidor_proc
     if servidor_online():
         return True
-
     status("Iniciando Eva...")
     devnull = open(os.devnull, "w")
     servidor_proc = subprocess.Popen(
-        [
-            "llama-server",
-            "-m", MODEL_PATH,
-            "--host", "127.0.0.1",
-            "--port", "8080",
-            "--ctx-size", "2048",
-            "-ngl", "0",
-            "--log-disable",
-        ],
-        stdout=devnull,
-        stderr=devnull
+        ["llama-server", "-m", MODEL_PATH, "--host", "127.0.0.1",
+         "--port", "8080", "--ctx-size", "2048", "-ngl", "0", "--log-disable"],
+        stdout=devnull, stderr=devnull
     )
-
     for _ in range(30):
         time.sleep(1)
         if servidor_online():
@@ -316,7 +426,6 @@ def iniciar_servidor():
         if servidor_proc.poll() is not None:
             limpar_status()
             return False
-
     limpar_status()
     return False
 
@@ -329,31 +438,22 @@ def parar_servidor():
 # ─── MODELO ────────────────────────────────────────────────────────────────────
 def montar_contexto(perfil):
     partes = []
-    if perfil.get("nome"):
-        partes.append(f"nome: {perfil['nome']}")
-    if perfil.get("gostos"):
-        partes.append(f"gosta de: {', '.join(perfil['gostos'][-5:])}")
-    if perfil.get("nao_gosta"):
-        partes.append(f"não gosta de: {', '.join(perfil['nao_gosta'][-5:])}")
-    if perfil.get("humor_frequente"):
-        partes.append(f"humor frequente: {perfil['humor_frequente']}")
-    if perfil.get("problemas_relatados"):
-        partes.append(f"já relatou: {', '.join(perfil['problemas_relatados'][-3:])}")
-    if perfil.get("aniversario"):
-        partes.append(f"aniversário: {perfil['aniversario']}")
-    if perfil.get("outros"):
-        partes.append(f"outros: {', '.join(perfil['outros'][-5:])}")
+    if perfil.get("nome"):        partes.append(f"nome: {perfil['nome']}")
+    if perfil.get("gostos"):      partes.append(f"gosta de: {', '.join(perfil['gostos'][-5:])}")
+    if perfil.get("nao_gosta"):   partes.append(f"não gosta de: {', '.join(perfil['nao_gosta'][-5:])}")
+    if perfil.get("humor_frequente"): partes.append(f"humor: {perfil['humor_frequente']}")
+    if perfil.get("problemas_relatados"): partes.append(f"já relatou: {', '.join(perfil['problemas_relatados'][-3:])}")
+    if perfil.get("aniversario"): partes.append(f"aniversário: {perfil['aniversario']}")
+    if perfil.get("outros"):      partes.append(f"outros: {', '.join(perfil['outros'][-5:])}")
     return " | ".join(partes)
 
 def chamar_modelo(historico, contexto=""):
     system = EVA_SYSTEM
     if contexto:
         system += f" O que você sabe sobre essa pessoa: {contexto}"
-
     mensagens = [{"role": "system", "content": system}]
     for msg in historico[-MAX_HISTORY:]:
         mensagens.append(msg)
-
     payload = json.dumps({
         "messages": mensagens,
         "temperature": 0.75,
@@ -367,14 +467,12 @@ def chamar_modelo(historico, contexto=""):
         "n_predict": 200,
         "stream": False,
     }).encode("utf-8")
-
     req = urllib.request.Request(
         f"{SERVER_URL}/v1/chat/completions",
         data=payload,
         headers={"Content-Type": "application/json"},
         method="POST"
     )
-
     status("Eva tá pensando...")
     try:
         with urllib.request.urlopen(req, timeout=120) as resp:
@@ -383,67 +481,40 @@ def chamar_modelo(historico, contexto=""):
             return dados["choices"][0]["message"]["content"].strip()
     except urllib.error.URLError:
         limpar_status()
-        return "Eita, perdi a conexão com meu cérebro kk. Tenta de novo?"
+        return "Eita, perdi a conexão kk. Tenta de novo?"
     except Exception:
         limpar_status()
         return "Hmm, travei aqui... fala de novo?"
 
 # ─── APRENDIZADO ───────────────────────────────────────────────────────────────
-_RE_NOME = re.compile(
-    r"(?:meu nome é|me chamo|pode me chamar de|sou o|sou a)\s+([a-záàãâéêíóôõúüç]+)",
-    re.IGNORECASE
-)
-_RE_GOSTO = re.compile(
-    r"(?:gosto de|adoro|amo|curto|meu hobby é|meu hobbie é|minha paixão é)\s+(.+?)(?=\s*(?:e não|mas não|,?\s*não gosto)|$)",
-    re.IGNORECASE
-)
-_RE_NAO_GOSTO = re.compile(
-    r"(?:não gosto de|odeio|detesto|não curto|não suporto)\s+(.+?)(?=\s*(?:e gosto|mas gosto)|$)",
-    re.IGNORECASE
-)
-_RE_PROBLEMA = re.compile(
-    r"(?:tô|estou|me sinto)\s+(mal|triste|ansioso|ansiosa|sozinho|sozinha|deprimido|deprimida|cansado|cansada|com medo|estressado|estressada)",
-    re.IGNORECASE
-)
-_RE_HUMOR_BOM = re.compile(
-    r"(?:tô|estou|me sinto)\s+(bem|feliz|ótimo|ótima|animado|animada)",
-    re.IGNORECASE
-)
-_RE_ANIVERSARIO = re.compile(
-    r"(?:meu aniversário é|faço aniversário|nasci em|nasci no dia)\s+(.+?)(?:\s*[,.]|$)",
-    re.IGNORECASE
-)
-_RE_OUTROS = re.compile(
-    r"(?:tenho\s+\d+\s+anos|moro em|trabalho\s+(?:em|como|na|no)|estudo\s+(?:em|na|no)|sou\s+\w+)",
-    re.IGNORECASE
-)
+_RE_NOME = re.compile(r"(?:meu nome é|me chamo|pode me chamar de|sou o|sou a)\s+([a-záàãâéêíóôõúüç]+)", re.IGNORECASE)
+_RE_GOSTO = re.compile(r"(?:gosto de|adoro|amo|curto|meu hobby é|minha paixão é)\s+(.+?)(?=\s*(?:e não|mas não|,?\s*não gosto)|$)", re.IGNORECASE)
+_RE_NAO_GOSTO = re.compile(r"(?:não gosto de|odeio|detesto|não curto|não suporto)\s+(.+?)(?=\s*(?:e gosto|mas gosto)|$)", re.IGNORECASE)
+_RE_PROBLEMA = re.compile(r"(?:tô|estou|me sinto)\s+(mal|triste|ansioso|ansiosa|sozinho|sozinha|deprimido|deprimida|cansado|cansada|com medo|estressado|estressada)", re.IGNORECASE)
+_RE_HUMOR_BOM = re.compile(r"(?:tô|estou|me sinto)\s+(bem|feliz|ótimo|ótima|animado|animada)", re.IGNORECASE)
+_RE_ANIVERSARIO = re.compile(r"(?:meu aniversário é|faço aniversário|nasci em|nasci no dia)\s+(.+?)(?:\s*[,.]|$)", re.IGNORECASE)
+_RE_OUTROS = re.compile(r"(?:tenho\s+\d+\s+anos|moro em|trabalho\s+(?:em|como|na|no)|estudo\s+(?:em|na|no)|sou\s+\w+)", re.IGNORECASE)
 
 def classificar_e_salvar(msg, perfil):
     atualizado = False
-
     m = _RE_NOME.search(msg)
     if m:
         perfil["nome"] = m.group(1).capitalize()
         atualizado = True
-
     m = _RE_GOSTO.search(msg)
     if m:
-        raw = m.group(1).strip().rstrip(".,!")
-        for item in re.split(r",\s*|\s+e\s+", raw):
+        for item in re.split(r",\s*|\s+e\s+", m.group(1).strip().rstrip(".,!")):
             item = item.strip().rstrip(".,!")
             if item and item.lower() not in [g.lower() for g in perfil["gostos"]]:
                 perfil["gostos"].append(item)
         atualizado = True
-
     m = _RE_NAO_GOSTO.search(msg)
     if m:
-        raw = m.group(1).strip().rstrip(".,!")
-        for item in re.split(r",\s*|\s+e\s+", raw):
+        for item in re.split(r",\s*|\s+e\s+", m.group(1).strip().rstrip(".,!")):
             item = item.strip().rstrip(".,!")
             if item and item.lower() not in [g.lower() for g in perfil["nao_gosta"]]:
                 perfil["nao_gosta"].append(item)
         atualizado = True
-
     m = _RE_PROBLEMA.search(msg)
     if m:
         estado = m.group(1).lower()
@@ -451,24 +522,20 @@ def classificar_e_salvar(msg, perfil):
             perfil["problemas_relatados"].append(estado)
         perfil["humor_frequente"] = estado
         atualizado = True
-
     m = _RE_HUMOR_BOM.search(msg)
     if m:
         perfil["humor_frequente"] = m.group(1).lower()
         atualizado = True
-
     m = _RE_ANIVERSARIO.search(msg)
     if m:
         perfil["aniversario"] = m.group(1).strip()
         atualizado = True
-
     if not atualizado:
         m = _RE_OUTROS.search(msg)
         if m and len(msg) < 150:
             if msg not in perfil["outros"]:
                 perfil["outros"].append(msg)
             atualizado = True
-
     return atualizado
 
 def detectar_aprendizado(msg):
@@ -488,7 +555,7 @@ def perguntar_aprender(msg, memoria, username):
             salvar_memoria(memoria, username)
             print(f"{Cor.VERDE}  ✓ Anotado!{Cor.RESET}\n")
         else:
-            print(f"{Cor.CINZA}  Não consegui classificar, tudo bem.{Cor.RESET}\n")
+            print(f"{Cor.CINZA}  Não consegui classificar.{Cor.RESET}\n")
 
 def mostrar_perfil(memoria):
     perfil = memoria.get("perfil", {})
@@ -524,8 +591,9 @@ def main():
         print(f"{Cor.AMARELO}  Não consegui iniciar o servidor.{Cor.RESET}")
         sys.exit(1)
 
-    username, memoria = login()
-    historico = []
+    username, memoria, users = login()
+    historico  = []
+    admin_ativo = False
 
     memoria["total_conversas"] = memoria.get("total_conversas", 0) + 1
     memoria["ultima_conversa"] = str(datetime.date.today())
@@ -539,7 +607,10 @@ def main():
         nome = memoria.get("perfil", {}).get("nome", username)
         eva_fala(random.choice(BOAS_VINDAS_VOLTOU).format(nome=nome))
 
-    print(f"{Cor.CINZA}  /sair · /limpar · /aprendi · /esquecer · /sair-conta{Cor.RESET}\n")
+    cmds = "  /sair · /limpar · /aprendi · /esquecer · /sair-conta"
+    if is_admin(username, users):
+        cmds += " · /admin"
+    print(f"{Cor.CINZA}{cmds}{Cor.RESET}\n")
 
     try:
         while True:
@@ -555,7 +626,7 @@ def main():
 
             if entrada.lower() == "/sair-conta":
                 limpar_session()
-                eva_fala("Sessão encerrada! Na próxima vai pedir senha de novo 🔒")
+                eva_fala("Sessão encerrada! Na próxima vai pedir senha 🔒")
                 salvar_memoria(memoria, username)
                 break
 
@@ -574,6 +645,19 @@ def main():
                 memoria["perfil"] = perfil_padrao(username)["perfil"]
                 salvar_memoria(memoria, username)
                 eva_fala("Esqueci tudo sobre você. Vamos começar do zero 🙂")
+                continue
+
+            if entrada.lower() == "/admin":
+                if not is_admin(username, users):
+                    eva_fala("Esse comando não existe 👀")
+                    continue
+                if not admin_ativo:
+                    if verificar_token_admin():
+                        admin_ativo = True
+                    else:
+                        continue
+                users = carregar_users()
+                menu_admin(username, users)
                 continue
 
             historico.append({"role": "user", "content": entrada})

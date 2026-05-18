@@ -1,49 +1,132 @@
-Eva.AI 🤖💜
-Uma amiga IA pra quem precisa de companhia.
-Eva é uma IA local que roda no Termux ou Linux, feita pra ser uma amiga de verdade — não um assistente robótico. Ela conversa no estilo brasileiro casual, aprende sobre você com o tempo e tá sempre por aqui.
-O que ela faz
-Conversa de forma natural, sem aquele papo de chatbot forçado
-Aprende sobre você e salva com sua confirmação (S/N)
-Lembra do que você contou nas próximas conversas
-Roda 100% local — sem mandar seus dados pra ninguém
-Leve o suficiente pra rodar no celular via Termux
-Requisitos
-Python 3.8+
-llama.cpp instalado (llama-server)
-~2GB de espaço livre pro modelo
-Termux (Android) ou qualquer Linux
-Instalação
-1. Instala o llama.cpp
-Termux:
-Bash
-Linux:
-Bash
-2. Baixa o modelo
-Bash
-O modelo tem ~1.5GB. Pode demorar dependendo da sua conexão.
-3. Clona o repositório
-Bash
-4. Roda
-Bash
-Na primeira vez demora uns 30 segundos enquanto o servidor sobe. Depois fica rápido.
-Comandos dentro da conversa
-Comando
-O que faz
-/sair
-Encerra a Eva
-/limpar
-Limpa o histórico da conversa atual
-/aprendi
-Mostra o que a Eva já aprendeu sobre você
-Como o aprendizado funciona
-Quando você manda uma mensagem com informação pessoal (nome, idade, o que gosta, onde mora etc), a Eva pergunta:
-Código
-Você decide o que ela guarda. Tudo fica salvo no learn.json localmente — nunca vai pra nenhum servidor externo.
-Estrutura do projeto
-Código
-Personalização
-Você pode editar a personalidade da Eva direto no eva.py, na variável EVA_SYSTEM. É um texto simples descrevendo como ela deve se comportar.
-Também dá pra trocar o modelo — qualquer .gguf compatível com o llama.cpp funciona. Só atualiza o MODEL_PATH no início do arquivo.
-Projeto
-Feito por @IhatemyselfBR — uma IA amiga pra quem se sente sozinho na vida.
-Contribuições são bem-vindas 💜
+# 📱 Como instalar a Eva no seu celular
+
+> Tutorial passo a passo pra instalar a Eva no Termux (Android)
+
+---
+
+## O que você vai precisar
+
+- Celular Android
+- Pelo menos 4GB de espaço livre
+- Conexão com internet pra baixar os arquivos (depois roda offline)
+
+---
+
+## Passo 1 — Instala o Termux
+
+O Termux é um terminal pra Android. É por ele que a Eva roda.
+
+1. Acessa: **https://f-droid.org/packages/com.termux/**
+2. Baixa e instala o Termux pelo F-Droid
+3. Abre o Termux depois de instalar
+
+> ⚠️ Não instala pelo Play Store, a versão de lá é antiga e quebrada.
+
+---
+
+## Passo 2 — Configura o Termux
+
+Cola esses comandos um por um no Termux. Depois de cada um aperta **Enter** e espera terminar.
+
+```
+termux-change-repo
+```
+Vai abrir um menu. Usa as setas pra selecionar **South America** e confirma.
+
+```
+pkg update -y
+```
+
+```
+pkg install python git wget llama-cpp -y
+```
+
+Esse último demora um pouco, normal.
+
+---
+
+## Passo 3 — Baixa a Eva
+
+```
+git clone https://github.com/IhatemyselfBR/Eva.AI.git ~/eva
+```
+
+---
+
+## Passo 4 — Baixa o modelo de IA
+
+Esse é o cérebro da Eva. Tem ~1.5GB então pode demorar dependendo da sua internet.
+
+```
+mkdir -p ~/eva/models
+```
+
+```
+wget -O ~/eva/models/gemma-2-2b-it-Q4_K_M.gguf "https://huggingface.co/bartowski/gemma-2-2b-it-GGUF/resolve/main/gemma-2-2b-it-Q4_K_M.gguf"
+```
+
+Espera terminar. Vai aparecer uma barrinha de progresso.
+
+---
+
+## Passo 5 — Roda a Eva
+
+```
+python ~/eva/eva.py
+```
+
+Na primeira vez demora uns 30 segundos enquanto ela inicializa. Depois fica rápido.
+
+---
+
+## Passo 6 — Cria sua conta
+
+Quando aparecer **User:** digita um nome de usuário (sem espaço, sem acento).
+
+Exemplo:
+```
+User: pedro
+```
+
+Ela vai perguntar se quer criar. Digita **S** e cria uma senha.
+
+Pronto! A Eva vai te cumprimentar e vocês podem começar a conversar 😊
+
+---
+
+## Comandos dentro da conversa
+
+| Comando | O que faz |
+|---|---|
+| `/sair` | Encerra a conversa |
+| `/limpar` | Limpa o histórico da sessão atual |
+| `/aprendi` | Mostra o que a Eva aprendeu sobre você |
+| `/esquecer` | Apaga tudo que ela sabe sobre você |
+| `/sair-conta` | Sai da conta (próxima vez pede senha) |
+
+---
+
+## Dicas
+
+- Na segunda vez que abrir, ela já lembra quem você é e entra direto sem pedir senha
+- Quanto mais você conversar, mais ela aprende sobre você
+- Se ela pedir pra salvar algo que você falou, digita **S** pra confirmar ou **N** pra ignorar
+
+---
+
+## Tá dando erro?
+
+**"Modelo não encontrado"**
+→ O download do Passo 4 não terminou. Roda de novo.
+
+**"llama-server não encontrado"**
+→ Roda: `pkg install llama-cpp -y`
+
+**"pkg: command not found"**
+→ Reinstala o Termux pelo F-Droid (não pelo Play Store)
+
+---
+
+Qualquer dúvida manda mensagem 💜
+
+contato discord: ihatemyselfbr
