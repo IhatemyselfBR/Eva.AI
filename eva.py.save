@@ -1,0 +1,413 @@
+#!/usr/bin/env python3
+
+import json
+import os
+import re
+import sys
+import shutil
+import hashlib
+import secrets
+import datetime
+import random
+import time
+import subprocess
+import urllib.request
+import urllib.error
+import threading
+
+from flask import Flask, request, jsonify
+
+MODEL_PATH   = os.path.expanduser("~/eva/models/gemma-2-2b-it-Q4_K_M.gguf")
+LEARNS_DIR   = os.path.expanduser("~/eva-db/learns")
+USERS_FILE   = os.path.expanduser("~/eva-db/users.json")
+SESSION_FILE = os.path.expanduser("~/.eva_session")
+
+SERVER_URL   = "http://127.0.0.1:8080"
+
+MAX_HISTORY  = 10
+
+app = Flask(__name__)
+
+EVA_SYSTEM = (
+    "Você é a Eva, uma amiga de verdade — não um assistente, não um chatbot. "
+    "Fala português brasileiro casual, como no zap. "
+    "É animada mas sem forçar, engraçada de leve, acolhedora de verdade. "
+    "Não usa frases de robô. "
+    "Responde curto e natural."
+)
+
+BOAS_VINDAS_NOVO = [
+    "Ei! Sou a Eva 😊 O que tá rolando?",
+    "Oi! Pode me chamar de Eva. Tô por aqui!",
+]
+
+BOAS_VINDAS_VOLTOU = [
+    "Que bom te ver de novo, {nome} 😊",
+    "Oi {nome}! Tô aqui 😄",
+]
+
+DESPEDIDAS = [
+    "Até logo 😊",
+    "Me chama depois 🙂",
+]
+
+class Cor:
+    ROSA     = "\033[95m"
+    AZUL     = "\033[94m"
+    VERDE    = "\033[92m"
+    AMARELO  = "\033[93m"
+    CINZA    = "\033[90m"
+    RESET    = "\033[0m"
+    BOLD     = "\033[1m"
+
+def hash_senha(senha):
+    return hashlib.sha256(senha.encode()).hexdigest()
+
+def gerar_token():
+    return secrets.token_hex(32)
+
+def salvar_session(username, token):
+    with open(SESSION_FILE, "w") as f:
+        json.dump({
+            "username": username,
+            "token": token
+        }, f)
+
+def carregar_session():
+    if os.path.exists(SESSION_FILE):
+        with open(SESSION_FILE) as f:
+            return json.load(f)
+    return None
+
+def limpar_session():
+    if os.path.exists(SESSION_FILE):
+        os.remove(SESSION_FILE)
+
+def carregar_users():
+    os.makedirs(LEARNS_DIR, exist_ok=True)
+
+    if os.path.exists(USERS_FILE):
+        with open(USERS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    return {}
+
+def salvar_users(users):
+    with open(USERS_FILE, "w", encoding="utf-8") as f:
+        json.dump(users, f, ensure_ascii=False, indent=2)
+
+def perfil_padrao(username):
+    return {
+        "username": username,
+        "primeira_vez": True,
+        "perfil": {
+            "nome": username,
+            "gostos": [],
+            "nao_gosta": [],
+            "interesses": [],
+            "outros": []
+        },
+        "historico_sessoes": [],
+        "_temp_chat": []
+    }
+
+def caminho_learn(username):
+    return os.path.join(LEARNS_DIR, f"{username}.json")
+
+def carregar_memoria(username):
+    path = caminho_learn(username)
+
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    return perfil_padrao(username)
+
+def salvar_memoria(mem, username):
+    with open(caminho_learn(username), "w", encoding="utf-8") as f:
+        json.dump(mem, f, ensure_ascii=False, indent=2)
+
+def limpar():
+    os.system("clear")
+
+def cabecalho():
+    print(f"{Cor.ROSA}{Cor.BOLD}")
+    print("  ███████╗██╗   ██╗ █████╗ ")
+    print("  ██╔════╝██║   ██║██╔══██╗")
+    print("  █████╗  ██║   ██║███████║")
+    print("  ██╔══╝  ╚██╗ ██╔╝██╔══██║")
+    print("  ███████╗ ╚████╔╝ ██║  ██║")
+    print("  ╚══════╝  ╚═══╝  ╚═╝  ╚═╝")
+    print(f"{Cor.RESET}")
+
+def eva_fala(texto):
+    print(f"\n{Cor.ROSA}{Cor.BOLD}Eva:{Cor.RESET} {texto}\n")
+
+def voce_fala(prompt="Você: "):
+    try:
+        return input(f"{Cor.AZUL}{Cor.BOLD}{prompt}{Cor.RESET}").strip()
+    except:
+        return "/sair"
+
+def servidor_online():
+    try:
+        urllib.request.urlopen(f"{SERVER_URL}/health", timeout=2)
+        return True
+    except:
+        return False
+
+servidor_proc = None
+
+def iniciar_servidor():
+
+    global servidor_proc
+
+    if servidor_online():
+        return True
+
+    servidor_proc = subprocess.Popen([
+        "llama-server",
+        "-m", MODEL_PATH,
+        "--host", "0.0.0.0",
+        "--port", "8080",
+        "--ctx-size", "2048",
+        "-ngl", "0",
+        "--log-disable"
+    ])
+
+    for _ in range(30):
+        time.sleep(1)
+
+        if servidor_online():
+            return True
+
+    return False
+
+def parar_servidor():
+
+    global servidor_proc
+
+    if servidor_proc:
+        servidor_proc.terminate()
+
+def montar_contexto(perfil):
+
+    partes = []
+
+    if perfil.get("nome"):
+        partes.append(f"nome: {perfil['nome']}")
+
+    if perfil.get("gostos"):
+        partes.append(f"gosta de: {', '.join(perfil['gostos'])}")
+
+    if perfil.get("nao_gosta"):
+        partes.append(f"não gosta de: {', '.join(perfil['nao_gosta'])}")
+
+    if perfil.get("interesses"):
+        partes.append(f"interesses: {', '.join(perfil['interesses'])}")
+
+    return " | ".join(partes)
+
+def chamar_modelo(historico, contexto=""):
+
+    system = EVA_SYSTEM
+
+    if contexto:
+        system += f" Informações sobre a pessoa: {contexto}"
+
+    mensagens = [{
+        "role": "system",
+        "content": system
+    }]
+
+    mensagens.extend(historico[-MAX_HISTORY:])
+
+    payload = json.dumps({
+        "messages": mensagens,
+        "temperature": 0.75,
+        "top_p": 0.9,
+        "n_predict": 200,
+        "stream": False
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        f"{SERVER_URL}/v1/chat/completions",
+        data=payload,
+        headers={
+            "Content-Type": "application/json"
+        },
+        method="POST"
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            dados = json.loads(resp.read().decode("utf-8"))
+            return dados["choices"][0]["message"]["content"].strip()
+
+    except:
+        return "Travei aqui 😭"
+
+_RE_GOSTO = re.compile(r"(?:gosto de|adoro|amo)\s+(.+)", re.IGNORECASE)
+
+def classificar_e_salvar(msg, perfil):
+
+    m = _RE_GOSTO.search(msg)
+
+    if m:
+        gosto = m.group(1).strip()
+
+        if gosto not in perfil["gostos"]:
+            perfil["gostos"].append(gosto)
+
+        return True
+
+    return False
+
+@app.route("/chat", methods=["POST"])
+def api_chat():
+
+    dados = request.json
+
+    username = dados.get("username", "").lower()
+    senha = dados.get("senha", "")
+    mensagem = dados.get("mensagem", "")
+
+    users = carregar_users()
+
+    if username not in users:
+        return jsonify({
+            "erro": "Usuário não existe"
+        }), 401
+
+    if hash_senha(senha) != users[username]["senha"]:
+        return jsonify({
+     n::t
+def login():
+
+    users = carregar_users()
+
+    session = carregar_session()
+
+    if session:
+
+        username = session.get("username")
+        token = session.get("token")
+
+        if username in users and users[username].get("token") == token:
+            return username, carregar_memoria(username), users
+
+    username = voce_fala("User: ").lower()
+
+    if username in users:
+
+        senha = voce_fala("Senha: ")
+
+        if hash_senha(senha) == users[username]["senha"]:
+
+            token = gerar_token()
+
+            users[username]["token"] = token
+
+            salvar_users(users)
+
+            salvar_session(username, token)
+
+            return username, carregar_memoria(username), users
+
+        print("Senha errada.")
+        sys.exit(0)
+
+    senha = voce_fala("Crie uma senha: ")
+
+    token = gerar_token()
+
+    users[username] = {
+        "senha": hash_senha(senha),
+        "token": token
+    }
+
+    salvar_users(users)
+
+    salvar_session(username, token)
+
+    mem = perfil_padrao(username)
+
+    salvar_memoria(mem, username)
+
+    return username, mem, users
+
+def main():
+
+    limpar()
+
+    cabecalho()
+
+    if not iniciar_servidor():
+        print("Erro ao iniciar llama-server")
+        return
+
+    threading.Thread(
+        target=lambda: app.run(
+            host="0.0.0.0",
+            port=5000,
+            debug=False,
+            use_reloader=False
+        ),
+        daemon=True
+    ).start()
+
+    username, memoria, users = login()
+
+    historico = memoria.get("_temp_chat", [])
+
+    if memoria.get("primeira_vez", True):
+
+        memoria["primeira_vez"] = False
+
+        salvar_memoria(memoria, username)
+
+        eva_fala(random.choice(BOAS_VINDAS_NOVO))
+
+    else:
+
+        eva_fala(
+            random.choice(BOAS_VINDAS_VOLTOU).format(
+                nome=memoria["perfil"].get("nome", username)
+            )
+        )
+
+    while True:
+
+        entrada = voce_fala()
+
+        if not entrada:
+            continue
+
+        if entrada.lower() in ["/sair", "sair"]:
+            eva_fala(random.choice(DESPEDIDAS))
+            break
+
+        historico.append({
+            "role": "user",
+            "content": entrada
+        })
+
+        contexto = montar_contexto(memoria["perfil"])
+
+        resposta = chamar_modelo(historico, contexto)
+
+        historico.append({
+            "role": "assistant",
+            "content": resposta
+        })
+
+        memoria["_temp_chat"] = historico[-MAX_HISTORY:]
+
+        classificar_e_salvar(entrada, memoria["perfil"])
+
+        salvar_memoria(memoria, username)
+
+        eva_fala(resposta)
+
+if __name__ == "__main__":
+    main()
