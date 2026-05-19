@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# EVA - Sua amiga IA (CLIENTE DINÂMICO)
-# Se conecta ao llama-server hospedado pelo Cloudflare
+# EVA - Sua amiga IA
+# Usa llama-server (HTTP) no Termux/Linux
 
 import json
 import os
@@ -18,26 +18,11 @@ import urllib.error
 
 # ─── CONFIGS ───────────────────────────────────────────────────────────────────
 MODEL_PATH   = os.path.expanduser("~/eva/models/gemma-2-2b-it-Q4_K_M.gguf")
-LEARNS_DIR   = os.path.expanduser("~/eva-db/learns")   # banco privado
-USERS_FILE   = os.path.expanduser("~/eva-db/users.json") # banco privado
+LEARNS_DIR   = os.path.expanduser("~/eva-db/learns")
+USERS_FILE   = os.path.expanduser("~/eva-db/users.json")
 SESSION_FILE = os.path.expanduser("~/.eva_session")
+SERVER_URL   = "http://127.0.0.1:8080"
 MAX_HISTORY  = 10
-
-# ─── CONFIGURAÇÃO DO LINK DINÂMICO ─────────────────────────────────────────────
-print("="*50)
-print("             SISTEMA EVA - CLIENTE")
-print("="*50)
-link_cloudflare = input("Cole o link do Cloudflare (ex: https://...): ").strip()
-
-if not link_cloudflare:
-    print("\n\033[91m  Erro: O link não pode ser vazio!\033[0m\n")
-    sys.exit(1)
-
-if link_cloudflare.endswith('/'):
-    link_cloudflare = link_cloudflare[:-1]
-
-SERVER_URL = link_cloudflare
-print("\033[92m  ✓ Conectando ao túnel...\033[0m\n")
 
 # ─── PERSONALIDADE ─────────────────────────────────────────────────────────────
 EVA_SYSTEM = (
@@ -146,7 +131,8 @@ def perfil_padrao(username):
             "aniversario": None,
             "interesses": [],
             "outros": []
-        }
+        },
+        "historico_sessoes": []
     }
 
 def caminho_learn(username):
@@ -159,11 +145,12 @@ def carregar_memoria(username):
             with open(path, "r", encoding="utf-8") as f:
                 dados = json.load(f)
                 if isinstance(dados, dict):
+                    if "historico_sessoes" not in dados:
+                        dados["historico_sessoes"] = []
                     return dados
         except json.JSONDecodeError:
             bak = path + ".bak"
             shutil.copy2(path, bak)
-            print(f"{Cor.AMARELO}  JSON corrompido, backup salvo.{Cor.RESET}")
         except:
             pass
     return perfil_padrao(username)
@@ -172,6 +159,18 @@ def salvar_memoria(mem, username):
     os.makedirs(LEARNS_DIR, exist_ok=True)
     with open(caminho_learn(username), "w", encoding="utf-8") as f:
         json.dump(mem, f, ensure_ascii=False, indent=2)
+
+# ─── HISTÓRICO DE SESSÕES (oculto) ─────────────────────────────────────────────
+def salvar_sessao(mem, username, historico_sessao):
+    if not historico_sessao:
+        return
+    sessao = {
+        "data": str(datetime.date.today()),
+        "hora": datetime.datetime.now().strftime("%H:%M"),
+        "mensagens": historico_sessao
+    }
+    mem["historico_sessoes"].append(sessao)
+    salvar_memoria(mem, username)
 
 # ─── LOGIN ─────────────────────────────────────────────────────────────────────
 def pedir_input(prompt):
@@ -278,17 +277,17 @@ def verificar_token_admin():
 
 def menu_admin(username, users):
     superadmin = is_superadmin(username, users)
-
     print(f"\n{Cor.VERMELHO}{Cor.BOLD}  ── MENU ADMIN ──{Cor.RESET}")
     print(f"{Cor.CINZA}  1. Listar usuários")
     if superadmin:
         print(f"  2. Ver perfil de um usuário")
-    print(f"  3. Ensinar algo sobre um usuário")
-    print(f"  4. Apagar campo do perfil de um usuário")
-    print(f"  5. Resetar perfil de um usuário")
+        print(f"  3. Ver histórico de um usuário")
+    print(f"  4. Ensinar algo sobre um usuário")
+    print(f"  5. Apagar campo do perfil de um usuário")
+    print(f"  6. Resetar perfil de um usuário")
     if superadmin:
-        print(f"  6. Promover usuário a admin")
-    print(f"  7. Sair do menu admin{Cor.RESET}\n")
+        print(f"  7. Promover usuário a admin")
+    print(f"  0. Sair do menu admin{Cor.RESET}\n")
 
     opcao = pedir_input("Opção: ")
 
@@ -313,14 +312,33 @@ def menu_admin(username, users):
         print()
 
     elif opcao == "3":
+        if not superadmin:
+            print(f"{Cor.VERMELHO}  Sem permissão.{Cor.RESET}\n")
+            return
+        user_alvo = pedir_input("Username: ").lower()
+        mem = carregar_memoria(user_alvo)
+        sessoes = mem.get("historico_sessoes", [])
+        if not sessoes:
+            print(f"{Cor.CINZA}  Sem histórico ainda.{Cor.RESET}\n")
+            return
+        print(f"\n{Cor.AMARELO}  Histórico de {user_alvo} ({len(sessoes)} sessões):{Cor.RESET}\n")
+        for sessao in sessoes[-5:]:
+            print(f"{Cor.AZUL}{Cor.BOLD}  ── {sessao.get('data','?')} às {sessao.get('hora','?')} ──{Cor.RESET}")
+            for msg in sessao.get("mensagens", []):
+                if msg["role"] == "user":
+                    print(f"  {Cor.VERDE}User:{Cor.RESET} {msg['content']}")
+                else:
+                    print(f"  {Cor.ROSA}Eva:{Cor.RESET}  {msg['content']}")
+            print()
+
+    elif opcao == "4":
         user_alvo = pedir_input("Username: ").lower()
         campo = pedir_input("Campo (gostos/nao_gosta/interesses/outros/nome/aniversario): ").lower()
         valor = pedir_input("Valor: ")
         mem = carregar_memoria(user_alvo)
         perfil = mem.get("perfil", {})
         if campo in ["gostos", "nao_gosta", "problemas_relatados", "interesses", "outros"]:
-            if campo not in perfil:
-                perfil[campo] = []
+            if campo not in perfil: perfil[campo] = []
             if valor not in perfil[campo]:
                 perfil[campo].append(valor)
                 salvar_memoria(mem, user_alvo)
@@ -334,7 +352,7 @@ def menu_admin(username, users):
         else:
             print(f"{Cor.AMARELO}  Campo inválido.{Cor.RESET}\n")
 
-    elif opcao == "4":
+    elif opcao == "5":
         user_alvo = pedir_input("Username: ").lower()
         campo = pedir_input("Campo: ").lower()
         mem = carregar_memoria(user_alvo)
@@ -350,7 +368,7 @@ def menu_admin(username, users):
         else:
             print(f"{Cor.AMARELO}  Campo inválido.{Cor.RESET}\n")
 
-    elif opcao == "5":
+    elif opcao == "6":
         user_alvo = pedir_input("Username: ").lower()
         confirma = pedir_input(f"Resetar TUDO de {user_alvo}? (sim/não): ").lower()
         if confirma in ["sim", "s"]:
@@ -361,7 +379,7 @@ def menu_admin(username, users):
         else:
             print(f"{Cor.CINZA}  Cancelado.{Cor.RESET}\n")
 
-    elif opcao == "6":
+    elif opcao == "7":
         if not superadmin:
             print(f"{Cor.VERMELHO}  Sem permissão.{Cor.RESET}\n")
             return
@@ -373,7 +391,7 @@ def menu_admin(username, users):
         else:
             print(f"{Cor.AMARELO}  Usuário não encontrado.{Cor.RESET}\n")
 
-    elif opcao == "7":
+    elif opcao == "0":
         return
     else:
         print(f"{Cor.CINZA}  Opção inválida.{Cor.RESET}\n")
@@ -408,29 +426,17 @@ def status(msg):
 def limpar_status():
     print(" " * 50, end="\r")
 
-# ─── SERVIDOR (TRAVA INTELIGENTE PARA CLIENTE) ─────────────────────────────────
+# ─── SERVIDOR ──────────────────────────────────────────────────────────────────
 servidor_proc = None
 
 def servidor_online():
     try:
-        urllib.request.urlopen(f"{SERVER_URL}/health", timeout=3)
+        urllib.request.urlopen(f"{SERVER_URL}/health", timeout=2)
         return True
     except:
         return False
 
 def iniciar_servidor():
-    # Modificado: Se estamos conectando via Cloudflare externa, pulamos a inicialização do llama-server local
-    if "trycloudflare.com" in SERVER_URL or "loca.lt" in SERVER_URL:
-        status("Verificando conexão com a Eva Remota...")
-        if servidor_online():
-            limpar_status()
-            return True
-        else:
-            limpar_status()
-            print(f"{Cor.VERMELHO}  Não consegui alcançar a Eva remota no link fornecido.{Cor.RESET}")
-            print(f"{Cor.CINZA}  Verifique se o túnel está ligado no servidor.{Cor.RESET}\n")
-            return False
-
     global servidor_proc
     if servidor_online():
         return True
@@ -438,7 +444,7 @@ def iniciar_servidor():
     devnull = open(os.devnull, "w")
     servidor_proc = subprocess.Popen(
         ["llama-server", "-m", MODEL_PATH, "--host", "127.0.0.1",
-        "--port", "8080", "--ctx-size", "2048", "-ngl", "0", "--log-disable"],
+         "--port", "8080", "--ctx-size", "2048", "-ngl", "0", "--log-disable"],
         stdout=devnull, stderr=devnull
     )
     for _ in range(30):
@@ -467,7 +473,7 @@ def montar_contexto(perfil):
     if perfil.get("humor_frequente"): partes.append(f"humor: {perfil['humor_frequente']}")
     if perfil.get("problemas_relatados"): partes.append(f"já relatou: {', '.join(perfil['problemas_relatados'][-3:])}")
     if perfil.get("aniversario"): partes.append(f"aniversário: {perfil['aniversario']}")
-    if perfil.get("interesses"):  partes.append(f"interesses/curiosidades: {', '.join(perfil['interesses'][-5:])}")
+    if perfil.get("interesses"):  partes.append(f"interesses: {', '.join(perfil['interesses'][-5:])}")
     if perfil.get("outros"):      partes.append(f"outros: {', '.join(perfil['outros'][-5:])}")
     return " | ".join(partes)
 
@@ -516,7 +522,7 @@ _RE_GOSTO = re.compile(r"(?:gosto de|adoro|amo|curto|meu hobby é|minha paixão 
 _RE_NAO_GOSTO = re.compile(r"(?:não gosto de|odeio|detesto|não curto|não suporto)\s+(.+?)(?=\s*(?:e gosto|mas gosto)|$)", re.IGNORECASE)
 _RE_PROBLEMA = re.compile(r"(?:tô|estou|me sinto)\s+(mal|triste|ansioso|ansiosa|sozinho|sozinha|deprimido|deprimida|cansado|cansada|com medo|estressado|estressada)", re.IGNORECASE)
 _RE_HUMOR_BOM = re.compile(r"(?:tô|estou|me sinto)\s+(bem|feliz|ótimo|ótima|animado|animada)", re.IGNORECASE)
-_RE_ANIVERSARIO = re.compile(r"(?:meu aniversário é|faço aniversário|nasci em|nasci no dia)\s+(.+?)(:\s*[,.]|$)", re.IGNORECASE)
+_RE_ANIVERSARIO = re.compile(r"(?:meu aniversário é|faço aniversário|nasci em|nasci no dia)\s+(.+?)(?:\s*[,.]|$)", re.IGNORECASE)
 _RE_OUTROS = re.compile(r"(?:tenho\s+\d+\s+anos|moro em|trabalho\s+(?:em|como|na|no)|estudo\s+(?:em|na|no)|sou\s+\w+)", re.IGNORECASE)
 
 def classificar_e_salvar(msg, perfil):
@@ -554,7 +560,7 @@ def classificar_e_salvar(msg, perfil):
     if m:
         perfil["aniversario"] = m.group(1).strip()
         atualizado = True
-    if not updated:
+    if not atualizado:  # bug corrigido: era "not updated"
         m = _RE_OUTROS.search(msg)
         if m and len(msg) < 150:
             if msg not in perfil["outros"]:
@@ -570,6 +576,45 @@ def detectar_aprendizado(msg):
         _RE_OUTROS.search(msg)
     )
 
+def extrair_interesse_com_ia(msg, perfil):
+    """Usa o modelo pra detectar interesses automaticamente — silencioso"""
+    payload = json.dumps({
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "Você é um extrator de interesses. Analise o que o usuário disse e identifique se ele demonstrou "
+                    "um interesse claro, hobby ou curiosidade sobre algum tema. "
+                    "Responda APENAS com o nome do interesse limpo (ex: 'Culinária', 'Música', 'Programação'). "
+                    "Se não revelar nenhum interesse útil, responda estritamente 'NADA'."
+                )
+            },
+            {"role": "user", "content": f"Frase: '{msg}'"}
+        ],
+        "temperature": 0.1,
+        "n_predict": 20,
+        "stream": False
+    }).encode("utf-8")
+    req = urllib.request.Request(
+        f"{SERVER_URL}/v1/chat/completions",
+        data=payload,
+        headers={"Content-Type": "application/json"},
+        method="POST"
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            dados = json.loads(resp.read().decode("utf-8"))
+            resultado = dados["choices"][0]["message"]["content"].strip().replace("'","").replace('"','')
+            if resultado and resultado.upper() != "NADA" and len(resultado) < 40:
+                if "interesses" not in perfil:
+                    perfil["interesses"] = []
+                if resultado not in perfil["interesses"]:
+                    perfil["interesses"].append(resultado)
+                    return True
+    except:
+        pass
+    return False
+
 def perguntar_aprender(msg, memoria, username):
     print(f"\n{Cor.AMARELO}  💡 Eva quer aprender:{Cor.RESET}")
     print(f"  \"{msg}\"")
@@ -581,74 +626,15 @@ def perguntar_aprender(msg, memoria, username):
         else:
             print(f"{Cor.CINZA}  Não consegui classificar.{Cor.RESET}\n")
 
-def extrair_interesse_com_ia(msg, perfil):
-    payload = json.dumps({
-        "messages": [
-            {
-                "role": "system",
-                "content": (
-                    "Você é um extrator de interesses. Analise o que o usuário disse e identifique se ele demonstrou "
-                    "um interesse claro, hobby ou curiosidade sobre algum tema (ex: culinária, programação, música, etc). "
-                    "Responda APENAS com o nome do interesse limpo (ex: 'Culinária (Doces)', 'Música', 'Academia'). "
-                    "Se a frase não revelar nenhum interesse útil ou for genérica, responda estritamente 'NADA'."
-                )
-            },
-            {"role": "user", "content": f"Frase do usuário: '{msg}'"}
-        ],
-        "temperature": 0.1,
-        "top_p": 0.9,
-        "n_predict": 20,
-        "stream": False
-    }).encode("utf-8")
-
-    req = urllib.request.Request(
-        f"{SERVER_URL}/v1/chat/completions",
-        data=payload,
-        headers={"Content-Type": "application/json"},
-        method="POST"
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            dados = json.loads(resp.read().decode("utf-8"))
-            resultado = dados["choices"][0]["message"]["content"].strip().replace("'", "").replace('"', '')
-            if resultado and resultado.upper() != "NADA" and len(resultado) < 40:
-                if "interesses" not in perfil:
-                    perfil["interesses"] = []
-                if resultado not in perfil["interesses"]:
-                    perfil["interesses"].append(resultado)
-                    return True
-    except:
-        pass
-    return False
-
-def mostrar_perfil(memoria):
-    perfil = memoria.get("perfil", {})
-    tem = any(perfil.get(k) for k in ["gostos","nao_gosta","humor_frequente","problemas_relatados","aniversario","interesses","outros"])
-    if not tem:
-        eva_fala("Ainda não aprendi nada especial... mas tô prestando atenção 👀")
-        return
-    print(f"\n{Cor.AMARELO}  O que eu sei sobre você:{Cor.RESET}")
-    if perfil.get("nome"):        print(f"  Nome:        {perfil['nome']}")
-    if perfil.get("gostos"):      print(f"  Gosta de:    {', '.join(perfil['gostos'])}")
-    if perfil.get("nao_gosta"):   print(f"  Não gosta:   {', '.join(perfil['nao_gosta'])}")
-    if perfil.get("humor_frequente"): print(f"  Humor:        {perfil['humor_frequente']}")
-    if perfil.get("problemas_relatados"): print(f"  Já relatou:  {', '.join(perfil['problemas_relatados'])}")
-    if perfil.get("aniversario"): print(f"  Aniversário: {perfil['aniversario']}")
-    if perfil.get("interesses"):  print(f"  Interesses:  {', '.join(perfil['interesses'])}")
-    if perfil.get("outros"):      print(f"  Outros:      {', '.join(perfil['outros'])}")
-    print()
-
 # ─── MAIN ──────────────────────────────────────────────────────────────────────
 def main():
     limpar()
     cabecalho()
 
-    # Só verifica arquivo local do modelo se o link for o local padrão do Termux
     if "127.0.0.1" in SERVER_URL and not os.path.exists(MODEL_PATH):
         print(f"{Cor.AMARELO}  Modelo não encontrado:{Cor.RESET} {MODEL_PATH}")
         sys.exit(1)
 
-    # Só verifica o binário local se não for usar conexão externa
     if "127.0.0.1" in SERVER_URL and subprocess.run(["which", "llama-server"], capture_output=True).returncode != 0:
         print(f"{Cor.AMARELO}  llama-server não encontrado.{Cor.RESET}")
         print("  pkg install llama-cpp\n")
@@ -658,7 +644,7 @@ def main():
         sys.exit(1)
 
     username, memoria, users = login()
-    historico   = []
+    historico_sessao = []  # sessão atual — salva no JSON ao sair
     admin_ativo = False
 
     memoria["total_conversas"] = memoria.get("total_conversas", 0) + 1
@@ -673,7 +659,8 @@ def main():
         nome = memoria.get("perfil", {}).get("nome", username)
         eva_fala(random.choice(BOAS_VINDAS_VOLTOU).format(nome=nome))
 
-    cmds = "  /sair · /limpar · /aprendi · /esquecer · /sair-conta"
+    # Comandos visíveis — mínimo pro usuário
+    cmds = "  /sair · /limpar · /esquecer · /sair-conta"
     if is_admin(username, users):
         cmds += " · /admin"
     print(f"{Cor.CINZA}{cmds}{Cor.RESET}\n")
@@ -687,24 +674,21 @@ def main():
 
             if entrada.lower() in ["/sair", "/exit", "tchau", "sair"]:
                 eva_fala(random.choice(DESPEDIDAS))
-                salvar_memoria(memoria, username)
+                salvar_sessao(memoria, username, historico_sessao)
                 break
 
             if entrada.lower() == "/sair-conta":
                 limpar_session()
                 eva_fala("Sessão encerrada! Na próxima vai pedir senha 🔒")
-                salvar_memoria(memoria, username)
+                salvar_sessao(memoria, username, historico_sessao)
                 break
 
             if entrada.lower() == "/limpar":
-                historico = []
+                salvar_sessao(memoria, username, historico_sessao)
+                historico_sessao = []
                 limpar()
                 cabecalho()
                 eva_fala("Pronto! Sobre o que você quer conversar?")
-                continue
-
-            if entrada.lower() == "/aprendi":
-                mostrar_perfil(memoria)
                 continue
 
             if entrada.lower() == "/esquecer":
@@ -726,10 +710,10 @@ def main():
                 menu_admin(username, users)
                 continue
 
-            historico.append({"role": "user", "content": entrada})
+            historico_sessao.append({"role": "user", "content": entrada})
             contexto = montar_contexto(memoria.get("perfil", {}))
-            resposta = chamar_modelo(historico, contexto)
-            historico.append({"role": "assistant", "content": resposta})
+            resposta = chamar_modelo(historico_sessao, contexto)
+            historico_sessao.append({"role": "assistant", "content": resposta})
             eva_fala(resposta)
 
             if detectar_aprendizado(entrada):
@@ -738,8 +722,8 @@ def main():
                 if extrair_interesse_com_ia(entrada, memoria["perfil"]):
                     salvar_memoria(memoria, username)
 
-            if len(historico) > MAX_HISTORY * 2:
-                historico = historico[-MAX_HISTORY:]
+            if len(historico_sessao) > MAX_HISTORY * 2:
+                historico_sessao = historico_sessao[-MAX_HISTORY:]
 
     finally:
         parar_servidor()
